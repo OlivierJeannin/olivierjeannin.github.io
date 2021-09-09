@@ -20,19 +20,21 @@
 <p><strong>Find(a,b)</strong>: to <code>check</code> if a, b are connected</p>
 <p><strong>Union-Find</strong>: connect any $N (N\to\infin)$ objects, then check if any 2 of them are connected <em>(Union at any time, Find at any time)</em></p>
 <h1 id="Algorithms-to-UF-Problem"><a href="#Algorithms-to-UF-Problem" class="headerlink" title="Algorithms to UF Problem"></a>Algorithms to UF Problem</h1><h2 id="Quick-Find"><a href="#Quick-Find" class="headerlink" title="Quick Find"></a>Quick Find</h2><p>$$<br>\begin{eqnarray}<br>\nabla\cdot\vec{E} &amp;=&amp; \frac{\rho}{\epsilon_0} \<br>\nabla\cdot\vec{B} &amp;=&amp; 0 \<br>\nabla\times\vec{E} &amp;=&amp; -\frac{\partial B}{\partial t} \<br>\nabla\times\vec{B} &amp;=&amp; \mu_0\left(\vec{J}+\epsilon_0\frac{\partial E}{\partial t} \right)<br>\end{eqnarray}<br>$$</p>
-<h2 id="Quick-Union"><a href="#Quick-Union" class="headerlink" title="Quick Union"></a>Quick Union</h2><h2 id="Improvements-to-QU"><a href="#Improvements-to-QU" class="headerlink" title="Improvements to QU"></a>Improvements to QU</h2><h3 id="Weighted-QU"><a href="#Weighted-QU" class="headerlink" title="Weighted QU"></a>Weighted QU</h3><h3 id="Path-Compression"><a href="#Path-Compression" class="headerlink" title="Path Compression"></a>Path Compression</h3>]]></content>
+<h2 id="Quick-Union"><a href="#Quick-Union" class="headerlink" title="Quick Union"></a>Quick Union</h2><h2 id="Improvements-to-QU"><a href="#Improvements-to-QU" class="headerlink" title="Improvements to QU"></a>Improvements to QU</h2><h3 id="Weighted-QU"><a href="#Weighted-QU" class="headerlink" title="Weighted QU"></a>Weighted QU</h3><h3 id="Path-Compression"><a href="#Path-Compression" class="headerlink" title="Path Compression"></a>Path Compression</h3><p><a href="https://www.baidu.com/" title="baidu">asd</a></p>
+<hr>
+]]></content>
       <categories>
         <category>Algorithms</category>
       </categories>
   </entry>
   <entry>
-    <title>About</title>
-    <url>/about/index.html</url>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
+    <title>About</title>
+    <url>/about/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
