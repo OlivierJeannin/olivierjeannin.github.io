@@ -25,22 +25,10 @@
 <p><strong>Union-Find</strong>: connect any <span class="math inline">\(N (N\to\infty)\)</span> objects, then check if any 2 of them are connected <em>(Union at any time, Find at any time)</em></p>
 <h1 id="algorithms-to-uf-problem">Algorithms to UF Problem</h1>
 <h2 id="quick-find">Quick Find</h2>
-<p><span class="math display">\[
-\begin{eqnarray}
-\nabla\cdot\vec{E} &amp;=&amp; \frac{\rho}{\epsilon_0} \\
-\nabla\cdot\vec{B} &amp;=&amp; 0 \\
-\nabla\times\vec{E} &amp;=&amp; -\frac{\partial B}{\partial t} \\
-\nabla\times\vec{B} &amp;=&amp; \mu_0\left(\vec{J}+\epsilon_0\frac{\partial E}{\partial t} \right)
-\end{eqnarray}
-\]</span></p>
 <h2 id="quick-union">Quick Union</h2>
 <h2 id="improvements-to-qu">Improvements to QU</h2>
-<p><span class="math display">\[x+1\over\sqrt{1-x^2}\]</span></p>
 <h3 id="weighted-qu">Weighted QU</h3>
 <h3 id="path-compression">Path Compression</h3>
-<p><a href="https://www.baidu.com" title="baidu">asd</a></p>
-<p>:smile:</p>
-<hr />
 ]]></content>
       <categories>
         <category>Algorithms</category>
