@@ -19,26 +19,72 @@
     <title>Union-Find</title>
     <url>/2021/09/09/Union-Find/</url>
     <content><![CDATA[<h1 id="what-is-union-find-problem">What is Union-Find Problem</h1>
-<p><strong>Connected Component</strong>: objects <em>a</em>, <em>b</em> are in the same <code>connected component</code> <span class="math inline">\(\iff\)</span> <em>a</em>, <em>b</em> are connected</p>
-<p><strong>Union(a,b)</strong>: to <code>connect</code> a, b</p>
-<p><strong>Find(a,b)</strong>: to <code>check</code> if a, b are connected</p>
-<p><strong>Union-Find</strong>: connect any <span class="math inline">\(N (N\to\infty)\)</span> objects, then check if any 2 of them are connected <em>(Union at any time, Find at any time)</em></p>
-<h1 id="algorithms-to-uf-problem">Algorithms to UF Problem</h1>
+<h2 id="connectivity">Connectivity</h2>
+<p><span class="math inline">\(a-b\)</span>: <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are connected</p>
+<p>Properties:</p>
+<ul>
+<li><p><span class="math inline">\(a-a\)</span></p></li>
+<li><p><span class="math inline">\(a-b \Longrightarrow b-a\)</span></p></li>
+<li><p><span class="math inline">\(a-b,b-c \Longrightarrow a-c\)</span></p></li>
+</ul>
+<h2 id="connected-component">Connected Component</h2>
+<p>A is a <code>connected component</code>: <span class="math inline">\(a\in{A},b\in{A} \iff a-b\)</span></p>
+<figure>
+<img src="./Union-Find/connecter-component.png" alt="3 Connected Components" /><figcaption aria-hidden="true">3 Connected Components</figcaption>
+</figure>
+<h2 id="union-find">Union-Find</h2>
+<p><span class="math inline">\(union(a,b)\)</span>: <code>connect</code> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></p>
+<p><span class="math inline">\(find(a,b)\)</span>: <code>check</code> if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are connected, return <em>True</em> or <em>False</em></p>
+<p><strong><em>Problem</em></strong>: <span class="math inline">\(Union\)</span> any <span class="math inline">\(N\)</span> objects <span class="math inline">\((N\to\infty)\)</span>, then <span class="math inline">\(\forall a,b,Find(a,b)\)</span> <em>(Union at any time, Find at any time)</em></p>
+<h1 id="algorithms">Algorithms</h1>
 <h2 id="quick-find">Quick Find</h2>
+<blockquote>
+<p>connected <span class="math inline">\(\Longrightarrow\)</span> same <strong>status</strong></p>
+</blockquote>
+<h3 id="data-structure">Data Structure</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // status of objects</span><br></pre></td></tr></table></figure>
+<h3 id="unionab">union(a,b)</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">foreach i:</span><br><span class="line">	if (arr[i] == arr[a])  // every i connected with a</span><br><span class="line">		arr[i] = arr[b];  // connect i to b</span><br></pre></td></tr></table></figure>
+<h3 id="findab">find(a,b)</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return arr[a] == arr[b];  // same status</span><br></pre></td></tr></table></figure>
 <h2 id="quick-union">Quick Union</h2>
+<blockquote>
+<p>A <code>connected component</code> is a <code>tree</code></p>
+<p>connected <span class="math inline">\(\Longrightarrow\)</span> same <strong>root</strong></p>
+</blockquote>
+<h3 id="data-structure-1">Data Structure</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents of objects</span><br></pre></td></tr></table></figure>
+<h3 id="unionab-1">union(a,b)</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">arr[ra] = rb;  // set rb as ra&#x27;s parent</span><br></pre></td></tr></table></figure>
+<h3 id="findab-1">find(a,b)</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return root(a) == root(b);</span><br></pre></td></tr></table></figure>
+<h3 id="rooti">root(i)</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (i != arr[i])  // not root</span><br><span class="line">	i = arr[i];  // go check parent</span><br></pre></td></tr></table></figure>
 <h2 id="improvements-to-qu">Improvements to QU</h2>
 <h3 id="weighted-qu">Weighted QU</h3>
+<blockquote>
+<p>small tree goes to big tree</p>
+</blockquote>
+<figure>
+<img src="Union-Find/weighted-qu.png" alt="weighted-qu" /><figcaption aria-hidden="true">weighted-qu</figcaption>
+</figure>
+<h4 id="data-structure-2">Data Structure</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parent</span><br><span class="line">size[N];  // size of each tree</span><br></pre></td></tr></table></figure>
+<h4 id="unionab-2">Union(a,b)</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="findab-2">Find(a,b)</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="path-compression">Path Compression</h3>
+<h4 id="data-structure-3">Data Structure</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="unionab-3">Union(a,b)</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="findab-3">Find(a,b)</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Algorithms</category>
       </categories>
-  </entry>
-  <entry>
-    <title>About</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[
-]]></content>
   </entry>
   <entry>
     <title>Categories</title>
@@ -49,6 +95,12 @@
   <entry>
     <title>Tags</title>
     <url>/tags/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>About</title>
+    <url>/about/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
