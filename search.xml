@@ -29,9 +29,7 @@
 </ul>
 <h2 id="connected-component">Connected Component</h2>
 <p>A is a <code>connected component</code>: <span class="math inline">\(a\in{A},b\in{A} \iff a-b\)</span></p>
-<figure>
-<img src="../Union-Find/connected-component.png" alt="3 Connected Components" /><figcaption aria-hidden="true">3 Connected Components</figcaption>
-</figure>
+<img src="/2021/09/09/Union-Find/connected-component.png" class="" width="3" title="Connected Components">
 <h2 id="union-find">Union-Find</h2>
 <p><span class="math inline">\(union(a,b)\)</span>: <code>connect</code> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></p>
 <p><span class="math inline">\(find(a,b)\)</span>: <code>check</code> if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are connected, return <em>True</em> or <em>False</em></p>
@@ -85,8 +83,8 @@
       </categories>
   </entry>
   <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
@@ -97,8 +95,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
