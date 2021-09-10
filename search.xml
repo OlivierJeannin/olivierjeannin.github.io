@@ -83,6 +83,12 @@
       </categories>
   </entry>
   <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>Categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[
@@ -91,12 +97,6 @@
   <entry>
     <title>About</title>
     <url>/about/index.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
