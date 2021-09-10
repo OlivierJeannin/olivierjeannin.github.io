@@ -30,7 +30,7 @@
 <h2 id="connected-component">Connected Component</h2>
 <p>A is a <code>connected component</code>: <span class="math inline">\(a\in{A},b\in{A} \iff a-b\)</span></p>
 <figure>
-<img src="./Union-Find/connecter-component.png" alt="3 Connected Components" /><figcaption aria-hidden="true">3 Connected Components</figcaption>
+<img src="../Union-Find/connected-component.png" alt="3 Connected Components" /><figcaption aria-hidden="true">3 Connected Components</figcaption>
 </figure>
 <h2 id="union-find">Union-Find</h2>
 <p><span class="math inline">\(union(a,b)\)</span>: <code>connect</code> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></p>
@@ -66,7 +66,7 @@
 <p>small tree goes to big tree</p>
 </blockquote>
 <figure>
-<img src="./weighted-qu.png" alt="weighted-qu" /><figcaption aria-hidden="true">weighted-qu</figcaption>
+<img src="../Union-Find/weighted-qu.png" alt="weighted-qu" /><figcaption aria-hidden="true">weighted-qu</figcaption>
 </figure>
 <h4 id="data-structure-2">Data Structure</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parent</span><br><span class="line">size[N];  // size of each tree</span><br></pre></td></tr></table></figure>
