@@ -66,7 +66,7 @@
 <p>small tree goes to big tree</p>
 </blockquote>
 <figure>
-<img src="Union-Find/weighted-qu.png" alt="weighted-qu" /><figcaption aria-hidden="true">weighted-qu</figcaption>
+<img src="weighted-qu.png" alt="weighted-qu" /><figcaption aria-hidden="true">weighted-qu</figcaption>
 </figure>
 <h4 id="data-structure-2">Data Structure</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parent</span><br><span class="line">size[N];  // size of each tree</span><br></pre></td></tr></table></figure>
@@ -87,6 +87,12 @@
       </categories>
   </entry>
   <entry>
+    <title>About</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>Categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[
@@ -95,12 +101,6 @@
   <entry>
     <title>Tags</title>
     <url>/tags/index.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>About</title>
-    <url>/about/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
