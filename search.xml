@@ -87,14 +87,14 @@
       </categories>
   </entry>
   <entry>
-    <title>About</title>
-    <url>/about/index.html</url>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
+    <title>About</title>
+    <url>/about/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
