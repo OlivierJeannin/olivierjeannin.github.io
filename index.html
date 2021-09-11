@@ -241,7 +241,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-10 13:37:04" itemprop="dateModified" datetime="2021-09-10T13:37:04+08:00">2021-09-10</time>
+        <time title="Modified: 2021-09-11 12:11:33" itemprop="dateModified" datetime="2021-09-11T12:11:33+08:00">2021-09-11</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,7 +265,7 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="what-is-union-find-problem">What is Union-Find Problem</h1>
 <h2 id="connectivity">Connectivity</h2>
-<p><span class="math inline">\(a-b\)</span>: <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are connected</p>
+<p><span class="math inline">\(a-b\)</span>: <span class="math inline">\(a\)</span> is connected with <span class="math inline">\(b\)</span></p>
 <p>Properties:</p>
 <ul>
 <li><p><span class="math inline">\(a-a\)</span></p></li>
@@ -277,51 +277,67 @@
 <img src="/2021/09/09/Union-Find/connected-component.png" class="" title="3 Connected Components">
 <h2 id="union-find">Union-Find</h2>
 <p><span class="math inline">\(union(a,b)\)</span>: <code>connect</code> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></p>
-<p><span class="math inline">\(find(a,b)\)</span>: <code>check</code> if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are connected, return <em>True</em> or <em>False</em></p>
-<p><strong><em>Problem</em></strong>: <span class="math inline">\(Union\)</span> any <span class="math inline">\(N\)</span> objects <span class="math inline">\((N\to\infty)\)</span>, then <span class="math inline">\(\forall a,b,Find(a,b)\)</span> <em>(Union at any time, Find at any time)</em></p>
+<p><span class="math inline">\(find(a,b)\)</span>: <code>check</code> if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are connected <em>(True/False)</em></p>
+<p><strong><em>Problem</em></strong>:</p>
+<ol type="1">
+<li><p><span class="math inline">\(union()\)</span> any <span class="math inline">\(N\)</span> objects <span class="math inline">\((N\to\infty)\)</span>, at any time</p></li>
+<li><p><span class="math inline">\({\forall}a,b,find(a,b)\)</span> at any time</p></li>
+</ol>
+<img src="/2021/09/09/Union-Find/union-find-problem.png" class="" width="250" title="462.5 Example">
 <h1 id="algorithms">Algorithms</h1>
 <h2 id="quick-find">Quick Find</h2>
 <blockquote>
-<p>connected <span class="math inline">\(\Longrightarrow\)</span> same <strong>status</strong></p>
+<p>connected <span class="math inline">\(\Longleftrightarrow\)</span> same <strong>status</strong></p>
+<img src="/2021/09/09/Union-Find/quick-find.png" class="" width="584" height="300" title="Quick Find">
 </blockquote>
-<h3 id="data-structure">Data Structure</h3>
+<p><strong><em>Data Structure</em></strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr[N];  // status of objects</span><br></pre></td></tr></table></figure>
-<h3 id="unionab">union(a,b)</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foreach i:</span><br><span class="line">	if (arr[i] == arr[a])  // every i connected with a</span><br><span class="line">		arr[i] = arr[b];  // connect i to b</span><br></pre></td></tr></table></figure>
-<h3 id="findab">find(a,b)</h3>
+<p><strong><em>union(a,b)</em></strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sa = arr[a];  // sataus of a</span><br><span class="line">sb = arr[b];</span><br><span class="line">foreach i in arr[]:</span><br><span class="line">	if (arr[i] == sa):  // every i connected with a</span><br><span class="line">		arr[i] = sb;  // connect i to b</span><br></pre></td></tr></table></figure>
+<p><strong><em>find(a,b)</em></strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return arr[a] == arr[b];  // same status</span><br></pre></td></tr></table></figure>
 <h2 id="quick-union">Quick Union</h2>
 <blockquote>
 <p>A <code>connected component</code> is a <code>tree</code></p>
-<p>connected <span class="math inline">\(\Longrightarrow\)</span> same <strong>root</strong></p>
+<p>connected <span class="math inline">\(\Longleftrightarrow\)</span> same <strong>root</strong></p>
+<img src="/2021/09/09/Union-Find/quick-union.png" class="" width="600" height="400" title="Quick Union">
 </blockquote>
-<h3 id="data-structure-1">Data Structure</h3>
+<p><strong><em>Data Structure</em></strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr[N];  // parents of objects</span><br></pre></td></tr></table></figure>
-<h3 id="unionab-1">union(a,b)</h3>
+<p><strong><em>root(i)</em></strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while (i != arr[i]):  // not root</span><br><span class="line">	i = arr[i];  // go check parent</span><br></pre></td></tr></table></figure>
+<p><strong><em>union(a,b)</em></strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">arr[ra] = rb;  // set rb as ra&#x27;s parent</span><br></pre></td></tr></table></figure>
-<h3 id="findab-1">find(a,b)</h3>
+<p><strong><em>find(a,b)</em></strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return root(a) == root(b);</span><br></pre></td></tr></table></figure>
-<h3 id="rooti">root(i)</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while (i != arr[i])  // not root</span><br><span class="line">	i = arr[i];  // go check parent</span><br></pre></td></tr></table></figure>
-<h2 id="improvements-to-qu">Improvements to QU</h2>
-<h3 id="weighted-qu">Weighted QU</h3>
+<h3 id="improvements-to-qu">Improvements to QU</h3>
 <blockquote>
-<p>small tree goes to big tree</p>
+<p>Avoid <strong><code>Tall</code></strong> trees</p>
 </blockquote>
-<img src="/2021/09/09/Union-Find/weighted-qu.png" class="" title="asd">
-<h4 id="data-structure-2">Data Structure</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[N];  // parent</span><br><span class="line">size[N];  // size of each tree</span><br></pre></td></tr></table></figure>
-<h4 id="unionab-2">Union(a,b)</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="findab-2">Find(a,b)</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="path-compression">Path Compression</h3>
-<h4 id="data-structure-3">Data Structure</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="unionab-3">Union(a,b)</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="findab-3">Find(a,b)</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="weighted-qu">Weighted QU</h4>
+<blockquote>
+<p>smaller tree goes to bigger tree</p>
+<img src="/2021/09/09/Union-Find/weighted-qu.png" class="" title="Weighted Quick-Union">
+</blockquote>
+<p><strong><em>Data Structure</em></strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[N];  // parents</span><br><span class="line">size[N];  // size of each tree whose root is i</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="300" height="375" title="size[9] &#x3D; 3, size[3] &#x3D; 8">
+<p><strong><em>union(a,b)</em></strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">if (ra == rb): return;  // same root -&gt; connected -&gt; do nothing</span><br><span class="line">if (size[ra] &gt;= size[rb]):  // a&#x27;s tree is bigger</span><br><span class="line">	arr[rb] = ra;</span><br><span class="line">	size[ra] += size[rb];</span><br><span class="line">else:  // b&#x27;s tree is bigger</span><br><span class="line">	arr[ra] = rb;</span><br><span class="line">	size[rb] += size[ra];</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/09/Union-Find/weighted-is-flat.png" class="" width="750" height="434" title="Weighted QU tree is flat">
+<h4 id="path-compression">Path Compression</h4>
+<ol type="1">
+<li><p><span class="math inline">\(root(a)\)</span></p></li>
+<li><p><span class="math inline">\(\forall p\ (on\ a&#39;s\ path\ to\ root): reconnect\ to\ root\)</span></p></li>
+</ol>
+<blockquote>
+<img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="350" height="430" title="Path Compression 1">
+<img src="/2021/09/09/Union-Find/path-compression-2.png" class="" width="600" title="300" alt="Path Compression 2">
+</blockquote>
+<p>Weighted Quick-Union + Pass Compression: nearly <code>Linear-time</code></p>
+<blockquote>
+<p>Union-Find: No Linear-time algorithm</p>
+</blockquote>
 
       
     </div>
