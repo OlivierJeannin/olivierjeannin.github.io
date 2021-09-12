@@ -30,7 +30,8 @@
 <p>connected <span class="math inline">\(\Longleftrightarrow\)</span> same <strong>status</strong></p>
 <img src="/2021/09/09/Union-Find/quick-find.png" class="" width="584" height="300" title="Quick Find">
 </blockquote>
-<div class="tabs" id="quick-find"><ul class="nav-tabs"><li class="tab active"><a href="#quick-find-1">Data Structure</a></li><li class="tab"><a href="#quick-find-2">union(a,b)</a></li><li class="tab"><a href="#quick-find-3">find(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="quick-find-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // status of objects</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sa = arr[a];  // sataus of a</span><br><span class="line">sb = arr[b];</span><br><span class="line">foreach i in arr[]:</span><br><span class="line">	if (arr[i] == sa):  // every i connected with a</span><br><span class="line">		arr[i] = sb;  // connect i to b</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-3"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return arr[a] == arr[b];  // same status</span><br></pre></td></tr></table></figure></div></div></div>
+<div class="tabs" id="quick-find"><ul class="nav-tabs"><li class="tab active"><a href="#quick-find-1">Data Structure</a></li><li class="tab"><a href="#quick-find-2">union(a,b)</a></li><li class="tab"><a href="#quick-find-3">find(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="quick-find-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // status of objects</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-2"><p>与 <span class="math inline">\(a\)</span> 状态相同的，都要改为 <span class="math inline">\(b\)</span> 的状态。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sa = arr[a];  // sataus of a</span><br><span class="line">sb = arr[b];</span><br><span class="line">foreach i in arr[]:</span><br><span class="line">	if (arr[i] == sa):  // every i connected with a</span><br><span class="line">		arr[i] = sb;  // connect i to b</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-3"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return arr[a] == arr[b];  // same status</span><br></pre></td></tr></table></figure></div></div></div>
 <h2 id="quick-union">Quick Union</h2>
 <blockquote>
 <p>A <code>connected component</code> is a <code>tree</code></p>
@@ -51,14 +52,13 @@
 <p><img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="300" height="375" title="size[9] &#x3D; 3, size[3] &#x3D; 8"></p></div><div class="tab-pane" id="weighted-qu-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">if (ra == rb): return;  // same root -&gt; connected -&gt; do nothing</span><br><span class="line">if (size[ra] &gt;= size[rb]):  // a&#x27;s tree is bigger</span><br><span class="line">	arr[rb] = ra;</span><br><span class="line">	size[ra] += size[rb];</span><br><span class="line">else:  // b&#x27;s tree is bigger</span><br><span class="line">	arr[ra] = rb;</span><br><span class="line">	size[rb] += size[ra];</span><br></pre></td></tr></table></figure></div></div></div>
 <img src="/2021/09/09/Union-Find/weighted-is-flat.png" class="" width="750" height="434" title="Weighted QU tree is flat">
 <h4 id="path-compression">Path Compression</h4>
+<blockquote>
 <ol type="1">
 <li><p><span class="math inline">\(root(a)\)</span></p></li>
 <li><p><span class="math inline">\(\forall p\ (on\ a&#39;s\ path\ to\ root): reconnect\ to\ root\)</span></p></li>
 </ol>
-<blockquote>
-<img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="350" height="430" title="before">
-<img src="/2021/09/09/Union-Find/path-compression-2.png" class="" width="600" height="300" title="after">
 </blockquote>
+<div class="tabs" id="path-compression"><ul class="nav-tabs"><li class="tab active"><a href="#path-compression-1">Before</a></li><li class="tab"><a href="#path-compression-2">After</a></li></ul><div class="tab-content"><div class="tab-pane active" id="path-compression-1"><p><img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="350" height="430" title="before"></p></div><div class="tab-pane" id="path-compression-2"><p><img src="/2021/09/09/Union-Find/path-compression-2.png" class="" width="600" height="300" title="after"></p></div></div></div>
 <p>Weighted Quick-Union + Pass Compression: nearly <code>Linear-time</code></p>
 <blockquote>
 <p>Union-Find: No Linear-time algorithm</p>
@@ -81,22 +81,6 @@
     <title>About Me</title>
     <url>/about/me.html</url>
     <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>About this Blog</title>
-    <url>/about/blog.html</url>
-    <content><![CDATA[<h1 id="what-happened-before-this-blog">What happened before this blog</h1>
-<p>In fact, two years ago, I did try to keep a blog site and I worked really heard to learn how to do it well, though I did not actually get the key point and gave it up.</p>
-<p>During this summer vacation, which has just passed, I reviewed my earlier work and found it a piece of sh*t... So I just spent a while to learn once again to build a blog from scratch and tried around, and finally, I could write a decent piece and kicked the blog off.</p>
-<h1 id="what-why-i-would-write">What &amp; Why I would write</h1>
-<p>At this small site of mine, you will see, some notes on what I am learning at school, some notes on what I'm learning off scholl, my random thoughts, and so on, just whatever I think is worth sharing.</p>
-<p>I take these things down mainly to stop me from learning without any reviewing and forgetting everything I've got to know for probablly just 2 months. You know, recalling is a great way to memorize information. And I also hope that blogging would make me a good note-taker. Apparently, I can practise some note-taking skills on it.</p>
-<p>You may find that some of my posts are marked with a rather early time. They might be posted in 2018, and edited in 2021. That's because they are my early pieces posted somewhere else, and I collected them after this site was built. I want everything of mine filed and kept in one place.</p>
-<h1 id="last">Last</h1>
-<p>At last, of course, I want whoever may see this blog to find something useful and enjoy it. We may not know each other, but I still find it satisfied should I be helpful to anyone.</p>
-<p><strong><em>Wish you a good day,</em></strong></p>
-<p><strong><em>Olivier</em></strong></p>
 ]]></content>
   </entry>
   <entry>
@@ -129,6 +113,22 @@
     <title>Tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>About this Blog</title>
+    <url>/about/blog.html</url>
+    <content><![CDATA[<h1 id="what-happened-before-this-blog">What happened before this blog</h1>
+<p>In fact, two years ago, I did try to keep a blog site and I worked really heard to learn how to do it well, though I did not actually get the key point and gave it up.</p>
+<p>During this summer vacation, which has just passed, I reviewed my earlier work and found it a piece of sh*t... So I just spent a while to learn once again to build a blog from scratch and tried around, and finally, I could write a decent piece and kicked the blog off.</p>
+<h1 id="what-why-i-would-write">What &amp; Why I would write</h1>
+<p>At this small site of mine, you will see, some notes on what I am learning at school, some notes on what I'm learning off scholl, my random thoughts, and so on, just whatever I think is worth sharing.</p>
+<p>I take these things down mainly to stop me from learning without any reviewing and forgetting everything I've got to know for probablly just 2 months. You know, recalling is a great way to memorize information. And I also hope that blogging would make me a good note-taker. Apparently, I can practise some note-taking skills on it.</p>
+<p>You may find that some of my posts are marked with a rather early time. They might be posted in 2018, and edited in 2021. That's because they are my early pieces posted somewhere else, and I collected them after this site was built. I want everything of mine filed and kept in one place.</p>
+<h1 id="last">Last</h1>
+<p>At last, of course, I want whoever may see this blog to find something useful and enjoy it. We may not know each other, but I still find it satisfied should I be helpful to anyone.</p>
+<p><strong><em>Wish you a good day,</em></strong></p>
+<p><strong><em>Olivier</em></strong></p>
 ]]></content>
   </entry>
 </search>
