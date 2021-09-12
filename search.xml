@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Initial</title>
-    <url>/2021/09/05/Initial/</url>
-    <content><![CDATA[<p>Hello! You are reading <em>Olivier Jeannin</em>'s blog, and this is my very first proper post.</p>
-<h2 id="what-happened-before-this-blog">What happened before this blog</h2>
-<p>In fact, just two years ago, I tried to keep a blog site and worked really heard to learn how, though I did not actually get the key point then and gave it up.</p>
-<p>During this summer vacation, which has just passed, I reviewed my earlier work and found it a piece of sh*t... So I just spent a while to learn to build a blog from scratch and tried around, and finally, finally, I can write a decent piece so as to kick the blog off.</p>
-<h2 id="what-why-i-would-write">What &amp; Why I would write</h2>
-<p>After this piece, you will see, hopefully, some notes on what I am learning at school, some notes on what I'm learning off scholl, my random thoughts, etc. I take them down mainly to stop me from learning without any notes and forgetting everything I have just got to know for, maybe, 2 months. You know, accordingly, recalling is the best known way to memorize information. And I also hope that blogging would make me a good note-taker. Apparently, I can practise some note-taking skills on it.</p>
-<h2 id="last">Last</h2>
-<p>At last, of course, I want whoever may see this blog to find something useful and enjoy it. We may not know each other, but I still find it satisfied should I be helpful to anyone.</p>
-<p><strong><em>Wish you a good day,</em></strong></p>
-<p><strong><em>Olivier</em></strong></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Union-Find</title>
     <url>/2021/09/09/Union-Find/</url>
     <content><![CDATA[<h1 id="what-is-union-find-problem">What is Union-Find Problem</h1>
@@ -38,33 +23,21 @@
 <li><p><span class="math inline">\(union()\)</span> any <span class="math inline">\(N\)</span> objects <span class="math inline">\((N\to\infty)\)</span>, at any time</p></li>
 <li><p><span class="math inline">\({\forall}a,b,find(a,b)\)</span> at any time</p></li>
 </ol>
-<img src="/2021/09/09/Union-Find/union-find-problem.png" class="" width="250" title="462.5 Example">
+<img src="/2021/09/09/Union-Find/union-find-problem.png" class="" width="250" height="462" title="Example">
 <h1 id="algorithms">Algorithms</h1>
 <h2 id="quick-find">Quick Find</h2>
 <blockquote>
 <p>connected <span class="math inline">\(\Longleftrightarrow\)</span> same <strong>status</strong></p>
 <img src="/2021/09/09/Union-Find/quick-find.png" class="" width="584" height="300" title="Quick Find">
 </blockquote>
-<p><strong><em>Data Structure</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // status of objects</span><br></pre></td></tr></table></figure>
-<p><strong><em>union(a,b)</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sa = arr[a];  // sataus of a</span><br><span class="line">sb = arr[b];</span><br><span class="line">foreach i in arr[]:</span><br><span class="line">	if (arr[i] == sa):  // every i connected with a</span><br><span class="line">		arr[i] = sb;  // connect i to b</span><br></pre></td></tr></table></figure>
-<p><strong><em>find(a,b)</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return arr[a] == arr[b];  // same status</span><br></pre></td></tr></table></figure>
+<div class="tabs" id="quick-find"><ul class="nav-tabs"><li class="tab active"><a href="#quick-find-1">Data Structure</a></li><li class="tab"><a href="#quick-find-2">union(a,b)</a></li><li class="tab"><a href="#quick-find-3">find(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="quick-find-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // status of objects</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sa = arr[a];  // sataus of a</span><br><span class="line">sb = arr[b];</span><br><span class="line">foreach i in arr[]:</span><br><span class="line">	if (arr[i] == sa):  // every i connected with a</span><br><span class="line">		arr[i] = sb;  // connect i to b</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-3"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return arr[a] == arr[b];  // same status</span><br></pre></td></tr></table></figure></div></div></div>
 <h2 id="quick-union">Quick Union</h2>
 <blockquote>
 <p>A <code>connected component</code> is a <code>tree</code></p>
 <p>connected <span class="math inline">\(\Longleftrightarrow\)</span> same <strong>root</strong></p>
 <img src="/2021/09/09/Union-Find/quick-union.png" class="" width="600" height="400" title="Quick Union">
 </blockquote>
-<p><strong><em>Data Structure</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents of objects</span><br></pre></td></tr></table></figure>
-<p><strong><em>root(i)</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (i != arr[i]):  // not root</span><br><span class="line">	i = arr[i];  // go check parent</span><br></pre></td></tr></table></figure>
-<p><strong><em>union(a,b)</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">arr[ra] = rb;  // set rb as ra&#x27;s parent</span><br></pre></td></tr></table></figure>
-<p><strong><em>find(a,b)</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return root(a) == root(b);</span><br></pre></td></tr></table></figure>
+<div class="tabs" id="quick-union"><ul class="nav-tabs"><li class="tab active"><a href="#quick-union-1">Data Structure</a></li><li class="tab"><a href="#quick-union-2">root(i)</a></li><li class="tab"><a href="#quick-union-3">union(a,b)</a></li><li class="tab"><a href="#quick-union-4">find(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="quick-union-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents of objects</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-union-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (i != arr[i]):  // not root</span><br><span class="line">	i = arr[i];  // go check parent</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-union-3"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">arr[ra] = rb;  // set rb as ra&#x27;s parent</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-union-4"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return root(a) == root(b);</span><br></pre></td></tr></table></figure></div></div></div>
 <h3 id="improvements-to-qu">Improvements to QU</h3>
 <blockquote>
 <p>Avoid <strong><code>Tall</code></strong> trees</p>
@@ -74,11 +47,8 @@
 <p>smaller tree goes to bigger tree</p>
 <img src="/2021/09/09/Union-Find/weighted-qu.png" class="" title="Weighted Quick-Union">
 </blockquote>
-<p><strong><em>Data Structure</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents</span><br><span class="line">size[N];  // size of each tree whose root is i</span><br></pre></td></tr></table></figure>
-<img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="300" height="375" title="size[9] &#x3D; 3, size[3] &#x3D; 8">
-<p><strong><em>union(a,b)</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">if (ra == rb): return;  // same root -&gt; connected -&gt; do nothing</span><br><span class="line">if (size[ra] &gt;= size[rb]):  // a&#x27;s tree is bigger</span><br><span class="line">	arr[rb] = ra;</span><br><span class="line">	size[ra] += size[rb];</span><br><span class="line">else:  // b&#x27;s tree is bigger</span><br><span class="line">	arr[ra] = rb;</span><br><span class="line">	size[rb] += size[ra];</span><br></pre></td></tr></table></figure>
+<div class="tabs" id="weighted-qu"><ul class="nav-tabs"><li class="tab active"><a href="#weighted-qu-1">Data Structure</a></li><li class="tab"><a href="#weighted-qu-2">union(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="weighted-qu-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents</span><br><span class="line">size[N];  // size of each tree whose root is i</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="300" height="375" title="size[9] &#x3D; 3, size[3] &#x3D; 8"></p></div><div class="tab-pane" id="weighted-qu-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">if (ra == rb): return;  // same root -&gt; connected -&gt; do nothing</span><br><span class="line">if (size[ra] &gt;= size[rb]):  // a&#x27;s tree is bigger</span><br><span class="line">	arr[rb] = ra;</span><br><span class="line">	size[ra] += size[rb];</span><br><span class="line">else:  // b&#x27;s tree is bigger</span><br><span class="line">	arr[ra] = rb;</span><br><span class="line">	size[rb] += size[ra];</span><br></pre></td></tr></table></figure></div></div></div>
 <img src="/2021/09/09/Union-Find/weighted-is-flat.png" class="" width="750" height="434" title="Weighted QU tree is flat">
 <h4 id="path-compression">Path Compression</h4>
 <ol type="1">
@@ -86,8 +56,8 @@
 <li><p><span class="math inline">\(\forall p\ (on\ a&#39;s\ path\ to\ root): reconnect\ to\ root\)</span></p></li>
 </ol>
 <blockquote>
-<img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="350" height="430" title="Path Compression 1">
-<img src="/2021/09/09/Union-Find/path-compression-2.png" class="" width="600" title="300" alt="Path Compression 2">
+<img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="350" height="430" title="before">
+<img src="/2021/09/09/Union-Find/path-compression-2.png" class="" width="600" height="300" title="after">
 </blockquote>
 <p>Weighted Quick-Union + Pass Compression: nearly <code>Linear-time</code></p>
 <blockquote>
@@ -101,6 +71,51 @@
   <entry>
     <title>About</title>
     <url>/about/index.html</url>
+    <content><![CDATA[<p>Hello! This is <strong><em>Olivier Jeannin</em></strong>'s blog. I hope you have all been doing well today.</p>
+<p>If you are interested in who I am, you can see <a href="me.html" title="about me">this page</a>.</p>
+<p>If you want to know what this blog is about, please <a href="blog.html" title="about this blog">click here</a>.</p>
+<p>Hope you enjoy my blog ;D</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>About Me</title>
+    <url>/about/me.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>About this Blog</title>
+    <url>/about/blog.html</url>
+    <content><![CDATA[<h1 id="what-happened-before-this-blog">What happened before this blog</h1>
+<p>In fact, two years ago, I did try to keep a blog site and I worked really heard to learn how to do it well, though I did not actually get the key point and gave it up.</p>
+<p>During this summer vacation, which has just passed, I reviewed my earlier work and found it a piece of sh*t... So I just spent a while to learn once again to build a blog from scratch and tried around, and finally, I could write a decent piece and kicked the blog off.</p>
+<h1 id="what-why-i-would-write">What &amp; Why I would write</h1>
+<p>At this small site of mine, you will see, some notes on what I am learning at school, some notes on what I'm learning off scholl, my random thoughts, and so on, just whatever I think is worth sharing.</p>
+<p>I take these things down mainly to stop me from learning without any reviewing and forgetting everything I've got to know for probablly just 2 months. You know, recalling is a great way to memorize information. And I also hope that blogging would make me a good note-taker. Apparently, I can practise some note-taking skills on it.</p>
+<p>You may find that some of my posts are marked with a rather early time. They might be posted in 2018, and edited in 2021. That's because they are my early pieces posted somewhere else, and I collected them after this site was built. I want everything of mine filed and kept in one place.</p>
+<h1 id="last">Last</h1>
+<p>At last, of course, I want whoever may see this blog to find something useful and enjoy it. We may not know each other, but I still find it satisfied should I be helpful to anyone.</p>
+<p><strong><em>Wish you a good day,</em></strong></p>
+<p><strong><em>Olivier</em></strong></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>随想</title>
+    <url>/caprices/2018-11-19-2252.html</url>
+    <content><![CDATA[<blockquote>
+<p>天将雨雪，气盖明珠。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>201812210912</title>
+    <url>/caprices/2018-12-21-0912.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>Caprices</title>
+    <url>/caprices/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
