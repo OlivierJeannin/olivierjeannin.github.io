@@ -21,7 +21,7 @@ C = \sum p_i c_i
 <p>In this way, we get <em>simpler</em> version of cost, without ignoring too much important things.</p>
 <h2 id="order-of-growth">Order of Growth</h2>
 <p><strong>Order of Growth</strong>: how fast the <code>cost</code> grows as <code>problem size</code> <span class="math inline">\(N\)</span> grows</p>
-<p>If we classify algorithms by that, we will get these categoties:</p>
+<p>If we classify algorithms by that, we will get these categories:</p>
 <table>
 <thead>
 <tr class="header">
@@ -212,18 +212,18 @@ C = \sum p_i c_i
 ]]></content>
   </entry>
   <entry>
+    <title>About Me</title>
+    <url>/about/me.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>About</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p>Hello! This is <strong><em>Olivier Jeannin</em></strong>'s blog. I hope you have all been doing well today.</p>
 <p>If you are interested in who I am, you can see <a href="me.html" title="about me">this page</a>.</p>
 <p>If you want to know what this blog is about, please <a href="blog.html" title="about this blog">click here</a>.</p>
 <p>Hope you enjoy my blog ;D</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>About Me</title>
-    <url>/about/me.html</url>
-    <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
