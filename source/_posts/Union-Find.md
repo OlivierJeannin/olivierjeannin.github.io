@@ -2,7 +2,8 @@
 title: Union-Find
 date: 2021-09-09 13:50:49
 tags:
-categories: [Algorithms]
+categories:
+  - [Algorithms]
 description: Union-Find problem and its algorithms, including Quick-Find, Quick-Union, and improvements on QU.
 ---
 
@@ -170,4 +171,3 @@ else:  // b's tree is bigger
 Weighted Quick-Union + Pass Compression: nearly `Linear-time`
 
 > Union-Find: No Linear-time algorithm
-
