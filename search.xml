@@ -1,6 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Analysis of Algorithms</title>
+    <url>/2021/09/17/Analysis-of-Algorithms/</url>
+    <content><![CDATA[<h1 id="cost-of-an-algorithm">Cost of an Algorithm</h1>
+<h2 id="total-cost">Total Cost</h2>
+<p>The total cost of an algorithm <span class="math inline">\(C\)</span> is based on probability: <span class="math display">\[
+C = \sum p_i c_i
+\]</span></p>
+<p><span class="math inline">\(p_i\)</span>: probability for case <span class="math inline">\(i\)</span> to happen</p>
+<p><span class="math inline">\(c_i\)</span>: cost of algorithm when case <span class="math inline">\(i\)</span> happens</p>
+<h2 id="simplification">Simplification</h2>
+<p>In practise, when analysize algorithms, we will basically only consider:</p>
+<ol type="1">
+<li><p>the <strong><code>most consumable steps</code></strong> in an algorithm</p>
+<p>e.g. we focus on conditions, loops, etc. and neglect time initializing variables.</p></li>
+<li><p>the <strong><code>most significant partitions</code></strong> of total cost</p>
+<p>e.g. when we get a total cost of <span class="math inline">\(N^2+2N+3\)</span>, we focus on the <span class="math inline">\(N^2\)</span> part and drop those behind it.</p></li>
+</ol>
+<p>In this way, we get <em>simpler</em> version of cost, without ignoring too much important things.</p>
+<h2 id="order-of-growth">Order of Growth</h2>
+<p><strong>Order of Growth</strong>: how fast the <code>cost</code> grows as <code>problem size</code> <span class="math inline">\(N\)</span> grows</p>
+<p>If we classify algorithms by that, we will get these categoties:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Order of Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><em>Constant</em></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>Logarithmic</em></td>
+<td style="text-align: center;"><span class="math inline">\(\log N\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><em>Linear</em></td>
+<td style="text-align: center;"><span class="math inline">\(N\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>Linearithmic</em></td>
+<td style="text-align: center;"><span class="math inline">\(N\log N\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><em>Quadratic</em></td>
+<td style="text-align: center;"><span class="math inline">\(N^2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>Cubic</em></td>
+<td style="text-align: center;"><span class="math inline">\(N^3\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><em>Exponential</em></td>
+<td style="text-align: center;"><span class="math inline">\(2^N\)</span></td>
+</tr>
+</tbody>
+</table>
+<img src="/2021/09/17/Analysis-of-Algorithms/order-of-growth.png" class="" width="600" title="order-of-growth">
+<div class="note warning"><p>Order of growth discards leading coefficient.<br />
+<span class="math inline">\(2N\)</span> is not order of growth.</p>
+</div>
+<h1 id="tilde-notation">Tilde Notation</h1>
+<p>We use <span class="math inline">\(f(N)\sim g(N)\)</span> when there stands: <span class="math display">\[
+\lim_{N\to\infty}{f(N)\over g(N)} = 1
+\]</span></p>
+<p>Example: <span class="math inline">\(f(N)=2N^2+\log N+1\)</span>, then <span class="math inline">\(f(N)\sim 2N^2\)</span></p>
+<h1 id="big-oh-notation">Big-Oh Notation</h1>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 46%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Notation</th>
+<th style="text-align: center;">Definition</th>
+<th style="text-align: center;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T(N)\sim O(f(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists n_0:\ N\geq n_0,\ T(N)\leq cf(N)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(N)\)</span> is <strong>upper bound</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T(N)\sim\Omega(g(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists n_1:\ N\geq n_1,\ T(N)\geq cg(N)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(g(N)\)</span> is <strong>lower bound</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T(N)\sim\Theta(h(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T(N)\sim O(h(N))\)</span> and <span class="math inline">\(T(N)\sim\Omega(h(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(h(N)\)</span> is <strong>order of growth</strong></td>
+</tr>
+</tbody>
+</table>
+<h1 id="optimal-algorithm">Optimal Algorithm</h1>
+<p>The <strong><code>upper bound</code></strong> should be as close as possible with <strong><code>lower bound</code></strong>.</p>
+<ul>
+<li><p>Upper Bound</p>
+<ol type="1">
+<li><p>Find a <em>known</em> algorithm whose cost is <span class="math inline">\(t(N)\)</span>,</p></li>
+<li><p>then we know the cost of <em>optimal algorithm</em> is bound to be <span class="math inline">\(T(N)\sim O(t(N))\)</span>,</p></li>
+</ol>
+<p>Why is that? Because the <em>optimal algorithm</em> is <code>optimal</code>. Its cost should be lower than <span class="math inline">\(t(N)\)</span>.</p></li>
+<li><p>Lower Bound</p>
+<p>Think of it as the <code>necessary</code> cost.</p>
+<p>That is, whatever algorithm you might use, however simple it is, it will cost you <em>at least</em> this much. Less cost? Not possible! Or you won't be able to finish your job!</p></li>
+</ul>
+<p>Your mission is to find a lower <em>upper bound</em> and a possibly higher <em>lower bound</em>, by changing the algorithm.</p>
+<p>When you get the narrowest range, look at the algorithm you're using, it's optimal.</p>
+]]></content>
+      <categories>
+        <category>Algorithms</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Stack</title>
+    <url>/2021/09/17/Stack-and-Queue/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>Union-Find</title>
     <url>/2021/09/09/Union-Find/</url>
     <content><![CDATA[<h1 id="what-is-union-find-problem">What is Union-Find Problem</h1>
@@ -69,6 +196,22 @@
       </categories>
   </entry>
   <entry>
+    <title>About this Blog</title>
+    <url>/about/blog.html</url>
+    <content><![CDATA[<h1 id="what-happened-before-this-blog">What happened before this blog</h1>
+<p>In fact, two years ago, I did try to keep a blog site and I worked really heard to learn how to do it well, though I did not actually get the key point and gave it up.</p>
+<p>During this summer vacation, which has just passed, I reviewed my earlier work and found it a piece of sh*t... So I just spent a while to learn once again to build a blog from scratch and tried around, and finally, I could write a decent piece and kicked the blog off.</p>
+<h1 id="what-why-i-would-write">What &amp; Why I would write</h1>
+<p>At this small site of mine, you will see, some notes on what I am learning at school, some notes on what I'm learning off scholl, my random thoughts, and so on, just whatever I think is worth sharing.</p>
+<p>I take these things down mainly to stop me from learning without any reviewing and forgetting everything I've got to know for probablly just 2 months. You know, recalling is a great way to memorize information. And I also hope that blogging would make me a good note-taker. Apparently, I can practise some note-taking skills on it.</p>
+<p>You may find that some of my posts are marked with a rather early time. They might be posted in 2018, and edited in 2021. That's because they are my early pieces posted somewhere else, and I collected them after this site was built. I want everything of mine filed and kept in one place.</p>
+<h1 id="last">Last</h1>
+<p>At last, of course, I want whoever may see this blog to find something useful and enjoy it. We may not know each other, but I still find it satisfied should I be helpful to anyone.</p>
+<p><strong><em>Wish you a good day,</em></strong></p>
+<p><strong><em>Olivier</em></strong></p>
+]]></content>
+  </entry>
+  <entry>
     <title>About</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p>Hello! This is <strong><em>Olivier Jeannin</em></strong>'s blog. I hope you have all been doing well today.</p>
@@ -113,22 +256,6 @@
     <title>Tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>About this Blog</title>
-    <url>/about/blog.html</url>
-    <content><![CDATA[<h1 id="what-happened-before-this-blog">What happened before this blog</h1>
-<p>In fact, two years ago, I did try to keep a blog site and I worked really heard to learn how to do it well, though I did not actually get the key point and gave it up.</p>
-<p>During this summer vacation, which has just passed, I reviewed my earlier work and found it a piece of sh*t... So I just spent a while to learn once again to build a blog from scratch and tried around, and finally, I could write a decent piece and kicked the blog off.</p>
-<h1 id="what-why-i-would-write">What &amp; Why I would write</h1>
-<p>At this small site of mine, you will see, some notes on what I am learning at school, some notes on what I'm learning off scholl, my random thoughts, and so on, just whatever I think is worth sharing.</p>
-<p>I take these things down mainly to stop me from learning without any reviewing and forgetting everything I've got to know for probablly just 2 months. You know, recalling is a great way to memorize information. And I also hope that blogging would make me a good note-taker. Apparently, I can practise some note-taking skills on it.</p>
-<p>You may find that some of my posts are marked with a rather early time. They might be posted in 2018, and edited in 2021. That's because they are my early pieces posted somewhere else, and I collected them after this site was built. I want everything of mine filed and kept in one place.</p>
-<h1 id="last">Last</h1>
-<p>At last, of course, I want whoever may see this blog to find something useful and enjoy it. We may not know each other, but I still find it satisfied should I be helpful to anyone.</p>
-<p><strong><em>Wish you a good day,</em></strong></p>
-<p><strong><em>Olivier</em></strong></p>
 ]]></content>
   </entry>
 </search>
