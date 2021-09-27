@@ -1083,6 +1083,10 @@ pre code {
   font-weight: 900;
   color: #d9534f;
 }
+.mermaid {
+  margin-bottom: 20px;
+  text-align: center;
+}
 .pagination .prev,
 .pagination .next,
 .pagination .page-number,
@@ -2761,7 +2765,7 @@ mjx-container[display="true"] + br {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #a1ff44;
+  background: #2f16ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);

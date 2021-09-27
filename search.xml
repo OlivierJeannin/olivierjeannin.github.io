@@ -127,28 +127,95 @@ C = \sum p_i c_i
   <entry>
     <title>Stack, Queue and Bag</title>
     <url>/2021/09/17/Stack-Queue-Bag/</url>
-    <content><![CDATA[<h1 id="interface-and-data-type">Interface and Data Type</h1>
+    <content><![CDATA[<h1 id="interface-and-data-structure">Interface and Data Structure</h1>
 <h2 id="interface">Interface</h2>
 <p>You can also call it <strong>API</strong> or <strong>ADT</strong>.</p>
-<p>It emphasizes:</p>
+<p>It emphasizes <strong><code>What</code></strong>:</p>
 <ul>
-<li>what data to store</li>
-<li>what operation available</li>
+<li><em>data</em> to store</li>
+<li><em>operations</em> are available</li>
 </ul>
-<h2 id="data-type">Data Type</h2>
-<p>It emphasizes:</p>
+<h2 id="data-structure">Data Structure</h2>
+<p>It focuses on <strong><code>How To</code></strong>:</p>
 <ul>
-<li>how to store data</li>
-<li>how to do operations, i.e. implementing algorithms</li>
+<li><p>store <em>data</em></p></li>
+<li><p>do <em>operations</em>, i.e. implement <em>algorithms</em></p></li>
 </ul>
 <h1 id="stack">Stack</h1>
-<p><a href="%22First%20in,%20Last%20out%22">FILO</a> or <a href="%22Last%20in,%20First%20out%22">LIFO</a>.</p>
+<p><a href="" title="First In, Last Out">FILO</a> / <a href="" title="Last In, First Out">LIFO</a>.</p>
+<img src="/2021/09/17/Stack-Queue-Bag/stack.png" class="" width="200" height="280" title="Stack">
+<h2 id="api">API</h2>
+<ul>
+<li>Create a stack</li>
+<li>Push (add an element)</li>
+<li>Pop (remove an element)</li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<h3 id="linked-list">Linked List</h3>
+<img src="/2021/09/17/Stack-Queue-Bag/stack-linked-list.png" class="" width="200" height="400" title="Stack by Linked List">
+<p>Each node in linked list:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Node &#123;</span><br><span class="line">	DataType data;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="tabs" id="linkedlist"><ul class="nav-tabs"><li class="tab active"><a href="#linkedlist-1">Advantages</a></li><li class="tab"><a href="#linkedlist-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linkedlist-1"><ul>
+<li>quick to add &amp; delete</li>
+</ul></div><div class="tab-pane" id="linkedlist-2"><ul>
+<li>not so easy to access every element (may need linear time)</li>
+</ul></div></div></div>
+<p>Cost:</p>
+<p><span class="math display">\[
+\begin{gather*}
+T(N)=O(1)\\
+S(N)=\Theta (N)
+\end{gather*}
+\]</span></p>
+<h3 id="resizing-array">Resizing Array</h3>
+<img src="/2021/09/17/Stack-Queue-Bag/stack-resizing-array.png" class="" width="300" height="150" title="Stack by Resizing Array">
+<p>Resizing:</p>
+<ul>
+<li><code>Double</code> the length when array is <strong><em>full</em></strong></li>
+<li><code>Halve</code> the length when array is <strong><em>1/4 full</em></strong></li>
+</ul>
+<div class="tabs" id="resizing-array"><ul class="nav-tabs"><li class="tab active"><a href="#resizing-array-1">Advantages</a></li><li class="tab"><a href="#resizing-array-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resizing-array-1"><ul>
+<li>quick to access every element (constant time)</li>
+</ul></div><div class="tab-pane" id="resizing-array-2"><ul>
+<li>resizing is expensive when <span class="math inline">\(N\)</span> is large, because you must copy all existing elements to the new array</li>
+<li>you have to rewind <code>tail</code> pointer when <code>head</code> is not at position 0</li>
+</ul></div></div></div>
+<p>Cost:</p>
+<p><span class="math display">\[
+T(N)=
+\begin{cases}
+\Theta (1),&amp;\text{best},\\
+\Theta (N),&amp;\text{worst},\\
+\Theta (1),&amp;\text{amortized},
+\end{cases}
+\]</span></p>
 <h1 id="queue">Queue</h1>
-<p>First in, First out.</p>
+<p><a href="" title="First In, First Out">FIFO</a>.</p>
+<img src="/2021/09/17/Stack-Queue-Bag/queue.png" class="" width="400" height="100" title="Queue">
+<h2 id="queue-api">Queue API</h2>
+<ul>
+<li>Create a queue</li>
+<li>Enqueue / add</li>
+<li>Dequeue / remove</li>
+</ul>
+<h2 id="implementation-1">Implementation</h2>
+<h3 id="linked-list-1">Linked List</h3>
+<img src="/2021/09/17/Stack-Queue-Bag/queue-linked-list.png" class="" width="640" height="160" title="Queue by Linked List">
+<h3 id="resizing-array-1">Resizing Array</h3>
+<img src="/2021/09/17/Stack-Queue-Bag/queue-resizing-array.png" class="" width="300" height="150" title="Queue by Resizing Array">
 <h1 id="bag">Bag</h1>
+<p>No order, no out, just in.</p>
+<img src="/2021/09/17/Stack-Queue-Bag/bag.png" class="" width="200" height="280" title="Bag">
+<h2 id="bag-api">Bag API</h2>
+<ul>
+<li>Create a bag</li>
+<li>Add an element</li>
+</ul>
+<h2 id="implementation-2">Implementation</h2>
+<p>A bag is just a stack without pop, or a queue without dequeue. I'm sure you'll figure it out. : )</p>
 ]]></content>
       <categories>
-        <category>Algorithms</category>
+        <category>Data Structures</category>
       </categories>
   </entry>
   <entry>

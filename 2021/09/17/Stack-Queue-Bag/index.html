@@ -20,17 +20,25 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"olivierjeannin","root":"/","images":"/images","scheme":"Muse","version":"8.7.1","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"width":300},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="We can use either Linked List or Resizing Array to implemnet APIs of Stack, Queue, and Bag.">
+<meta name="description" content="Brief about interface and data structure. We can use either linked list or resizing array to implemnet Stack, Queue, and Bag.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stack, Queue and Bag">
 <meta property="og:url" content="https://olivierjeannin/olivierjeannin.github.io/2021/09/17/Stack-Queue-Bag/index.html">
 <meta property="og:site_name" content="Orion">
-<meta property="og:description" content="We can use either Linked List or Resizing Array to implemnet APIs of Stack, Queue, and Bag.">
+<meta property="og:description" content="Brief about interface and data structure. We can use either linked list or resizing array to implemnet Stack, Queue, and Bag.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack.png">
+<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack-linked-list.png">
+<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack-resizing-array.png">
+<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/queue.png">
+<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/queue-linked-list.png">
+<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/queue-resizing-array.png">
+<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/bag.png">
 <meta property="article:published_time" content="2021-09-17T10:35:45.000Z">
-<meta property="article:modified_time" content="2021-09-27T02:06:26.463Z">
+<meta property="article:modified_time" content="2021-09-27T12:18:39.751Z">
 <meta property="article:author" content="雅言栖霞">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack.png">
 
 
 <link rel="canonical" href="https://olivierjeannin/olivierjeannin.github.io/2021/09/17/Stack-Queue-Bag/">
@@ -148,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#interface-and-data-type"><span class="nav-number">1.</span> <span class="nav-text">Interface and Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#interface"><span class="nav-number">1.1.</span> <span class="nav-text">Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-type"><span class="nav-number">1.2.</span> <span class="nav-text">Data Type</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stack"><span class="nav-number">2.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#queue"><span class="nav-number">3.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bag"><span class="nav-number">4.</span> <span class="nav-text">Bag</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#interface-and-data-structure"><span class="nav-number">1.</span> <span class="nav-text">Interface and Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#interface"><span class="nav-number">1.1.</span> <span class="nav-text">Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-structure"><span class="nav-number">1.2.</span> <span class="nav-text">Data Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stack"><span class="nav-number">2.</span> <span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#api"><span class="nav-number">2.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation"><span class="nav-number">2.2.</span> <span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linked-list"><span class="nav-number">2.2.1.</span> <span class="nav-text">Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-array"><span class="nav-number">2.2.2.</span> <span class="nav-text">Resizing Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#queue"><span class="nav-number">3.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#queue-api"><span class="nav-number">3.1.</span> <span class="nav-text">Queue API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-1"><span class="nav-number">3.2.</span> <span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linked-list-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-array-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">Resizing Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bag"><span class="nav-number">4.</span> <span class="nav-text">Bag</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bag-api"><span class="nav-number">4.1.</span> <span class="nav-text">Bag API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-2"><span class="nav-number">4.2.</span> <span class="nav-text">Implementation</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -170,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -246,7 +254,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-27 10:06:26" itemprop="dateModified" datetime="2021-09-27T10:06:26+08:00">2021-09-27</time>
+        <time title="Modified: 2021-09-27 20:18:39" itemprop="dateModified" datetime="2021-09-27T20:18:39+08:00">2021-09-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,14 +262,14 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Algorithms/" itemprop="url" rel="index"><span itemprop="name">Algorithms</span></a>
+          <a href="/categories/Data-Structures/" itemprop="url" rel="index"><span itemprop="name">Data Structures</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">We can use either Linked List or Resizing Array to implemnet APIs of Stack, Queue, and Bag.</div>
+            <div class="post-description">Brief about interface and data structure. We can use either linked list or resizing array to implemnet Stack, Queue, and Bag.</div>
         </div>
       </header>
 
@@ -269,25 +277,92 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="interface-and-data-type">Interface and Data Type</h1>
+        <h1 id="interface-and-data-structure">Interface and Data Structure</h1>
 <h2 id="interface">Interface</h2>
 <p>You can also call it <strong>API</strong> or <strong>ADT</strong>.</p>
-<p>It emphasizes:</p>
+<p>It emphasizes <strong><code>What</code></strong>:</p>
 <ul>
-<li>what data to store</li>
-<li>what operation available</li>
+<li><em>data</em> to store</li>
+<li><em>operations</em> are available</li>
 </ul>
-<h2 id="data-type">Data Type</h2>
-<p>It emphasizes:</p>
+<h2 id="data-structure">Data Structure</h2>
+<p>It focuses on <strong><code>How To</code></strong>:</p>
 <ul>
-<li>how to store data</li>
-<li>how to do operations, i.e. implementing algorithms</li>
+<li><p>store <em>data</em></p></li>
+<li><p>do <em>operations</em>, i.e. implement <em>algorithms</em></p></li>
 </ul>
 <h1 id="stack">Stack</h1>
-<p><a href="%22First%20in,%20Last%20out%22">FILO</a> or <a href="%22Last%20in,%20First%20out%22">LIFO</a>.</p>
+<p><a href="" title="First In, Last Out">FILO</a> / <a href="" title="Last In, First Out">LIFO</a>.</p>
+<img src="/2021/09/17/Stack-Queue-Bag/stack.png" class="" width="200" height="280" title="Stack">
+<h2 id="api">API</h2>
+<ul>
+<li>Create a stack</li>
+<li>Push (add an element)</li>
+<li>Pop (remove an element)</li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<h3 id="linked-list">Linked List</h3>
+<img src="/2021/09/17/Stack-Queue-Bag/stack-linked-list.png" class="" width="200" height="400" title="Stack by Linked List">
+<p>Each node in linked list:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Node &#123;</span><br><span class="line">	DataType data;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="tabs" id="linkedlist"><ul class="nav-tabs"><li class="tab active"><a href="#linkedlist-1">Advantages</a></li><li class="tab"><a href="#linkedlist-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linkedlist-1"><ul>
+<li>quick to add &amp; delete</li>
+</ul></div><div class="tab-pane" id="linkedlist-2"><ul>
+<li>not so easy to access every element (may need linear time)</li>
+</ul></div></div></div>
+<p>Cost:</p>
+<p><span class="math display">\[
+\begin{gather*}
+T(N)=O(1)\\
+S(N)=\Theta (N)
+\end{gather*}
+\]</span></p>
+<h3 id="resizing-array">Resizing Array</h3>
+<img src="/2021/09/17/Stack-Queue-Bag/stack-resizing-array.png" class="" width="300" height="150" title="Stack by Resizing Array">
+<p>Resizing:</p>
+<ul>
+<li><code>Double</code> the length when array is <strong><em>full</em></strong></li>
+<li><code>Halve</code> the length when array is <strong><em>1/4 full</em></strong></li>
+</ul>
+<div class="tabs" id="resizing-array"><ul class="nav-tabs"><li class="tab active"><a href="#resizing-array-1">Advantages</a></li><li class="tab"><a href="#resizing-array-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resizing-array-1"><ul>
+<li>quick to access every element (constant time)</li>
+</ul></div><div class="tab-pane" id="resizing-array-2"><ul>
+<li>resizing is expensive when <span class="math inline">\(N\)</span> is large, because you must copy all existing elements to the new array</li>
+<li>you have to rewind <code>tail</code> pointer when <code>head</code> is not at position 0</li>
+</ul></div></div></div>
+<p>Cost:</p>
+<p><span class="math display">\[
+T(N)=
+\begin{cases}
+\Theta (1),&amp;\text{best},\\
+\Theta (N),&amp;\text{worst},\\
+\Theta (1),&amp;\text{amortized},
+\end{cases}
+\]</span></p>
 <h1 id="queue">Queue</h1>
-<p>First in, First out.</p>
+<p><a href="" title="First In, First Out">FIFO</a>.</p>
+<img src="/2021/09/17/Stack-Queue-Bag/queue.png" class="" width="400" height="100" title="Queue">
+<h2 id="queue-api">Queue API</h2>
+<ul>
+<li>Create a queue</li>
+<li>Enqueue / add</li>
+<li>Dequeue / remove</li>
+</ul>
+<h2 id="implementation-1">Implementation</h2>
+<h3 id="linked-list-1">Linked List</h3>
+<img src="/2021/09/17/Stack-Queue-Bag/queue-linked-list.png" class="" width="640" height="160" title="Queue by Linked List">
+<h3 id="resizing-array-1">Resizing Array</h3>
+<img src="/2021/09/17/Stack-Queue-Bag/queue-resizing-array.png" class="" width="300" height="150" title="Queue by Resizing Array">
 <h1 id="bag">Bag</h1>
+<p>No order, no out, just in.</p>
+<img src="/2021/09/17/Stack-Queue-Bag/bag.png" class="" width="200" height="280" title="Bag">
+<h2 id="bag-api">Bag API</h2>
+<ul>
+<li>Create a bag</li>
+<li>Add an element</li>
+</ul>
+<h2 id="implementation-2">Implementation</h2>
+<p>A bag is just a stack without pop, or a queue without dequeue. I'm sure you'll figure it out. : )</p>
 
     </div>
 
@@ -344,6 +419,8 @@
 <script src="/js/third-party/search/local-search.js"></script>
 
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.12.0/dist/mermaid.min.js","integrity":"sha256-0dD7vUjUCTGJjeLnPotQQJIcSzug5fO6WDMYYyNIX4c="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
   
