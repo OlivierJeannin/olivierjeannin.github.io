@@ -21,7 +21,7 @@ C = \sum p_i c_i
 <p>In this way, we get <em>simpler</em> version of cost, without ignoring too much important things.</p>
 <h2 id="order-of-growth">Order of Growth</h2>
 <p><strong>Order of Growth</strong>: how fast the <code>cost</code> grows as <code>problem size</code> <span class="math inline">\(N\)</span> grows</p>
-<p>If we classify algorithms by that, we will get these categories:</p>
+<p>If we classify algorithms by this standard, we will get following categories:</p>
 <table>
 <thead>
 <tr class="header">
@@ -62,13 +62,15 @@ C = \sum p_i c_i
 </table>
 <img src="/2021/09/17/Analysis-of-Algorithms/order-of-growth.png" class="" width="600" title="order-of-growth">
 <div class="note warning"><p>Order of growth discards leading coefficient.<br />
-<span class="math inline">\(2N\)</span> is not order of growth.</p>
+</p>
+<p><span class="math inline">\(2N\)</span> is not an order of growth.</p>
 </div>
 <h1 id="tilde-notation">Tilde Notation</h1>
 <p>We use <span class="math inline">\(f(N)\sim g(N)\)</span> when there stands: <span class="math display">\[
 \lim_{N\to\infty}{f(N)\over g(N)} = 1
 \]</span></p>
-<p>Example: <span class="math inline">\(f(N)=2N^2+\log N+1\)</span>, then <span class="math inline">\(f(N)\sim 2N^2\)</span></p>
+<div class="note info"><p><u><em>e.g.</em></u> <span class="math inline">\(f(N)=2N^2+\log N+1\)</span>, then <span class="math inline">\(f(N)\sim 2N^2\)</span></p>
+</div>
 <h1 id="big-oh-notation">Big-Oh Notation</h1>
 <table>
 <colgroup>
@@ -114,18 +116,40 @@ C = \sum p_i c_i
 <p>Think of it as the <code>necessary</code> cost.</p>
 <p>That is, whatever algorithm you might use, however simple it is, it will cost you <em>at least</em> this much. Less cost? Not possible! Or you won't be able to finish your job!</p></li>
 </ul>
-<p>Your mission is to find a lower <em>upper bound</em> and a possibly higher <em>lower bound</em>, by changing the algorithm.</p>
-<p>When you get the narrowest range, look at the algorithm you're using, it's optimal.</p>
+<p>Your mission is to find a lower <u><em>upper bound</em></u> and a possibly higher <u><em>lower bound</em></u>, by using another algorithm.</p>
+<p>When you get the narrowest gap, look at the algorithm you're using, it's optimal.</p>
+]]></content>
+      <categories>
+        <category>Algorithms</category>
+        <category>Theory</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Stack, Queue and Bag</title>
+    <url>/2021/09/17/Stack-Queue-Bag/</url>
+    <content><![CDATA[<h1 id="interface-and-data-type">Interface and Data Type</h1>
+<h2 id="interface">Interface</h2>
+<p>You can also call it <strong>API</strong> or <strong>ADT</strong>.</p>
+<p>It emphasizes:</p>
+<ul>
+<li>what data to store</li>
+<li>what operation available</li>
+</ul>
+<h2 id="data-type">Data Type</h2>
+<p>It emphasizes:</p>
+<ul>
+<li>how to store data</li>
+<li>how to do operations, i.e. implementing algorithms</li>
+</ul>
+<h1 id="stack">Stack</h1>
+<p><a href="%22First%20in,%20Last%20out%22">FILO</a> or <a href="%22Last%20in,%20First%20out%22">LIFO</a>.</p>
+<h1 id="queue">Queue</h1>
+<p>First in, First out.</p>
+<h1 id="bag">Bag</h1>
 ]]></content>
       <categories>
         <category>Algorithms</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Stack</title>
-    <url>/2021/09/17/Stack-and-Queue/</url>
-    <content><![CDATA[
-]]></content>
   </entry>
   <entry>
     <title>Union-Find</title>
@@ -212,18 +236,18 @@ C = \sum p_i c_i
 ]]></content>
   </entry>
   <entry>
-    <title>About Me</title>
-    <url>/about/me.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>About</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p>Hello! This is <strong><em>Olivier Jeannin</em></strong>'s blog. I hope you have all been doing well today.</p>
 <p>If you are interested in who I am, you can see <a href="me.html" title="about me">this page</a>.</p>
 <p>If you want to know what this blog is about, please <a href="blog.html" title="about this blog">click here</a>.</p>
 <p>Hope you enjoy my blog ;D</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>About Me</title>
+    <url>/about/me.html</url>
+    <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
