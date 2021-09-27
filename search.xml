@@ -212,7 +212,7 @@ T(N)=
 <li>Add an element</li>
 </ul>
 <h2 id="implementation-2">Implementation</h2>
-<p>A bag is just a stack without pop, or a queue without dequeue. I'm sure you'll figure it out. : )</p>
+<p>A bag is just a stack without pop, or a queue without dequeue. I'm sure you can figure it out easily. : )</p>
 ]]></content>
       <categories>
         <category>Data Structures</category>
@@ -332,12 +332,6 @@ T(N)=
 ]]></content>
   </entry>
   <entry>
-    <title>Caprices</title>
-    <url>/caprices/index.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>Categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[
@@ -346,6 +340,12 @@ T(N)=
   <entry>
     <title>Tags</title>
     <url>/tags/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>Caprices</title>
+    <url>/caprices/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
