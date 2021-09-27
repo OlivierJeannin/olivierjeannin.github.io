@@ -3,7 +3,7 @@ title: Analysis of Algorithms
 date: 2021-09-17 18:35:30
 tags:
 categories:
-  - [Algorithms]
+  - [Algorithms, Theory]
 description: A brief introduction on cost of algorithms, order of growth, Tilde and Big-Oh notations, and optimal algorithm.
 ---
 
@@ -38,7 +38,7 @@ In this way, we get *simpler* version of cost, without ignoring too much importa
 
 **Order of Growth**: how fast the `cost` grows as `problem size` $N$ grows
 
-If we classify algorithms by that, we will get these categories:
+If we classify algorithms by this standard, we will get following categories:
 
 |  Description   | Order of Growth |
 | :------------: | :-------------: |
@@ -53,8 +53,11 @@ If we classify algorithms by that, we will get these categories:
 {% asset_img order-of-growth.png 600 "order-of-growth" %}
 
 {% note warning %}
+
 Order of growth discards leading coefficient. \
-$2N$ is not order of growth.
+
+$2N$ is not an order of growth.
+
 {% endnote %}
 
 # Tilde Notation
@@ -64,7 +67,11 @@ $$
 \lim_{N\to\infty}{f(N)\over g(N)} = 1
 $$
 
-Example: $f(N)=2N^2+\log N+1$, then $f(N)\sim 2N^2$
+{% note info %}
+
+<u>*e.g.*</u> $f(N)=2N^2+\log N+1$, then $f(N)\sim 2N^2$
+
+{% endnote %}
 
 # Big-Oh Notation
 
@@ -92,6 +99,6 @@ The **`upper bound`** should be as close as possible with **`lower bound`**.
 
   That is, whatever algorithm you might use, however simple it is, it will cost you *at least* this much. Less cost? Not possible! Or you won't be able to finish your job!
 
-Your mission is to find a lower *upper bound* and a possibly higher *lower bound*, by changing the algorithm.
+Your mission is to find a lower <u>*upper bound*</u> and a possibly higher <u>*lower bound*</u>, by using another algorithm.
 
-When you get the narrowest range, look at the algorithm you're using, it's optimal.
+When you get the narrowest gap, look at the algorithm you're using, it's optimal.

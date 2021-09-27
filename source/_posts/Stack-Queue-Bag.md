@@ -1,0 +1,153 @@
+---
+title: Stack, Queue and Bag
+date: 2021-09-17 18:35:45
+tags:
+categories:
+ - [Data Structures]
+description: Short brief about interface and data structure. We can use either linked list or resizing array to implement Stack, Queue, and Bag.
+---
+
+# Interface and Data Structure
+
+## Interface
+
+You can also call it **API** or **ADT**.
+
+It emphasizes **`What`**:
+
+- *data* to store
+- *operations* are available
+
+## Data Structure
+
+It focuses on **`How To`**:
+
+- store *data*
+
+- do *operations*, i.e. implement *algorithms*
+
+# Stack
+
+[FILO](<> "First In, Last Out") / [LIFO](<> "Last In, First Out").
+
+{% asset_img stack.png 200 280 "Stack" %}
+
+## API
+
+- Create a stack
+- Push (add an element)
+- Pop (remove an element)
+
+## Implementation
+
+### Linked List
+
+{% asset_img stack-linked-list.png 200 400 "Stack by Linked List" %}
+
+Each node in linked list:
+
+```pseudocode
+Node {
+	DataType data;
+	Node next;
+}
+```
+
+{% tabs LinkedList %}
+
+<!-- tab Advantages -->
+
+- Quick to add & delete
+
+<!-- endtab -->
+
+<!-- tab Drawbacks -->
+
+- Not so easy to access the element you want (may need linear time)
+
+<!-- endtab -->
+
+{% endtabs %}
+
+Cost:
+
+$$
+\begin{gather*}
+T(N)=O(1)\\
+S(N)=\Theta (N)
+\end{gather*}
+$$
+
+### Resizing Array
+
+{% asset_img stack-resizing-array.png 300 150 "Stack by Resizing Array" %}
+
+Resizing:
+
+- `Double` the length when array is ***full***
+- `Halve` the length when array is ***1/4 full***
+
+{% tabs Resizing Array %}
+
+<!-- tab Advantages -->
+
+- Quick to access every element (constant time)
+
+<!-- endtab -->
+
+<!-- tab Drawbacks -->
+
+- Resizing is expensive when $N$ is large, because you must copy all existing elements to the new array
+- To save space, you have to rewind `tail` pointer when `head` is not at position 0
+
+<!-- endtab -->
+
+{% endtabs %}
+
+Cost:
+
+$$
+T(N)=
+\begin{cases}
+\Theta (1),&\text{best},\\
+\Theta (N),&\text{worst},\\
+\Theta (1),&\text{amortized},
+\end{cases}
+$$
+
+# Queue
+
+[FIFO](<> "First In, First Out").
+
+{% asset_img queue.png 400 100 "Queue" %}
+
+## API
+
+- Create a queue
+- Enqueue / add
+- Dequeue / remove
+
+## Implementation
+
+### Linked List
+
+{% asset_img queue-linked-list.png 640 160 "Queue by Linked List" %}
+
+### Resizing Array
+
+{% asset_img queue-resizing-array.png 300 150 "Queue by Resizing Array" %}
+
+# Bag
+
+No order, no out, just in.
+
+{% asset_img bag.png 200 280 "Bag" %}
+
+## API
+
+- Create a bag
+- Add an element
+
+## Implementation
+
+A bag is just a stack without pop, or a queue without dequeue. I'm sure you can figure it out easily. : )
