@@ -156,9 +156,9 @@ C = \sum p_i c_i
 <p>Each node in linked list:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Node &#123;</span><br><span class="line">	DataType data;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <div class="tabs" id="linkedlist"><ul class="nav-tabs"><li class="tab active"><a href="#linkedlist-1">Advantages</a></li><li class="tab"><a href="#linkedlist-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linkedlist-1"><ul>
-<li>quick to add &amp; delete</li>
+<li>Quick to add &amp; delete</li>
 </ul></div><div class="tab-pane" id="linkedlist-2"><ul>
-<li>not so easy to access every element (may need linear time)</li>
+<li>Not so easy to access the element you want (may need linear time)</li>
 </ul></div></div></div>
 <p>Cost:</p>
 <p><span class="math display">\[
@@ -175,10 +175,10 @@ S(N)=\Theta (N)
 <li><code>Halve</code> the length when array is <strong><em>1/4 full</em></strong></li>
 </ul>
 <div class="tabs" id="resizing-array"><ul class="nav-tabs"><li class="tab active"><a href="#resizing-array-1">Advantages</a></li><li class="tab"><a href="#resizing-array-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resizing-array-1"><ul>
-<li>quick to access every element (constant time)</li>
+<li>Quick to access every element (constant time)</li>
 </ul></div><div class="tab-pane" id="resizing-array-2"><ul>
-<li>resizing is expensive when <span class="math inline">\(N\)</span> is large, because you must copy all existing elements to the new array</li>
-<li>you have to rewind <code>tail</code> pointer when <code>head</code> is not at position 0</li>
+<li>Resizing is expensive when <span class="math inline">\(N\)</span> is large, because you must copy all existing elements to the new array</li>
+<li>To save space, you have to rewind <code>tail</code> pointer when <code>head</code> is not at position 0</li>
 </ul></div></div></div>
 <p>Cost:</p>
 <p><span class="math display">\[
@@ -192,7 +192,7 @@ T(N)=
 <h1 id="queue">Queue</h1>
 <p><a href="" title="First In, First Out">FIFO</a>.</p>
 <img src="/2021/09/17/Stack-Queue-Bag/queue.png" class="" width="400" height="100" title="Queue">
-<h2 id="queue-api">Queue API</h2>
+<h2 id="api-1">API</h2>
 <ul>
 <li>Create a queue</li>
 <li>Enqueue / add</li>
@@ -206,7 +206,7 @@ T(N)=
 <h1 id="bag">Bag</h1>
 <p>No order, no out, just in.</p>
 <img src="/2021/09/17/Stack-Queue-Bag/bag.png" class="" width="200" height="280" title="Bag">
-<h2 id="bag-api">Bag API</h2>
+<h2 id="api-2">API</h2>
 <ul>
 <li>Create a bag</li>
 <li>Add an element</li>
@@ -332,8 +332,8 @@ T(N)=
 ]]></content>
   </entry>
   <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
+    <title>Caprices</title>
+    <url>/caprices/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
@@ -344,8 +344,8 @@ T(N)=
 ]]></content>
   </entry>
   <entry>
-    <title>Caprices</title>
-    <url>/caprices/index.html</url>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>

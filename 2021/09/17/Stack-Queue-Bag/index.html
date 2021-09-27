@@ -20,12 +20,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"olivierjeannin","root":"/","images":"/images","scheme":"Muse","version":"8.7.1","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"width":300},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Brief about interface and data structure. We can use either linked list or resizing array to implemnet Stack, Queue, and Bag.">
+<meta name="description" content="Short brief about interface and data structure. We can use either linked list or resizing array to implement Stack, Queue, and Bag.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stack, Queue and Bag">
 <meta property="og:url" content="https://olivierjeannin/olivierjeannin.github.io/2021/09/17/Stack-Queue-Bag/index.html">
 <meta property="og:site_name" content="Orion">
-<meta property="og:description" content="Brief about interface and data structure. We can use either linked list or resizing array to implemnet Stack, Queue, and Bag.">
+<meta property="og:description" content="Short brief about interface and data structure. We can use either linked list or resizing array to implement Stack, Queue, and Bag.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack.png">
 <meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack-linked-list.png">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/queue-resizing-array.png">
 <meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/bag.png">
 <meta property="article:published_time" content="2021-09-17T10:35:45.000Z">
-<meta property="article:modified_time" content="2021-09-27T12:23:14.875Z">
+<meta property="article:modified_time" content="2021-09-27T12:29:33.279Z">
 <meta property="article:author" content="雅言栖霞">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack.png">
@@ -156,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#interface-and-data-structure"><span class="nav-number">1.</span> <span class="nav-text">Interface and Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#interface"><span class="nav-number">1.1.</span> <span class="nav-text">Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-structure"><span class="nav-number">1.2.</span> <span class="nav-text">Data Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stack"><span class="nav-number">2.</span> <span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#api"><span class="nav-number">2.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation"><span class="nav-number">2.2.</span> <span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linked-list"><span class="nav-number">2.2.1.</span> <span class="nav-text">Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-array"><span class="nav-number">2.2.2.</span> <span class="nav-text">Resizing Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#queue"><span class="nav-number">3.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#queue-api"><span class="nav-number">3.1.</span> <span class="nav-text">Queue API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-1"><span class="nav-number">3.2.</span> <span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linked-list-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-array-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">Resizing Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bag"><span class="nav-number">4.</span> <span class="nav-text">Bag</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bag-api"><span class="nav-number">4.1.</span> <span class="nav-text">Bag API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-2"><span class="nav-number">4.2.</span> <span class="nav-text">Implementation</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#interface-and-data-structure"><span class="nav-number">1.</span> <span class="nav-text">Interface and Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#interface"><span class="nav-number">1.1.</span> <span class="nav-text">Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-structure"><span class="nav-number">1.2.</span> <span class="nav-text">Data Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stack"><span class="nav-number">2.</span> <span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#api"><span class="nav-number">2.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation"><span class="nav-number">2.2.</span> <span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linked-list"><span class="nav-number">2.2.1.</span> <span class="nav-text">Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-array"><span class="nav-number">2.2.2.</span> <span class="nav-text">Resizing Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#queue"><span class="nav-number">3.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#api-1"><span class="nav-number">3.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-1"><span class="nav-number">3.2.</span> <span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linked-list-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-array-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">Resizing Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bag"><span class="nav-number">4.</span> <span class="nav-text">Bag</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#api-2"><span class="nav-number">4.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-2"><span class="nav-number">4.2.</span> <span class="nav-text">Implementation</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -254,7 +254,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-27 20:23:14" itemprop="dateModified" datetime="2021-09-27T20:23:14+08:00">2021-09-27</time>
+        <time title="Modified: 2021-09-27 20:29:33" itemprop="dateModified" datetime="2021-09-27T20:29:33+08:00">2021-09-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -269,7 +269,7 @@
   
 </div>
 
-            <div class="post-description">Brief about interface and data structure. We can use either linked list or resizing array to implemnet Stack, Queue, and Bag.</div>
+            <div class="post-description">Short brief about interface and data structure. We can use either linked list or resizing array to implement Stack, Queue, and Bag.</div>
         </div>
       </header>
 
@@ -306,9 +306,9 @@
 <p>Each node in linked list:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Node &#123;</span><br><span class="line">	DataType data;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <div class="tabs" id="linkedlist"><ul class="nav-tabs"><li class="tab active"><a href="#linkedlist-1">Advantages</a></li><li class="tab"><a href="#linkedlist-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linkedlist-1"><ul>
-<li>quick to add &amp; delete</li>
+<li>Quick to add &amp; delete</li>
 </ul></div><div class="tab-pane" id="linkedlist-2"><ul>
-<li>not so easy to access every element (may need linear time)</li>
+<li>Not so easy to access the element you want (may need linear time)</li>
 </ul></div></div></div>
 <p>Cost:</p>
 <p><span class="math display">\[
@@ -325,10 +325,10 @@ S(N)=\Theta (N)
 <li><code>Halve</code> the length when array is <strong><em>1/4 full</em></strong></li>
 </ul>
 <div class="tabs" id="resizing-array"><ul class="nav-tabs"><li class="tab active"><a href="#resizing-array-1">Advantages</a></li><li class="tab"><a href="#resizing-array-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resizing-array-1"><ul>
-<li>quick to access every element (constant time)</li>
+<li>Quick to access every element (constant time)</li>
 </ul></div><div class="tab-pane" id="resizing-array-2"><ul>
-<li>resizing is expensive when <span class="math inline">\(N\)</span> is large, because you must copy all existing elements to the new array</li>
-<li>you have to rewind <code>tail</code> pointer when <code>head</code> is not at position 0</li>
+<li>Resizing is expensive when <span class="math inline">\(N\)</span> is large, because you must copy all existing elements to the new array</li>
+<li>To save space, you have to rewind <code>tail</code> pointer when <code>head</code> is not at position 0</li>
 </ul></div></div></div>
 <p>Cost:</p>
 <p><span class="math display">\[
@@ -342,7 +342,7 @@ T(N)=
 <h1 id="queue">Queue</h1>
 <p><a href="" title="First In, First Out">FIFO</a>.</p>
 <img src="/2021/09/17/Stack-Queue-Bag/queue.png" class="" width="400" height="100" title="Queue">
-<h2 id="queue-api">Queue API</h2>
+<h2 id="api-1">API</h2>
 <ul>
 <li>Create a queue</li>
 <li>Enqueue / add</li>
@@ -356,7 +356,7 @@ T(N)=
 <h1 id="bag">Bag</h1>
 <p>No order, no out, just in.</p>
 <img src="/2021/09/17/Stack-Queue-Bag/bag.png" class="" width="200" height="280" title="Bag">
-<h2 id="bag-api">Bag API</h2>
+<h2 id="api-2">API</h2>
 <ul>
 <li>Create a bag</li>
 <li>Add an element</li>
