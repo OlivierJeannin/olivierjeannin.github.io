@@ -20,35 +20,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"olivierjeannin","root":"/","images":"/images","scheme":"Muse","version":"8.7.1","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"width":300},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Short brief about interface and data structure. We can use either linked list or resizing array to implement Stack, Queue, and Bag.">
+<meta name="description" content="A brief introduction on cost of algorithms, order of growth, Tilde and Big-Oh notations, and optimal algorithm.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Stack, Queue and Bag">
-<meta property="og:url" content="https://olivierjeannin/olivierjeannin.github.io/2021/09/17/Stack-Queue-Bag/index.html">
+<meta property="og:title" content="Analysis of Algorithms">
+<meta property="og:url" content="https://olivierjeannin/olivierjeannin.github.io/2021/09/17/analysis-of-algorithms/index.html">
 <meta property="og:site_name" content="Orion">
-<meta property="og:description" content="Short brief about interface and data structure. We can use either linked list or resizing array to implement Stack, Queue, and Bag.">
+<meta property="og:description" content="A brief introduction on cost of algorithms, order of growth, Tilde and Big-Oh notations, and optimal algorithm.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack.png">
-<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack-linked-list.png">
-<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack-resizing-array.png">
-<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/queue.png">
-<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/queue-linked-list.png">
-<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/queue-resizing-array.png">
-<meta property="og:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/bag.png">
-<meta property="article:published_time" content="2021-09-17T10:35:45.000Z">
-<meta property="article:modified_time" content="2021-09-27T12:29:33.279Z">
+<meta property="og:image" content="https://olivierjeannin/2021/09/17/analysis-of-algorithms/order-of-growth.png">
+<meta property="article:published_time" content="2021-09-17T10:35:30.000Z">
+<meta property="article:modified_time" content="2021-09-27T01:20:22.227Z">
 <meta property="article:author" content="雅言栖霞">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://olivierjeannin/2021/09/17/Stack-Queue-Bag/stack.png">
+<meta name="twitter:image" content="https://olivierjeannin/2021/09/17/analysis-of-algorithms/order-of-growth.png">
 
 
-<link rel="canonical" href="https://olivierjeannin/olivierjeannin.github.io/2021/09/17/Stack-Queue-Bag/">
+<link rel="canonical" href="https://olivierjeannin/olivierjeannin.github.io/2021/09/17/analysis-of-algorithms/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://olivierjeannin/olivierjeannin.github.io/2021/09/17/Stack-Queue-Bag/","path":"2021/09/17/Stack-Queue-Bag/","title":"Stack, Queue and Bag"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://olivierjeannin/olivierjeannin.github.io/2021/09/17/analysis-of-algorithms/","path":"2021/09/17/analysis-of-algorithms/","title":"Analysis of Algorithms"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Stack, Queue and Bag | Orion</title>
+<title>Analysis of Algorithms | Orion</title>
   
 
 
@@ -156,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#interface-and-data-structure"><span class="nav-number">1.</span> <span class="nav-text">Interface and Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#interface"><span class="nav-number">1.1.</span> <span class="nav-text">Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-structure"><span class="nav-number">1.2.</span> <span class="nav-text">Data Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stack"><span class="nav-number">2.</span> <span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#api"><span class="nav-number">2.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation"><span class="nav-number">2.2.</span> <span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linked-list"><span class="nav-number">2.2.1.</span> <span class="nav-text">Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-array"><span class="nav-number">2.2.2.</span> <span class="nav-text">Resizing Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#queue"><span class="nav-number">3.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#api-1"><span class="nav-number">3.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-1"><span class="nav-number">3.2.</span> <span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linked-list-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-array-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">Resizing Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bag"><span class="nav-number">4.</span> <span class="nav-text">Bag</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#api-2"><span class="nav-number">4.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-2"><span class="nav-number">4.2.</span> <span class="nav-text">Implementation</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cost-of-an-algorithm"><span class="nav-number">1.</span> <span class="nav-text">Cost of an Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#total-cost"><span class="nav-number">1.1.</span> <span class="nav-text">Total Cost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#simplification"><span class="nav-number">1.2.</span> <span class="nav-text">Simplification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#order-of-growth"><span class="nav-number">1.3.</span> <span class="nav-text">Order of Growth</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tilde-notation"><span class="nav-number">2.</span> <span class="nav-text">Tilde Notation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#big-oh-notation"><span class="nav-number">3.</span> <span class="nav-text">Big-Oh Notation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#optimal-algorithm"><span class="nav-number">4.</span> <span class="nav-text">Optimal Algorithm</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -172,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -223,7 +217,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://olivierjeannin/olivierjeannin.github.io/2021/09/17/Stack-Queue-Bag/">
+    <link itemprop="mainEntityOfPage" href="https://olivierjeannin/olivierjeannin.github.io/2021/09/17/analysis-of-algorithms/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/avatar.jpeg">
@@ -236,7 +230,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Stack, Queue and Bag
+          Analysis of Algorithms
         </h1>
 
         <div class="post-meta-container">
@@ -247,14 +241,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-09-17 18:35:45" itemprop="dateCreated datePublished" datetime="2021-09-17T18:35:45+08:00">2021-09-17</time>
+      <time title="Created: 2021-09-17 18:35:30" itemprop="dateCreated datePublished" datetime="2021-09-17T18:35:30+08:00">2021-09-17</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-27 20:29:33" itemprop="dateModified" datetime="2021-09-27T20:29:33+08:00">2021-09-27</time>
+        <time title="Modified: 2021-09-27 09:20:22" itemprop="dateModified" datetime="2021-09-27T09:20:22+08:00">2021-09-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -262,14 +256,18 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Data-Structures/" itemprop="url" rel="index"><span itemprop="name">Data Structures</span></a>
+          <a href="/categories/Algorithms/" itemprop="url" rel="index"><span itemprop="name">Algorithms</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithms/Theory/" itemprop="url" rel="index"><span itemprop="name">Theory</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">Short brief about interface and data structure. We can use either linked list or resizing array to implement Stack, Queue, and Bag.</div>
+            <div class="post-description">A brief introduction on cost of algorithms, order of growth, Tilde and Big-Oh notations, and optimal algorithm.</div>
         </div>
       </header>
 
@@ -277,92 +275,121 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="interface-and-data-structure">Interface and Data Structure</h1>
-<h2 id="interface">Interface</h2>
-<p>You can also call it <strong>API</strong> or <strong>ADT</strong>.</p>
-<p>It emphasizes <strong><code>What</code></strong>:</p>
-<ul>
-<li><em>data</em> to store</li>
-<li><em>operations</em> are available</li>
-</ul>
-<h2 id="data-structure">Data Structure</h2>
-<p>It focuses on <strong><code>How To</code></strong>:</p>
-<ul>
-<li><p>store <em>data</em></p></li>
-<li><p>do <em>operations</em>, i.e. implement <em>algorithms</em></p></li>
-</ul>
-<h1 id="stack">Stack</h1>
-<p><a href="" title="First In, Last Out">FILO</a> / <a href="" title="Last In, First Out">LIFO</a>.</p>
-<img src="/2021/09/17/Stack-Queue-Bag/stack.png" class="" width="200" height="280" title="Stack">
-<h2 id="api">API</h2>
-<ul>
-<li>Create a stack</li>
-<li>Push (add an element)</li>
-<li>Pop (remove an element)</li>
-</ul>
-<h2 id="implementation">Implementation</h2>
-<h3 id="linked-list">Linked List</h3>
-<img src="/2021/09/17/Stack-Queue-Bag/stack-linked-list.png" class="" width="200" height="400" title="Stack by Linked List">
-<p>Each node in linked list:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Node &#123;</span><br><span class="line">	DataType data;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="tabs" id="linkedlist"><ul class="nav-tabs"><li class="tab active"><a href="#linkedlist-1">Advantages</a></li><li class="tab"><a href="#linkedlist-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linkedlist-1"><ul>
-<li>Quick to add &amp; delete</li>
-</ul></div><div class="tab-pane" id="linkedlist-2"><ul>
-<li>Not so easy to access the element you want (may need linear time)</li>
-</ul></div></div></div>
-<p>Cost:</p>
-<p><span class="math display">\[
-\begin{gather*}
-T(N)=O(1)\\
-S(N)=\Theta (N)
-\end{gather*}
+        <h1 id="cost-of-an-algorithm">Cost of an Algorithm</h1>
+<h2 id="total-cost">Total Cost</h2>
+<p>The total cost of an algorithm <span class="math inline">\(C\)</span> is based on probability: <span class="math display">\[
+C = \sum p_i c_i
 \]</span></p>
-<h3 id="resizing-array">Resizing Array</h3>
-<img src="/2021/09/17/Stack-Queue-Bag/stack-resizing-array.png" class="" width="300" height="150" title="Stack by Resizing Array">
-<p>Resizing:</p>
-<ul>
-<li><code>Double</code> the length when array is <strong><em>full</em></strong></li>
-<li><code>Halve</code> the length when array is <strong><em>1/4 full</em></strong></li>
-</ul>
-<div class="tabs" id="resizing-array"><ul class="nav-tabs"><li class="tab active"><a href="#resizing-array-1">Advantages</a></li><li class="tab"><a href="#resizing-array-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resizing-array-1"><ul>
-<li>Quick to access every element (constant time)</li>
-</ul></div><div class="tab-pane" id="resizing-array-2"><ul>
-<li>Resizing is expensive when <span class="math inline">\(N\)</span> is large, because you must copy all existing elements to the new array</li>
-<li>To save space, you have to rewind <code>tail</code> pointer when <code>head</code> is not at position 0</li>
-</ul></div></div></div>
-<p>Cost:</p>
-<p><span class="math display">\[
-T(N)=
-\begin{cases}
-\Theta (1),&amp;\text{best},\\
-\Theta (N),&amp;\text{worst},\\
-\Theta (1),&amp;\text{amortized},
-\end{cases}
+<p><span class="math inline">\(p_i\)</span>: probability for case <span class="math inline">\(i\)</span> to happen</p>
+<p><span class="math inline">\(c_i\)</span>: cost of algorithm when case <span class="math inline">\(i\)</span> happens</p>
+<h2 id="simplification">Simplification</h2>
+<p>In practise, when analysize algorithms, we will basically only consider:</p>
+<ol type="1">
+<li><p>the <strong><code>most consumable steps</code></strong> in an algorithm</p>
+<p>e.g. we focus on conditions, loops, etc. and neglect time initializing variables.</p></li>
+<li><p>the <strong><code>most significant partitions</code></strong> of total cost</p>
+<p>e.g. when we get a total cost of <span class="math inline">\(N^2+2N+3\)</span>, we focus on the <span class="math inline">\(N^2\)</span> part and drop those behind it.</p></li>
+</ol>
+<p>In this way, we get <em>simpler</em> version of cost, without ignoring too much important things.</p>
+<h2 id="order-of-growth">Order of Growth</h2>
+<p><strong>Order of Growth</strong>: how fast the <code>cost</code> grows as <code>problem size</code> <span class="math inline">\(N\)</span> grows</p>
+<p>If we classify algorithms by this standard, we will get following categories:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Order of Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><em>Constant</em></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>Logarithmic</em></td>
+<td style="text-align: center;"><span class="math inline">\(\log N\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><em>Linear</em></td>
+<td style="text-align: center;"><span class="math inline">\(N\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>Linearithmic</em></td>
+<td style="text-align: center;"><span class="math inline">\(N\log N\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><em>Quadratic</em></td>
+<td style="text-align: center;"><span class="math inline">\(N^2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>Cubic</em></td>
+<td style="text-align: center;"><span class="math inline">\(N^3\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><em>Exponential</em></td>
+<td style="text-align: center;"><span class="math inline">\(2^N\)</span></td>
+</tr>
+</tbody>
+</table>
+<img src="/2021/09/17/analysis-of-algorithms/order-of-growth.png" class="" width="600" title="order-of-growth">
+<div class="note warning"><p>Order of growth discards leading coefficient.<br />
+</p>
+<p><span class="math inline">\(2N\)</span> is not an order of growth.</p>
+</div>
+<h1 id="tilde-notation">Tilde Notation</h1>
+<p>We use <span class="math inline">\(f(N)\sim g(N)\)</span> when there stands: <span class="math display">\[
+\lim_{N\to\infty}{f(N)\over g(N)} = 1
 \]</span></p>
-<h1 id="queue">Queue</h1>
-<p><a href="" title="First In, First Out">FIFO</a>.</p>
-<img src="/2021/09/17/Stack-Queue-Bag/queue.png" class="" width="400" height="100" title="Queue">
-<h2 id="api-1">API</h2>
+<div class="note info"><p><u><em>e.g.</em></u> <span class="math inline">\(f(N)=2N^2+\log N+1\)</span>, then <span class="math inline">\(f(N)\sim 2N^2\)</span></p>
+</div>
+<h1 id="big-oh-notation">Big-Oh Notation</h1>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 46%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Notation</th>
+<th style="text-align: center;">Definition</th>
+<th style="text-align: center;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T(N)\sim O(f(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists n_0:\ N\geq n_0,\ T(N)\leq cf(N)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(N)\)</span> is <strong>upper bound</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T(N)\sim\Omega(g(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists n_1:\ N\geq n_1,\ T(N)\geq cg(N)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(g(N)\)</span> is <strong>lower bound</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T(N)\sim\Theta(h(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T(N)\sim O(h(N))\)</span> and <span class="math inline">\(T(N)\sim\Omega(h(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(h(N)\)</span> is <strong>order of growth</strong></td>
+</tr>
+</tbody>
+</table>
+<h1 id="optimal-algorithm">Optimal Algorithm</h1>
+<p>The <strong><code>upper bound</code></strong> should be as close as possible with <strong><code>lower bound</code></strong>.</p>
 <ul>
-<li>Create a queue</li>
-<li>Enqueue / add</li>
-<li>Dequeue / remove</li>
+<li><p>Upper Bound</p>
+<ol type="1">
+<li><p>Find a <em>known</em> algorithm whose cost is <span class="math inline">\(t(N)\)</span>,</p></li>
+<li><p>then we know the cost of <em>optimal algorithm</em> is bound to be <span class="math inline">\(T(N)\sim O(t(N))\)</span>,</p></li>
+</ol>
+<p>Why is that? Because the <em>optimal algorithm</em> is <code>optimal</code>. Its cost should be lower than <span class="math inline">\(t(N)\)</span>.</p></li>
+<li><p>Lower Bound</p>
+<p>Think of it as the <code>necessary</code> cost.</p>
+<p>That is, whatever algorithm you might use, however simple it is, it will cost you <em>at least</em> this much. Less cost? Not possible! Or you won't be able to finish your job!</p></li>
 </ul>
-<h2 id="implementation-1">Implementation</h2>
-<h3 id="linked-list-1">Linked List</h3>
-<img src="/2021/09/17/Stack-Queue-Bag/queue-linked-list.png" class="" width="640" height="160" title="Queue by Linked List">
-<h3 id="resizing-array-1">Resizing Array</h3>
-<img src="/2021/09/17/Stack-Queue-Bag/queue-resizing-array.png" class="" width="300" height="150" title="Queue by Resizing Array">
-<h1 id="bag">Bag</h1>
-<p>No order, no out, just in.</p>
-<img src="/2021/09/17/Stack-Queue-Bag/bag.png" class="" width="200" height="280" title="Bag">
-<h2 id="api-2">API</h2>
-<ul>
-<li>Create a bag</li>
-<li>Add an element</li>
-</ul>
-<h2 id="implementation-2">Implementation</h2>
-<p>A bag is just a stack without pop, or a queue without dequeue. I'm sure you can figure it out easily. : )</p>
+<p>Your mission is to find a lower <u><em>upper bound</em></u> and a possibly higher <u><em>lower bound</em></u>, by using another algorithm.</p>
+<p>When you get the narrowest gap, look at the algorithm you're using, it's optimal.</p>
 
     </div>
 
@@ -376,11 +403,14 @@ T(N)=
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/17/Analysis-of-Algorithms/" rel="prev" title="Analysis of Algorithms">
-                  <i class="fa fa-chevron-left"></i> Analysis of Algorithms
+                <a href="/2021/09/09/union-find/" rel="prev" title="Union-Find">
+                  <i class="fa fa-chevron-left"></i> Union-Find
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/09/17/stack-queue-bag/" rel="next" title="Stack, Queue and Bag">
+                  Stack, Queue and Bag <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

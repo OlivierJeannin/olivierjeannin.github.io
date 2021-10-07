@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Analysis of Algorithms</title>
-    <url>/2021/09/17/Analysis-of-Algorithms/</url>
+    <url>/2021/09/17/analysis-of-algorithms/</url>
     <content><![CDATA[<h1 id="cost-of-an-algorithm">Cost of an Algorithm</h1>
 <h2 id="total-cost">Total Cost</h2>
 <p>The total cost of an algorithm <span class="math inline">\(C\)</span> is based on probability: <span class="math display">\[
@@ -60,7 +60,7 @@ C = \sum p_i c_i
 </tr>
 </tbody>
 </table>
-<img src="/2021/09/17/Analysis-of-Algorithms/order-of-growth.png" class="" width="600" title="order-of-growth">
+<img src="/2021/09/17/analysis-of-algorithms/order-of-growth.png" class="" width="600" title="order-of-growth">
 <div class="note warning"><p>Order of growth discards leading coefficient.<br />
 </p>
 <p><span class="math inline">\(2N\)</span> is not an order of growth.</p>
@@ -125,8 +125,67 @@ C = \sum p_i c_i
       </categories>
   </entry>
   <entry>
+    <title>How to Read a Book</title>
+    <url>/2021/10/07/how-to-read-a-book/</url>
+    <content><![CDATA[<pre class="mermaid">
+graph TD
+
+a[Overview] ---&gt; b[Question]
+
+b ---&gt; c[Read]
+
+c ---&gt; d[Note-Taking] --&gt; c
+
+d ---&gt; e[Recall] ---&gt; a
+
+e ---&gt; f[Review]
+
+</pre>
+<div class="note info"><p>Split the material into <strong><em>chunks</em></strong>.</p>
+<p>Finish the procedure for each chunk, then move on to the next chunk.</p>
+</div>
+<h1 id="skim-for-an-overview">Skim for an Overview</h1>
+<p>Look only at titles, subtitles, some keywords and probably summaries.</p>
+<p>The purpose is to get a whole overview of the material you are reading. Look, when you are in a new place, you can't expect to know where is where without a <em>lay</em> of it, can you?</p>
+<h1 id="ask-questions-on-the-topic">Ask Questions on the Topic</h1>
+<p>You must be curious about the topic!</p>
+<p>For those who are, questions are unstoppable. "Is he going to talk about that thing?"</p>
+<p>If it is not exciting to you, try to link it with something is. You may find that there are lots of usages of physics when playing baseball.</p>
+<p>You can write down these questions.</p>
+<h1 id="read">Read</h1>
+<p>Visualise information as much as possible.</p>
+<p>All texts are just a description of a series of phenomina, and you want to see them with your own eyes.</p>
+<h1 id="take-notes">Take Notes</h1>
+<ul>
+<li>Take notes after reading a whole paragraph to get the entire idea.</li>
+<li>Don't do it as a job. Do it for fun.</li>
+<li>Write whatever you want, e.g. short sumary of the idea, questions not answered, your observations, your opinion, etc.</li>
+</ul>
+<p>Notes are just tools to help you, not the purpose itself.</p>
+<p>When you totally focus on reading, your brain will automatically pick up the most important thing for you, so all you have to do is enjoy your reading and keep your flow.</p>
+<p>Don't worry about forgetting, because it's not the right time. It is <em>after</em> reading and note-taking when we'll check how much we remember and how we can memorise more.</p>
+<h1 id="recall">Recall</h1>
+<p>Don't look at the material, recall what you've just read and write a summary in your own words. Check how well you memorise.</p>
+<p>If you took your questions down as mentioned before, then you've got small quizzes to do the check! Go and take it!</p>
+<h1 id="review">Review</h1>
+<p>According to the Ebbinghaus Forgetting Curve, in first few days, you have to review what you learned every few hours every day. Then review them every few days, then every few weeks, then maybe never.</p>
+<p>The intensity is less, as you remember the same knowlegde better.</p>
+<details class="note info"><summary><p>A Few Things to Keep in Mind</p>
+</summary>
+<ol type="1">
+<li><p>Outline first, details second.</p></li>
+<li><p>Visualise while reading.</p></li>
+<li><p>Keep your notes in your own words.</p></li>
+<li><p>If you don't understand something you read, Ask Somebody. It may take you hours, but it takes only a word for those who know.</p></li>
+<li><p>Don't give up. You may think it slow to do so much work reading so little, but you'll find it saves you much more time when you have your notes without having to re-read the book all over again just to find that tiny bit of information you forgot. In fact, you'll learn so well that reviewing for exams will take you little time.</p></li>
+</ol>
+
+</details>
+]]></content>
+  </entry>
+  <entry>
     <title>Stack, Queue and Bag</title>
-    <url>/2021/09/17/Stack-Queue-Bag/</url>
+    <url>/2021/09/17/stack-queue-bag/</url>
     <content><![CDATA[<h1 id="interface-and-data-structure">Interface and Data Structure</h1>
 <h2 id="interface">Interface</h2>
 <p>You can also call it <strong>API</strong> or <strong>ADT</strong>.</p>
@@ -143,7 +202,7 @@ C = \sum p_i c_i
 </ul>
 <h1 id="stack">Stack</h1>
 <p><a href="" title="First In, Last Out">FILO</a> / <a href="" title="Last In, First Out">LIFO</a>.</p>
-<img src="/2021/09/17/Stack-Queue-Bag/stack.png" class="" width="200" height="280" title="Stack">
+<img src="/2021/09/17/stack-queue-bag/stack.png" class="" width="200" height="280" title="Stack">
 <h2 id="api">API</h2>
 <ul>
 <li>Create a stack</li>
@@ -152,7 +211,7 @@ C = \sum p_i c_i
 </ul>
 <h2 id="implementation">Implementation</h2>
 <h3 id="linked-list">Linked List</h3>
-<img src="/2021/09/17/Stack-Queue-Bag/stack-linked-list.png" class="" width="200" height="400" title="Stack by Linked List">
+<img src="/2021/09/17/stack-queue-bag/stack-linked-list.png" class="" width="200" height="400" title="Stack by Linked List">
 <p>Each node in linked list:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Node &#123;</span><br><span class="line">	DataType data;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <div class="tabs" id="linkedlist"><ul class="nav-tabs"><li class="tab active"><a href="#linkedlist-1">Advantages</a></li><li class="tab"><a href="#linkedlist-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linkedlist-1"><ul>
@@ -168,7 +227,7 @@ S(N)=\Theta (N)
 \end{gather*}
 \]</span></p>
 <h3 id="resizing-array">Resizing Array</h3>
-<img src="/2021/09/17/Stack-Queue-Bag/stack-resizing-array.png" class="" width="300" height="150" title="Stack by Resizing Array">
+<img src="/2021/09/17/stack-queue-bag/stack-resizing-array.png" class="" width="300" height="150" title="Stack by Resizing Array">
 <p>Resizing:</p>
 <ul>
 <li><code>Double</code> the length when array is <strong><em>full</em></strong></li>
@@ -191,7 +250,7 @@ T(N)=
 \]</span></p>
 <h1 id="queue">Queue</h1>
 <p><a href="" title="First In, First Out">FIFO</a>.</p>
-<img src="/2021/09/17/Stack-Queue-Bag/queue.png" class="" width="400" height="100" title="Queue">
+<img src="/2021/09/17/stack-queue-bag/queue.png" class="" width="400" height="100" title="Queue">
 <h2 id="api-1">API</h2>
 <ul>
 <li>Create a queue</li>
@@ -200,12 +259,12 @@ T(N)=
 </ul>
 <h2 id="implementation-1">Implementation</h2>
 <h3 id="linked-list-1">Linked List</h3>
-<img src="/2021/09/17/Stack-Queue-Bag/queue-linked-list.png" class="" width="640" height="160" title="Queue by Linked List">
+<img src="/2021/09/17/stack-queue-bag/queue-linked-list.png" class="" width="640" height="160" title="Queue by Linked List">
 <h3 id="resizing-array-1">Resizing Array</h3>
-<img src="/2021/09/17/Stack-Queue-Bag/queue-resizing-array.png" class="" width="300" height="150" title="Queue by Resizing Array">
+<img src="/2021/09/17/stack-queue-bag/queue-resizing-array.png" class="" width="300" height="150" title="Queue by Resizing Array">
 <h1 id="bag">Bag</h1>
 <p>No order, no out, just in.</p>
-<img src="/2021/09/17/Stack-Queue-Bag/bag.png" class="" width="200" height="280" title="Bag">
+<img src="/2021/09/17/stack-queue-bag/bag.png" class="" width="200" height="280" title="Bag">
 <h2 id="api-2">API</h2>
 <ul>
 <li>Create a bag</li>
@@ -220,7 +279,7 @@ T(N)=
   </entry>
   <entry>
     <title>Union-Find</title>
-    <url>/2021/09/09/Union-Find/</url>
+    <url>/2021/09/09/union-find/</url>
     <content><![CDATA[<h1 id="what-is-union-find-problem">What is Union-Find Problem</h1>
 <h2 id="connectivity">Connectivity</h2>
 <p><span class="math inline">\(a-b\)</span>: <span class="math inline">\(a\)</span> is connected with <span class="math inline">\(b\)</span></p>
@@ -232,7 +291,7 @@ T(N)=
 </ul>
 <h2 id="connected-component">Connected Component</h2>
 <p>A is a <code>connected component</code>: <span class="math inline">\(a\in{A},b\in{A} \iff a-b\)</span></p>
-<img src="/2021/09/09/Union-Find/connected-component.png" class="" title="3 Connected Components">
+<img src="/2021/09/09/union-find/connected-component.png" class="" title="3 Connected Components">
 <h2 id="union-find">Union-Find</h2>
 <p><span class="math inline">\(union(a,b)\)</span>: <code>connect</code> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></p>
 <p><span class="math inline">\(find(a,b)\)</span>: <code>check</code> if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are connected <em>(True/False)</em></p>
@@ -241,12 +300,12 @@ T(N)=
 <li><p><span class="math inline">\(union()\)</span> any <span class="math inline">\(N\)</span> objects <span class="math inline">\((N\to\infty)\)</span>, at any time</p></li>
 <li><p><span class="math inline">\({\forall}a,b,find(a,b)\)</span> at any time</p></li>
 </ol>
-<img src="/2021/09/09/Union-Find/union-find-problem.png" class="" width="250" height="462" title="Example">
+<img src="/2021/09/09/union-find/union-find-problem.png" class="" width="250" height="462" title="Example">
 <h1 id="algorithms">Algorithms</h1>
 <h2 id="quick-find">Quick Find</h2>
 <blockquote>
 <p>connected <span class="math inline">\(\Longleftrightarrow\)</span> same <strong>status</strong></p>
-<img src="/2021/09/09/Union-Find/quick-find.png" class="" width="584" height="300" title="Quick Find">
+<img src="/2021/09/09/union-find/quick-find.png" class="" width="584" height="300" title="Quick Find">
 </blockquote>
 <div class="tabs" id="quick-find"><ul class="nav-tabs"><li class="tab active"><a href="#quick-find-1">Data Structure</a></li><li class="tab"><a href="#quick-find-2">union(a,b)</a></li><li class="tab"><a href="#quick-find-3">find(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="quick-find-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // status of objects</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-2"><p>与 <span class="math inline">\(a\)</span> 状态相同的，都要改为 <span class="math inline">\(b\)</span> 的状态。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sa = arr[a];  // sataus of a</span><br><span class="line">sb = arr[b];</span><br><span class="line">foreach i in arr[]:</span><br><span class="line">	if (arr[i] == sa):  // every i connected with a</span><br><span class="line">		arr[i] = sb;  // connect i to b</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-3"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return arr[a] == arr[b];  // same status</span><br></pre></td></tr></table></figure></div></div></div>
@@ -254,7 +313,7 @@ T(N)=
 <blockquote>
 <p>A <code>connected component</code> is a <code>tree</code></p>
 <p>connected <span class="math inline">\(\Longleftrightarrow\)</span> same <strong>root</strong></p>
-<img src="/2021/09/09/Union-Find/quick-union.png" class="" width="600" height="400" title="Quick Union">
+<img src="/2021/09/09/union-find/quick-union.png" class="" width="600" height="400" title="Quick Union">
 </blockquote>
 <div class="tabs" id="quick-union"><ul class="nav-tabs"><li class="tab active"><a href="#quick-union-1">Data Structure</a></li><li class="tab"><a href="#quick-union-2">root(i)</a></li><li class="tab"><a href="#quick-union-3">union(a,b)</a></li><li class="tab"><a href="#quick-union-4">find(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="quick-union-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents of objects</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-union-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (i != arr[i]):  // not root</span><br><span class="line">	i = arr[i];  // go check parent</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-union-3"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">arr[ra] = rb;  // set rb as ra&#x27;s parent</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-union-4"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return root(a) == root(b);</span><br></pre></td></tr></table></figure></div></div></div>
 <h3 id="improvements-to-qu">Improvements to QU</h3>
@@ -264,11 +323,11 @@ T(N)=
 <h4 id="weighted-qu">Weighted QU</h4>
 <blockquote>
 <p>smaller tree goes to bigger tree</p>
-<img src="/2021/09/09/Union-Find/weighted-qu.png" class="" title="Weighted Quick-Union">
+<img src="/2021/09/09/union-find/weighted-qu.png" class="" title="Weighted Quick-Union">
 </blockquote>
 <div class="tabs" id="weighted-qu"><ul class="nav-tabs"><li class="tab active"><a href="#weighted-qu-1">Data Structure</a></li><li class="tab"><a href="#weighted-qu-2">union(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="weighted-qu-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents</span><br><span class="line">size[N];  // size of each tree whose root is i</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="300" height="375" title="size[9] &#x3D; 3, size[3] &#x3D; 8"></p></div><div class="tab-pane" id="weighted-qu-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">if (ra == rb): return;  // same root -&gt; connected -&gt; do nothing</span><br><span class="line">if (size[ra] &gt;= size[rb]):  // a&#x27;s tree is bigger</span><br><span class="line">	arr[rb] = ra;</span><br><span class="line">	size[ra] += size[rb];</span><br><span class="line">else:  // b&#x27;s tree is bigger</span><br><span class="line">	arr[ra] = rb;</span><br><span class="line">	size[rb] += size[ra];</span><br></pre></td></tr></table></figure></div></div></div>
-<img src="/2021/09/09/Union-Find/weighted-is-flat.png" class="" width="750" height="434" title="Weighted QU tree is flat">
+<p><img src="/2021/09/09/union-find/path-compression-1.png" class="" width="300" height="375" title="size[9] &#x3D; 3, size[3] &#x3D; 8"></p></div><div class="tab-pane" id="weighted-qu-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">if (ra == rb): return;  // same root -&gt; connected -&gt; do nothing</span><br><span class="line">if (size[ra] &gt;= size[rb]):  // a&#x27;s tree is bigger</span><br><span class="line">	arr[rb] = ra;</span><br><span class="line">	size[ra] += size[rb];</span><br><span class="line">else:  // b&#x27;s tree is bigger</span><br><span class="line">	arr[ra] = rb;</span><br><span class="line">	size[rb] += size[ra];</span><br></pre></td></tr></table></figure></div></div></div>
+<img src="/2021/09/09/union-find/weighted-is-flat.png" class="" width="750" height="434" title="Weighted QU tree is flat">
 <h4 id="path-compression">Path Compression</h4>
 <blockquote>
 <ol type="1">
@@ -276,7 +335,7 @@ T(N)=
 <li><p><span class="math inline">\(\forall p\ (on\ a&#39;s\ path\ to\ root): reconnect\ to\ root\)</span></p></li>
 </ol>
 </blockquote>
-<div class="tabs" id="path-compression"><ul class="nav-tabs"><li class="tab active"><a href="#path-compression-1">Before</a></li><li class="tab"><a href="#path-compression-2">After</a></li></ul><div class="tab-content"><div class="tab-pane active" id="path-compression-1"><p><img src="/2021/09/09/Union-Find/path-compression-1.png" class="" width="350" height="430" title="before"></p></div><div class="tab-pane" id="path-compression-2"><p><img src="/2021/09/09/Union-Find/path-compression-2.png" class="" width="600" height="300" title="after"></p></div></div></div>
+<div class="tabs" id="path-compression"><ul class="nav-tabs"><li class="tab active"><a href="#path-compression-1">Before</a></li><li class="tab"><a href="#path-compression-2">After</a></li></ul><div class="tab-content"><div class="tab-pane active" id="path-compression-1"><p><img src="/2021/09/09/union-find/path-compression-1.png" class="" width="350" height="430" title="before"></p></div><div class="tab-pane" id="path-compression-2"><p><img src="/2021/09/09/union-find/path-compression-2.png" class="" width="600" height="300" title="after"></p></div></div></div>
 <p>Weighted Quick-Union + Pass Compression: nearly <code>Linear-time</code></p>
 <blockquote>
 <p>Union-Find: No Linear-time algorithm</p>
