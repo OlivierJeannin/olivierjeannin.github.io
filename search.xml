@@ -125,6 +125,32 @@ C = \sum p_i c_i
       </categories>
   </entry>
   <entry>
+    <title>Floating Point</title>
+    <url>/2021/10/10/floating-point-in-computer/</url>
+    <content><![CDATA[<h1 id="ieee-representation">IEEE Representation</h1>
+<p><span class="math display">\[
+x=(-1)^s*M*2^E \\
+M=
+\begin{cases}
+1.frac,Normalized, \\
+0.frac,Denormalized
+\end{cases}\\
+E=exp-bias
+\left\{
+\begin{align}
+bias&amp;=2^{k-1}-1 \\
+k&amp;=length(exp)
+\end{align}
+\right.
+\]</span></p>
+<p>Single Precision</p>
+<p>Double Precision</p>
+]]></content>
+      <categories>
+        <category>Computer System</category>
+      </categories>
+  </entry>
+  <entry>
     <title>How to Read a Book</title>
     <url>/2021/10/07/how-to-read-a-book/</url>
     <content><![CDATA[<pre class="mermaid">
@@ -182,6 +208,216 @@ e ---&gt; f[Review]
 
 </details>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Integer</title>
+    <url>/2021/10/10/integer-in-computer/</url>
+    <content><![CDATA[<h1 id="unsigned">Unsigned</h1>
+<h2 id="representation">Representation</h2>
+<p><span class="math display">\[
+\begin{align*}
+x&amp;=x_{w-1}*2^{w-1}+\sum_{i=0}^{w-2}x_i*2^{i} \\
+ &amp;=\sum_{i=0}^{w-1}x_i*2^{i}
+\end{align*}
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Binary</th>
+<th style="text-align: center;">-&gt;</th>
+<th style="text-align: center;">Decimal</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0000</td>
+<td style="text-align: center;">+0+0+0+0</td>
+<td style="text-align: center;">+0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0111</td>
+<td style="text-align: center;">+0+4+2+1</td>
+<td style="text-align: center;">+7</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">+8+0+0+0</td>
+<td style="text-align: center;">+8</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;">+8+4+2+1</td>
+<td style="text-align: center;">+15</td>
+<td style="text-align: center;">UMax</td>
+</tr>
+</tbody>
+</table>
+<h2 id="arithmetic">Arithmetic</h2>
+<h1 id="signed">Signed</h1>
+<h2 id="representation-1">Representation</h2>
+<h3 id="twos-complement补码">Two's Complement（补码）</h3>
+<p><span class="math display">\[
+x=-x_{w-1}*2^{w-1}+\sum_{i=0}^{w-2}x_i*2^{i}
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Binary</th>
+<th style="text-align: center;">-&gt;</th>
+<th style="text-align: center;">Decimal</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0000</td>
+<td style="text-align: center;">+0+0+0+0</td>
+<td style="text-align: center;">+0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0111</td>
+<td style="text-align: center;">+0+4+2+1</td>
+<td style="text-align: center;">+7</td>
+<td style="text-align: center;">TMax</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">-8+0+0+0</td>
+<td style="text-align: center;">-8</td>
+<td style="text-align: center;">TMin</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;">-8+4+2+1</td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="singn-magnitude原码">Singn-Magnitude（原码）</h3>
+<p><span class="math display">\[
+x=(-1)^{x_{w-1}}*\sum_{i=0}^{w-2}x_i*2^{i}
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Binary</th>
+<th style="text-align: center;">-&gt;</th>
+<th style="text-align: center;">Decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0000</td>
+<td style="text-align: center;">+(0+0+0)</td>
+<td style="text-align: center;">+0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0111</td>
+<td style="text-align: center;">+(4+2+1)</td>
+<td style="text-align: center;">+7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">-(0+0+0)</td>
+<td style="text-align: center;">-0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;">-(4+2+1)</td>
+<td style="text-align: center;">-7</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ones-complement反码">Ones' Complement（反码）</h3>
+<p><span class="math display">\[
+x=-x_{w-1}*(2^{w-1}-1)+\sum_{i=0}^{w-2}x_i*2^{i}
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Binary</th>
+<th style="text-align: center;">-&gt;</th>
+<th style="text-align: center;">Decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0000</td>
+<td style="text-align: center;">+0+0+0+0</td>
+<td style="text-align: center;">+0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0111</td>
+<td style="text-align: center;">+0+4+2+1</td>
+<td style="text-align: center;">+7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">-7+0+0+0</td>
+<td style="text-align: center;">-7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;">-7+4+2+1</td>
+<td style="text-align: center;">-0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="arithmetic-1">Arithmetic</h2>
+]]></content>
+      <categories>
+        <category>Computer System</category>
+      </categories>
   </entry>
   <entry>
     <title>Stack, Queue and Bag</title>
@@ -289,57 +525,54 @@ T(N)=
 <li><p><span class="math inline">\(a-b \Longrightarrow b-a\)</span></p></li>
 <li><p><span class="math inline">\(a-b,b-c \Longrightarrow a-c\)</span></p></li>
 </ul>
-<h2 id="connected-component">Connected Component</h2>
-<p>A is a <code>connected component</code>: <span class="math inline">\(a\in{A},b\in{A} \iff a-b\)</span></p>
-<img src="/2021/09/09/union-find/connected-component.png" class="" title="3 Connected Components">
+<p><span class="math inline">\(A\)</span> is a <strong>connected component</strong>: <span class="math inline">\(a\in{A},b\in{A} \iff a-b\)</span></p>
+<img src="/2021/09/09/union-find/connected-component.jpg" class="" width="400" height="333" title="3 connected components">
 <h2 id="union-find">Union-Find</h2>
-<p><span class="math inline">\(union(a,b)\)</span>: <code>connect</code> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></p>
-<p><span class="math inline">\(find(a,b)\)</span>: <code>check</code> if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are connected <em>(True/False)</em></p>
+<p><span class="math inline">\(union(a,b)\)</span>: <em>connect</em> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></p>
+<p><span class="math inline">\(find(a,b)\)</span>: <em>check</em> if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are connected <em>(True/False)</em></p>
+<p>Example here:</p>
+<img src="/2021/09/09/union-find/union-find-eg.png" class="" width="350" height="220">
 <p><strong><em>Problem</em></strong>:</p>
-<ol type="1">
-<li><p><span class="math inline">\(union()\)</span> any <span class="math inline">\(N\)</span> objects <span class="math inline">\((N\to\infty)\)</span>, at any time</p></li>
-<li><p><span class="math inline">\({\forall}a,b,find(a,b)\)</span> at any time</p></li>
-</ol>
-<img src="/2021/09/09/union-find/union-find-problem.png" class="" width="250" height="462" title="Example">
+<p><span class="math inline">\(union()\)</span> any <span class="math inline">\(N\)</span> objects randomly, at random time, then: <span class="math inline">\({\forall}a,b\)</span>, do <span class="math inline">\(find(a,b)\)</span> at any time.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">union(4, 0)</span><br><span class="line">union(3, 2)</span><br><span class="line">union(6, 5)</span><br><span class="line">union(4, 9)</span><br><span class="line">union(2, 1)</span><br><span class="line">find(0, 7)  // false</span><br><span class="line">find(8, 9)  // false</span><br><span class="line">union(5, 0)</span><br><span class="line">union(8, 6)</span><br><span class="line">find(8, 9)  // true</span><br></pre></td></tr></table></figure>
 <h1 id="algorithms">Algorithms</h1>
 <h2 id="quick-find">Quick Find</h2>
-<blockquote>
-<p>connected <span class="math inline">\(\Longleftrightarrow\)</span> same <strong>status</strong></p>
-<img src="/2021/09/09/union-find/quick-find.png" class="" width="584" height="300" title="Quick Find">
-</blockquote>
-<div class="tabs" id="quick-find"><ul class="nav-tabs"><li class="tab active"><a href="#quick-find-1">Data Structure</a></li><li class="tab"><a href="#quick-find-2">union(a,b)</a></li><li class="tab"><a href="#quick-find-3">find(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="quick-find-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // status of objects</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-2"><p>与 <span class="math inline">\(a\)</span> 状态相同的，都要改为 <span class="math inline">\(b\)</span> 的状态。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sa = arr[a];  // sataus of a</span><br><span class="line">sb = arr[b];</span><br><span class="line">foreach i in arr[]:</span><br><span class="line">	if (arr[i] == sa):  // every i connected with a</span><br><span class="line">		arr[i] = sb;  // connect i to b</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-find-3"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return arr[a] == arr[b];  // same status</span><br></pre></td></tr></table></figure></div></div></div>
+<p>connected <span class="math inline">\(\iff\)</span> same <strong>status</strong></p>
+<p>In this picture, 1, 2 and 4 have the same status 4; they are connected.</p>
+<img src="/2021/09/09/union-find/quick-find.jpg" class="" width="350" height="270">
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // status of objects</span><br><span class="line"></span><br><span class="line">union(a,b) &#123;</span><br><span class="line">	sa = arr[a];  // arr[a] will be updated soon!</span><br><span class="line">	sb = arr[b];</span><br><span class="line">	// 与 a 状态相同的，全改成 b 的状态。</span><br><span class="line">	for all i in N:</span><br><span class="line">		if (arr[i] == sa):</span><br><span class="line">			arr[i] = sb;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">find(a,b) &#123;</span><br><span class="line">	return arr[a] == arr[b];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="quick-union">Quick Union</h2>
-<blockquote>
-<p>A <code>connected component</code> is a <code>tree</code></p>
-<p>connected <span class="math inline">\(\Longleftrightarrow\)</span> same <strong>root</strong></p>
-<img src="/2021/09/09/union-find/quick-union.png" class="" width="600" height="400" title="Quick Union">
-</blockquote>
-<div class="tabs" id="quick-union"><ul class="nav-tabs"><li class="tab active"><a href="#quick-union-1">Data Structure</a></li><li class="tab"><a href="#quick-union-2">root(i)</a></li><li class="tab"><a href="#quick-union-3">union(a,b)</a></li><li class="tab"><a href="#quick-union-4">find(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="quick-union-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents of objects</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-union-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (i != arr[i]):  // not root</span><br><span class="line">	i = arr[i];  // go check parent</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-union-3"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">arr[ra] = rb;  // set rb as ra&#x27;s parent</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="quick-union-4"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return root(a) == root(b);</span><br></pre></td></tr></table></figure></div></div></div>
-<h3 id="improvements-to-qu">Improvements to QU</h3>
-<blockquote>
-<p>Avoid <strong><code>Tall</code></strong> trees</p>
-</blockquote>
-<h4 id="weighted-qu">Weighted QU</h4>
-<blockquote>
-<p>smaller tree goes to bigger tree</p>
-<img src="/2021/09/09/union-find/weighted-qu.png" class="" title="Weighted Quick-Union">
-</blockquote>
-<div class="tabs" id="weighted-qu"><ul class="nav-tabs"><li class="tab active"><a href="#weighted-qu-1">Data Structure</a></li><li class="tab"><a href="#weighted-qu-2">union(a,b)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="weighted-qu-1"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents</span><br><span class="line">size[N];  // size of each tree whose root is i</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/09/09/union-find/path-compression-1.png" class="" width="300" height="375" title="size[9] &#x3D; 3, size[3] &#x3D; 8"></p></div><div class="tab-pane" id="weighted-qu-2"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ra = root(a);</span><br><span class="line">rb = root(b);</span><br><span class="line">if (ra == rb): return;  // same root -&gt; connected -&gt; do nothing</span><br><span class="line">if (size[ra] &gt;= size[rb]):  // a&#x27;s tree is bigger</span><br><span class="line">	arr[rb] = ra;</span><br><span class="line">	size[ra] += size[rb];</span><br><span class="line">else:  // b&#x27;s tree is bigger</span><br><span class="line">	arr[ra] = rb;</span><br><span class="line">	size[rb] += size[ra];</span><br></pre></td></tr></table></figure></div></div></div>
-<img src="/2021/09/09/union-find/weighted-is-flat.png" class="" width="750" height="434" title="Weighted QU tree is flat">
-<h4 id="path-compression">Path Compression</h4>
-<blockquote>
+<p>A connected component is now represented with a tree.</p>
+<p>connected <span class="math inline">\(\iff\)</span> same <strong>root</strong></p>
+<p>Entries in array represent <em>parents</em> of indices:</p>
+<img src="/2021/09/09/union-find/quick-union.jpg" class="" width="350" height="270">
+<p>2's parent is 6, 6's parent is 4, 4's parent is 4, 4 is the root.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents of objects</span><br><span class="line"></span><br><span class="line">root(i) &#123;</span><br><span class="line">	while (arr[i] != i)</span><br><span class="line">		i = arr[i];  // go to parent</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">union(a, b) &#123;</span><br><span class="line">	ra = root(a);</span><br><span class="line">	rb = root(b);</span><br><span class="line">	arr[ra] = rb;  // set rb as ra&#x27;s parent</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">find(a, b) &#123;</span><br><span class="line">	return root(a) == root(b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>It can be very <em>slow</em> when the tree is too tall or high.</p>
+<h2 id="improvements-on-qu">Improvements on QU</h2>
+<p>Avoid <em>tall</em> trees. Reduce their height.</p>
+<h3 id="weighted-qu">Weighted QU</h3>
+<p>Smaller tree goes to bigger tree.</p>
+<img src="/2021/09/09/union-find/weighted-qu.png" class="" width="400" height="300">
+<p>By "big" and "small", there are 2 kinds of explanations:</p>
 <ol type="1">
-<li><p><span class="math inline">\(root(a)\)</span></p></li>
-<li><p><span class="math inline">\(\forall p\ (on\ a&#39;s\ path\ to\ root): reconnect\ to\ root\)</span></p></li>
+<li><strong>size</strong>: number of nodes</li>
+<li><strong>height</strong></li>
 </ol>
-</blockquote>
-<div class="tabs" id="path-compression"><ul class="nav-tabs"><li class="tab active"><a href="#path-compression-1">Before</a></li><li class="tab"><a href="#path-compression-2">After</a></li></ul><div class="tab-content"><div class="tab-pane active" id="path-compression-1"><p><img src="/2021/09/09/union-find/path-compression-1.png" class="" width="350" height="430" title="before"></p></div><div class="tab-pane" id="path-compression-2"><p><img src="/2021/09/09/union-find/path-compression-2.png" class="" width="600" height="300" title="after"></p></div></div></div>
-<p>Weighted Quick-Union + Pass Compression: nearly <code>Linear-time</code></p>
-<blockquote>
-<p>Union-Find: No Linear-time algorithm</p>
-</blockquote>
+<img src="/2021/09/09/union-find/size-height.jpg" class="" width="400" height="285">
+<p>Either way, the algorithm has guaranteed performance of <span class="math inline">\(\lg{N}\)</span> at worst case.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[N];  // parents</span><br><span class="line">size[N];  // size of subtrees</span><br><span class="line">// height[N];  // height of subtrees</span><br><span class="line"></span><br><span class="line">union(a,b) &#123;</span><br><span class="line">	ra = root(a);</span><br><span class="line">	rb = root(b);</span><br><span class="line">	if (ra == rb):  // same root -&gt; connected</span><br><span class="line">		return;</span><br><span class="line">	if (size[ra] &gt;= size[rb]):  // a&#x27;s tree bigger</span><br><span class="line">		arr[rb] = ra;</span><br><span class="line">		size[ra] += size[rb];  // update size</span><br><span class="line">	else:  // b&#x27;s tree is bigger</span><br><span class="line">		arr[ra] = rb;</span><br><span class="line">		size[rb] += size[ra];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Result is as below, weighted QU tree is flat:</p>
+<img src="/2021/09/09/union-find/weighted-is-flat.png" class="" width="750" height="434">
+<h3 id="path-compression">Path Compression</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">foreach x on a&#x27;s path to root:</span><br><span class="line">	reconnect x to root(a);</span><br></pre></td></tr></table></figure>
+<div class="tabs" id="path-compression"><ul class="nav-tabs"><li class="tab active"><a href="#path-compression-1">Before</a></li><li class="tab"><a href="#path-compression-2">After</a></li></ul><div class="tab-content"><div class="tab-pane active" id="path-compression-1"><p>9 is newly added to this tree.</p>
+<p>x goes up along path 9 -&gt; 6 -&gt; 3 -&gt; 1 -&gt; 0.</p>
+<p><img src="/2021/09/09/union-find/path-compression-1.png" class="" width="300" height="375"></p></div><div class="tab-pane" id="path-compression-2"><p>9 , 6 and 3 are reconnected to root 0.</p>
+<p><img src="/2021/09/09/union-find/path-compression-2.png" class="" width="560" height="280"></p></div></div></div>
+<p>Weighted Quick-Union + Pass Compression <span class="math inline">\(\Rightarrow\)</span> nearly <em>Linear-time</em> (but still not).</p>
+<div class="note warning"><p>Union-Find: <em><strong>No</strong> Linear-time algorithm</em></p>
+</div>
 ]]></content>
       <categories>
         <category>Algorithms</category>
@@ -397,14 +630,14 @@ T(N)=
 ]]></content>
   </entry>
   <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
