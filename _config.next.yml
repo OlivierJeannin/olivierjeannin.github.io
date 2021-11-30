@@ -36,10 +36,10 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-#scheme: Gemini
+scheme: Gemini
 
 # Dark Mode
 darkmode: false
@@ -105,13 +105,13 @@ menu_settings:
 
 sidebar:
   # Sidebar Position.
-  #position: left
-  position: right
+  position: left
+  #position: right
 
   # Manual define the sidebar width. If commented, will be default for:
   # Muse | Mist: 320
   # Pisces | Gemini: 240
-  width: 300
+  width: 
 
   # Sidebar Display (only for Muse | Mist), available values:
   #  - post    expand on posts automatically. Default.
@@ -174,10 +174,10 @@ toc:
   enable: true
   # Automatically add list number to toc.
   number: true
-  # If true, all words will placed on next lines if header width longer then sidebar width.
-  wrap: false
+  # If true, all words will placed on next lines if header width longer than sidebar width.
+  wrap: true
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
-  expand_all: false
+  expand_all: true
   # Maximum heading depth of generated toc.
   max_depth: 6
 
@@ -341,7 +341,7 @@ text_align:
   mobile: justify
 
 # Reduce padding / margin indents on devices with narrow width.
-mobile_layout_economy: false
+mobile_layout_economy: true
 
 # Android Chrome header panel color ($brand-bg / $headband-bg => $black-deep).
 android_chrome_color: "#222"
@@ -357,16 +357,16 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: default
-    dark: tomorrow-night
+    light: idea
+    dark: idea
   prism:
     light: prism
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Available values: default | flat | mac
-    style:
+    style: flat
 
 back2top:
   enable: true
@@ -440,7 +440,7 @@ font:
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family: Parisienne, Zhi Mang Xing
+    family: Emilys Candy, Zhi Mang Xing
     size:
 
   # Font settings for posts (.post-body).
@@ -451,7 +451,7 @@ font:
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family: Cutive Mono
+    family: Source Code Pro
 
 
 # ---------------------------------------------------------------

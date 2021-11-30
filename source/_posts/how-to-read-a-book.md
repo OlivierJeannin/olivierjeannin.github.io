@@ -22,6 +22,7 @@ e ---> f[Review]
 
 {% note info %}
 
+
 Split the material into ***chunks***.
 
 Finish the procedure for each chunk, then move on to the next chunk.
