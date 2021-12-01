@@ -565,13 +565,16 @@ T(N)=
 <p>Result is as below, weighted QU tree is flat:</p>
 <img src="/2021/09/09/union-find/weighted-is-flat.png" class="" width="750" height="434">
 <h3 id="path-compression">Path Compression</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">foreach x on a&#x27;s path to root:</span><br><span class="line">	reconnect x to root(a);</span><br></pre></td></tr></table></figure>
+<p>When finding root of <span class="math inline">\(i\)</span>, for each node in the path from <span class="math inline">\(i\)</span> to root, reconnect that ndoe to root.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">root(i) &#123;</span><br><span class="line">    while (parent[i] != i) &#123;</span><br><span class="line">        parent[i] = root(parent[i]);  // set i&#x27;s parent to root</span><br><span class="line">        i = parent[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return parent[i];  // parent[i] and i are equal if i is root</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <div class="tabs" id="path-compression"><ul class="nav-tabs"><li class="tab active"><a href="#path-compression-1">Before</a></li><li class="tab"><a href="#path-compression-2">After</a></li></ul><div class="tab-content"><div class="tab-pane active" id="path-compression-1"><p>9 is newly added to this tree.</p>
 <p>x goes up along path 9 -&gt; 6 -&gt; 3 -&gt; 1 -&gt; 0.</p>
 <p><img src="/2021/09/09/union-find/path-compression-1.png" class="" width="300" height="375"></p></div><div class="tab-pane" id="path-compression-2"><p>9 , 6 and 3 are reconnected to root 0.</p>
 <p><img src="/2021/09/09/union-find/path-compression-2.png" class="" width="560" height="280"></p></div></div></div>
-<p>Weighted Quick-Union + Pass Compression <span class="math inline">\(\Rightarrow\)</span> nearly <em>Linear-time</em> (but still not).</p>
-<div class="note warning"><p>Union-Find: <em><strong>No</strong> Linear-time algorithm</em></p>
+<p>Think of where there are <span class="math inline">\(M\)</span> union-find oprations and <span class="math inline">\(N\)</span> elements.</p>
+<p>Weighted Quick-Union + Pass Compression <span class="math inline">\(\Rightarrow\)</span> near <em>Linear-time</em> total (but still not).</p>
+<div class="note warning"><p>Union-Find: <em><strong>No</strong> Linear-time algorithm.</em></p>
+<p>That is, <span class="math inline">\(union()\)</span> and <span class="math inline">\(find()\)</span> cannot both be Constant-time.</p>
 </div>
 ]]></content>
       <categories>
@@ -618,14 +621,14 @@ T(N)=
 ]]></content>
   </entry>
   <entry>
-    <title>201812210912</title>
-    <url>/caprices/2018-12-21-0912.html</url>
+    <title>Caprices</title>
+    <url>/caprices/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
-    <title>Caprices</title>
-    <url>/caprices/index.html</url>
+    <title>201812210912</title>
+    <url>/caprices/2018-12-21-0912.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
