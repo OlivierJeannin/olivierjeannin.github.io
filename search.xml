@@ -3,25 +3,56 @@
   <entry>
     <title>Analysis of Algorithms</title>
     <url>/2021/09/17/analysis-of-algorithms/</url>
-    <content><![CDATA[<h1 id="cost-of-an-algorithm">Cost of an Algorithm</h1>
-<h2 id="total-cost">Total Cost</h2>
-<p>The total cost of an algorithm <span class="math inline">\(C\)</span> is based on probability: <span class="math display">\[
-C = \sum p_i c_i
+    <content><![CDATA[<h1 id="mathematical-model-of-cost">Mathematical Model of Cost</h1>
+<h2 id="scientific-method">Scientific Method</h2>
+<p>Conduct experiments (by executing the program) and collect actual data to see how much the algorithm costs. Check every detail to see what it does and figure out how to improve it.</p>
+<pre class="mermaid">
+graph LR
+
+s((start)) --&gt; o[observe]
+
+o -.-&gt; h[hypothesis]
+
+h --&gt; p[predict]
+
+p --&gt; o
+
+o --&gt; vr[verify]
+
+vr --&gt; vl{validated?}
+
+vl --&gt;|y| e((end))
+
+vl --&gt;|n| h
+
+</pre>
+<p>The <em>overall</em> cost <span class="math inline">\(C\)</span> is based on probability: <span class="math display">\[
+C=\sum p_i c_i
 \]</span></p>
-<p><span class="math inline">\(p_i\)</span>: probability for case <span class="math inline">\(i\)</span> to happen</p>
-<p><span class="math inline">\(c_i\)</span>: cost of algorithm when case <span class="math inline">\(i\)</span> happens</p>
-<h2 id="simplification">Simplification</h2>
-<p>In practise, when analysize algorithms, we will basically only consider:</p>
+<ul>
+<li><p><span class="math inline">\(C\)</span>: overall cost of algorithm</p></li>
+<li><p><span class="math inline">\(p_i\)</span>: probability of case <span class="math inline">\(i\)</span></p></li>
+<li><p><span class="math inline">\(c_i\)</span>: cost of algorithm when case <span class="math inline">\(i\)</span> happens</p></li>
+</ul>
+<h2 id="simplifications">Simplifications</h2>
+<p>Though doable, looking into details of algorithms can be too complex. So we need a simplified model to briefly estimate algorithm cost.</p>
 <ol type="1">
-<li><p>the <strong><code>most consumable steps</code></strong> in an algorithm</p>
-<p>e.g. we focus on conditions, loops, etc. and neglect time initializing variables.</p></li>
-<li><p>the <strong><code>most significant partitions</code></strong> of total cost</p>
-<p>e.g. when we get a total cost of <span class="math inline">\(N^2+2N+3\)</span>, we focus on the <span class="math inline">\(N^2\)</span> part and drop those behind it.</p></li>
+<li><p>Ignore less costly operations</p>
+<p>We only consider operations that cost most or get invoked most frequently.</p></li>
+<li><p>Ignore lower order terms</p>
+<p>Cost of <span class="math inline">\(\frac{1}{2}{(N+1)(N+2)}\)</span> becomes <span class="math inline">\(\frac{1}{2}N^2\)</span>.</p></li>
 </ol>
-<p>In this way, we get <em>simpler</em> version of cost, without ignoring too much important things.</p>
-<h2 id="order-of-growth">Order of Growth</h2>
-<p><strong>Order of Growth</strong>: how fast the <code>cost</code> grows as <code>problem size</code> <span class="math inline">\(N\)</span> grows</p>
-<p>If we classify algorithms by this standard, we will get following categories:</p>
+<p>Finally, we decided to use <strong>Tilde notation</strong> for our approximate model of algorithm cost: <span class="math display">\[
+f(N)\sim g(N)\iff \lim_{N\to\infty}{f(N)\over g(N)}=1
+\]</span></p>
+<p>Examples:</p>
+<ul>
+<li><span class="math inline">\({1\over 2}N^3+12N^2-4N-5 \sim {1\over 2}N^3\)</span></li>
+<li><span class="math inline">\(6N+10 \sim 6N\)</span></li>
+<li><span class="math inline">\(2^N-N^3+2N \sim 2^N\)</span></li>
+</ul>
+<h1 id="order-of-growth">Order of Growth</h1>
+<p>Classifies algorithms by how fast the cost grows when input size <span class="math inline">\(N\)</span> gets larger.</p>
 <table>
 <thead>
 <tr class="header">
@@ -31,52 +62,52 @@ C = \sum p_i c_i
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><em>Constant</em></td>
+<td style="text-align: center;">Constant</td>
 <td style="text-align: center;"><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><em>Logarithmic</em></td>
+<td style="text-align: center;">Logarithmic</td>
 <td style="text-align: center;"><span class="math inline">\(\log N\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><em>Linear</em></td>
+<td style="text-align: center;">Linear</td>
 <td style="text-align: center;"><span class="math inline">\(N\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><em>Linearithmic</em></td>
+<td style="text-align: center;">Linearithmic</td>
 <td style="text-align: center;"><span class="math inline">\(N\log N\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><em>Quadratic</em></td>
+<td style="text-align: center;">Quadratic</td>
 <td style="text-align: center;"><span class="math inline">\(N^2\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><em>Cubic</em></td>
+<td style="text-align: center;">Cubic</td>
 <td style="text-align: center;"><span class="math inline">\(N^3\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><em>Exponential</em></td>
+<td style="text-align: center;">Exponential</td>
 <td style="text-align: center;"><span class="math inline">\(2^N\)</span></td>
 </tr>
 </tbody>
 </table>
-<img src="/2021/09/17/analysis-of-algorithms/order-of-growth.png" class="" width="600" title="order-of-growth">
-<div class="note warning"><p>Order of growth discards leading coefficient.<br />
-</p>
+<img src="/2021/09/17/analysis-of-algorithms/order-of-growth.png" class="" width="450" title="order-of-growth">
+<div class="note warning"><p>Order of growth discards leading coefficient.</p>
 <p><span class="math inline">\(2N\)</span> is not an order of growth.</p>
 </div>
-<h1 id="tilde-notation">Tilde Notation</h1>
-<p>We use <span class="math inline">\(f(N)\sim g(N)\)</span> when there stands: <span class="math display">\[
-\lim_{N\to\infty}{f(N)\over g(N)} = 1
-\]</span></p>
-<div class="note info"><p><u><em>e.g.</em></u> <span class="math inline">\(f(N)=2N^2+\log N+1\)</span>, then <span class="math inline">\(f(N)\sim 2N^2\)</span></p>
-</div>
-<h1 id="big-oh-notation">Big-Oh Notation</h1>
+<h1 id="theory-of-algorithms">Theory of Algorithms</h1>
+<p>Goal of this theory:</p>
+<ul>
+<li>Identify <em>difficulty</em> of a problem</li>
+<li>Develop <em>optimal</em> algorithms</li>
+</ul>
+<h2 id="difficulty-of-problem">Difficulty of problem</h2>
+<p>Notations used to identify how "difficult" a problem is:</p>
 <table>
 <colgroup>
-<col style="width: 22%" />
-<col style="width: 46%" />
-<col style="width: 30%" />
+<col style="width: 19%" />
+<col style="width: 53%" />
+<col style="width: 27%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -87,41 +118,34 @@ C = \sum p_i c_i
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(T(N)\sim O(f(N))\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\exists n_0:\ N\geq n_0,\ T(N)\leq cf(N)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(f(N)\)</span> is <strong>upper bound</strong></td>
+<td style="text-align: center;"><span class="math inline">\(T(N)=O(f(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists c,n_0:N\geq n_0,\Rightarrow T(N)\leq cf(N)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(N)\)</span> is <em>upper bound</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="math inline">\(T(N)\sim\Omega(g(N))\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\exists n_1:\ N\geq n_1,\ T(N)\geq cg(N)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(g(N)\)</span> is <strong>lower bound</strong></td>
+<td style="text-align: center;"><span class="math inline">\(T(N)=\Omega(g(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists c,n_1:N\geq n_1\Rightarrow T(N)\geq cg(N)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(g(N)\)</span> is <em>lower bound</em></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(T(N)\sim\Theta(h(N))\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(T(N)\sim O(h(N))\)</span> and <span class="math inline">\(T(N)\sim\Omega(h(N))\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(h(N)\)</span> is <strong>order of growth</strong></td>
+<td style="text-align: center;"><span class="math inline">\(T(N)=\Theta(h(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T(N)=O(h(N))\)</span> and <span class="math inline">\(T(N)=\Omega(h(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(h(N)\)</span> is <em>order of growth</em></td>
 </tr>
 </tbody>
 </table>
-<h1 id="optimal-algorithm">Optimal Algorithm</h1>
-<p>The <strong><code>upper bound</code></strong> should be as close as possible with <strong><code>lower bound</code></strong>.</p>
+<h2 id="optimal-algorithm">Optimal Algorithm</h2>
+<p>An optimal algorithm is one whose <strong>upper bound</strong> is as close as possible with its <strong>lower bound</strong>.</p>
 <ul>
 <li><p>Upper Bound</p>
-<ol type="1">
-<li><p>Find a <em>known</em> algorithm whose cost is <span class="math inline">\(t(N)\)</span>,</p></li>
-<li><p>then we know the cost of <em>optimal algorithm</em> is bound to be <span class="math inline">\(T(N)\sim O(t(N))\)</span>,</p></li>
-</ol>
-<p>Why is that? Because the <em>optimal algorithm</em> is <code>optimal</code>. Its cost should be lower than <span class="math inline">\(t(N)\)</span>.</p></li>
+<p>Cost of the best algorithm that we know. Cost of the optimal one must be lower than this.</p></li>
 <li><p>Lower Bound</p>
-<p>Think of it as the <code>necessary</code> cost.</p>
-<p>That is, whatever algorithm you might use, however simple it is, it will cost you <em>at least</em> this much. Less cost? Not possible! Or you won't be able to finish your job!</p></li>
+<p>Necessary cost that any algorithm trying to address current problem must have. The bottom line.</p></li>
 </ul>
-<p>Your mission is to find a lower <u><em>upper bound</em></u> and a possibly higher <u><em>lower bound</em></u>, by using another algorithm.</p>
-<p>When you get the narrowest gap, look at the algorithm you're using, it's optimal.</p>
+<p>Your mission is to find another algorithm to diminish the gap between upper and lower bounds.</p>
 ]]></content>
       <categories>
         <category>Algorithms</category>
-        <category>Theory</category>
       </categories>
   </entry>
   <entry>
@@ -154,17 +178,17 @@ k&amp;=length(exp)
     <title>How to Read a Book</title>
     <url>/2021/10/07/how-to-read-a-book/</url>
     <content><![CDATA[<pre class="mermaid">
-graph TD
+graph LR
 
-a[Overview] ---&gt; b[Question]
+a[Overview] --&gt; b[Question]
 
-b ---&gt; c[Read]
+b --&gt; c[Read]
 
-c ---&gt; d[Note-Taking] --&gt; c
+c --&gt; d[Note-Taking] --&gt; c
 
-d ---&gt; e[Recall] ---&gt; a
+d --&gt; e[Recall] --&gt; a
 
-e ---&gt; f[Review]
+e --&gt; f[Review]
 
 </pre>
 <div class="note info"><p>Split the material into <strong><em>chunks</em></strong>.</p>
@@ -196,7 +220,7 @@ e ---&gt; f[Review]
 <h1 id="review">Review</h1>
 <p>According to the Ebbinghaus Forgetting Curve, in first few days, you have to review what you learned every few hours every day. Then review them every few days, then every few weeks, then maybe never.</p>
 <p>The intensity is less, as you remember the same knowlegde better.</p>
-<details class="note info"><summary><p>A Few Things to Keep in Mind</p>
+<details class="note info"><summary><p>Things to keep in mind:</p>
 </summary>
 <ol type="1">
 <li><p>Outline first, details second.</p></li>
@@ -208,6 +232,9 @@ e ---&gt; f[Review]
 
 </details>
 ]]></content>
+      <categories>
+        <category>Miscellaneous</category>
+      </categories>
   </entry>
   <entry>
     <title>Integer</title>
@@ -582,12 +609,9 @@ T(N)=
       </categories>
   </entry>
   <entry>
-    <title>About</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>Hello! This is <strong><em>Olivier Jeannin</em></strong>'s blog. I hope you have all been doing well today.</p>
-<p>If you are interested in who I am, you can see <a href="me.html" title="about me">this page</a>.</p>
-<p>If you want to know what this blog is about, please <a href="blog.html" title="about this blog">click here</a>.</p>
-<p>Hope you enjoy my blog ;D</p>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
@@ -607,34 +631,17 @@ T(N)=
 ]]></content>
   </entry>
   <entry>
+    <title>About</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>Hello! This is <strong><em>Olivier Jeannin</em></strong>'s blog. I hope you have all been doing well today.</p>
+<p>If you are interested in who I am, you can see <a href="me.html" title="about me">this page</a>.</p>
+<p>If you want to know what this blog is about, please <a href="blog.html" title="about this blog">click here</a>.</p>
+<p>Hope you enjoy my blog ;D</p>
+]]></content>
+  </entry>
+  <entry>
     <title>About Me</title>
     <url>/about/me.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>随想</title>
-    <url>/caprices/2018-11-19-2252.html</url>
-    <content><![CDATA[<blockquote>
-<p>天将雨雪，气盖明珠。</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>201812210912</title>
-    <url>/caprices/2018-12-21-0912.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>Caprices</title>
-    <url>/caprices/index.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
