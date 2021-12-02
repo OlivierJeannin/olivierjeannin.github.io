@@ -3,20 +3,21 @@ title: How to Read a Book
 date: 2021-10-07 22:40:00
 tags:
 categories:
+    - [Miscellaneous]
 description: "Tips for reading a book: outline first, details second; focus on the material, not on note-taking; you will remember naturally."
 ---
 
-{% mermaid graph TD %}
+{% mermaid graph LR %}
 
-a[Overview] ---> b[Question]
+a[Overview] --> b[Question]
 
-b ---> c[Read]
+b --> c[Read]
 
-c ---> d[Note-Taking] --> c
+c --> d[Note-Taking] --> c
 
-d ---> e[Recall] ---> a
+d --> e[Recall] --> a
 
-e ---> f[Review]
+e --> f[Review]
 
 {% endmermaid %}
 
@@ -75,7 +76,7 @@ According to the Ebbinghaus Forgetting Curve, in first few days, you have to rev
 
 The intensity is less, as you remember the same knowlegde better.
 
-{% note info A Few Things to Keep in Mind%}
+{% note info Things to keep in mind:%}
 
 1. Outline first, details second.
 
