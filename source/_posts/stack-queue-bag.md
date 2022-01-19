@@ -28,7 +28,7 @@ It focuses on **`How To`**:
 
 # Stack
 
-[FILO](<> "First In, Last Out") / [LIFO](<> "Last In, First Out").
+FILO (First In, Last Out) / LIFO (Last In, First Out).
 
 {% asset_img stack.png 200 280 "Stack" %}
 
@@ -53,21 +53,13 @@ Node {
 }
 ```
 
-{% tabs LinkedList %}
-
-<!-- tab Advantages -->
+Advantage:
 
 - Quick to add & delete
 
-<!-- endtab -->
-
-<!-- tab Drawbacks -->
+Drawback:
 
 - Not so easy to access the element you want (may need linear time)
-
-<!-- endtab -->
-
-{% endtabs %}
 
 Cost:
 
@@ -80,29 +72,21 @@ $$
 
 ### Resizing Array
 
-{% asset_img stack-resizing-array.png 300 150 "Stack by Resizing Array" %}
+{% asset_img stack-resizing-array.png 364 150 "Stack by Resizing Array" %}
 
 Resizing:
 
 - `Double` the length when array is ***full***
 - `Halve` the length when array is ***1/4 full***
 
-{% tabs Resizing Array %}
-
-<!-- tab Advantages -->
+Advantage:
 
 - Quick to access every element (constant time)
 
-<!-- endtab -->
-
-<!-- tab Drawbacks -->
+Drawback:
 
 - Resizing is expensive when $N$ is large, because you must copy all existing elements to the new array
 - To save space, you have to rewind `tail` pointer when `head` is not at position 0
-
-<!-- endtab -->
-
-{% endtabs %}
 
 Cost:
 
@@ -117,7 +101,7 @@ $$
 
 # Queue
 
-[FIFO](<> "First In, First Out").
+FIFO (First In, First Out).
 
 {% asset_img queue.png 400 100 "Queue" %}
 
@@ -135,11 +119,11 @@ $$
 
 ### Resizing Array
 
-{% asset_img queue-resizing-array.png 300 150 "Queue by Resizing Array" %}
+{% asset_img queue-resizing-array.png 418 160 "Queue by Resizing Array" %}
 
 # Bag
 
-No order, no out, just in.
+No order, no out.
 
 {% asset_img bag.png 200 280 "Bag" %}
 
