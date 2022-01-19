@@ -2,57 +2,65 @@
 <search>
   <entry>
     <title>Analysis of Algorithms</title>
-    <url>/2021/09/17/analysis-of-algorithms/</url>
-    <content><![CDATA[<h1 id="mathematical-model-of-cost">Mathematical Model of Cost</h1>
-<h2 id="scientific-method">Scientific Method</h2>
-<p>Conduct experiments (by executing the program) and collect actual data to see how much the algorithm costs. Check every detail to see what it does and figure out how to improve it.</p>
-<pre class="mermaid">
-graph LR
-
-s((start)) --&gt; o[observe]
-
-o -.-&gt; h[hypothesis]
-
-h --&gt; p[predict]
-
-p --&gt; o
-
-o --&gt; vr[verify]
-
-vr --&gt; vl{validated?}
-
-vl --&gt;|y| e((end))
-
-vl --&gt;|n| h
-
-</pre>
-<p>The <em>overall</em> cost <span class="math inline">\(C\)</span> is based on probability: <span class="math display">\[
-C=\sum p_i c_i
-\]</span></p>
+    <url>/2021/09/17/analysis-of-algorithms-new/</url>
+    <content><![CDATA[<h1 id="analysis-of-algorithms">Analysis of Algorithms</h1>
+<p>Analysing an algorithm is mainly to develop a mathematical model on its cost. This mathematical model will help us to have some insights into the algorithm we are studying, as well as to predict how much the algorithm will cost given a set of input.</p>
+<h2 id="step1---define-input-model">Step1 - Define <em>Input</em> Model</h2>
+<p>What does the input look like? How big it is (the <em>problem size</em>)?</p>
+<h2 id="step2---define-cost-model">Step2 - Define <em>Cost</em> Model</h2>
+<h3 id="considering-everything">Considering Everything</h3>
+<p>The most accurate way to calculate algorithm cost is to check <em>every</em> instruction and see its cost and how frequently it is executed.</p>
+<p>But this can be too complex and overwhelming. It doesn't make much difference if we miss some insignificant operations.</p>
+<p>So, we use a simpler approach:</p>
+<h3 id="ignoring-something">Ignoring Something</h3>
+<p>we only count the operations that are:</p>
 <ul>
-<li><p><span class="math inline">\(C\)</span>: overall cost of algorithm</p></li>
-<li><p><span class="math inline">\(p_i\)</span>: probability of case <span class="math inline">\(i\)</span></p></li>
-<li><p><span class="math inline">\(c_i\)</span>: cost of algorithm when case <span class="math inline">\(i\)</span> happens</p></li>
+<li>most costly</li>
+<li>executed most frequently</li>
 </ul>
-<h2 id="simplifications">Simplifications</h2>
-<p>Though doable, looking into details of algorithms can be too complex. So we need a simplified model to briefly estimate algorithm cost.</p>
+<p>In other words, operations that contribute most to the total cost.</p>
+<h2 id="step3---mathematical-analysis">Step3 - Mathematical <em>Analysis</em></h2>
+<p>Now we represent the cost in math.</p>
+<p>Mathematical model of algorithm cost is based on probability:</p>
+<p><span class="math display">\[
+C=\sum p_ic_i
+\]</span></p>
+<p>where <span class="math inline">\(C\)</span> is overall cost of algorithm; <span class="math inline">\(p_i\)</span> is probability of case <span class="math inline">\(i\)</span>; <span class="math inline">\(c_i\)</span> is cost of algorithm when case <span class="math inline">\(i\)</span> happens.</p>
+<p>But even if we're looking at an already smaller set of operations, the cost of them can lead to complex mathematical results, which might be: <span class="math display">\[
+T(N)=N^3/6+N^2/2+N/3+10 \label{a}\tag{1}
+\]</span> Also, we don't always need such a precise result. More often, an <em>approximation</em> works fine.</p>
+<p>So, in order to:</p>
 <ol type="1">
-<li><p>Ignore less costly operations</p>
-<p>We only consider operations that cost most or get invoked most frequently.</p></li>
-<li><p>Ignore lower order terms</p>
-<p>Cost of <span class="math inline">\(\frac{1}{2}{(N+1)(N+2)}\)</span> becomes <span class="math inline">\(\frac{1}{2}N^2\)</span>.</p></li>
+<li>simplify the formulas we work with</li>
+<li>provide an <em>approximation</em> of values of interest (algorithm cost, in this case)</li>
 </ol>
-<p>Finally, we decided to use <strong>Tilde notation</strong> for our approximate model of algorithm cost: <span class="math display">\[
-f(N)\sim g(N)\iff \lim_{N\to\infty}{f(N)\over g(N)}=1
+<p>We use <strong>tilde notation (<span class="math inline">\(\sim\)</span>)</strong>: <span class="math display">\[
+T(N)\sim f(N)\iff \lim_{N\to\infty}{T(N)\over f(N)}=1
 \]</span></p>
-<p>Examples:</p>
-<ul>
-<li><span class="math inline">\({1\over 2}N^3+12N^2-4N-5 \sim {1\over 2}N^3\)</span></li>
-<li><span class="math inline">\(6N+10 \sim 6N\)</span></li>
-<li><span class="math inline">\(2^N-N^3+2N \sim 2^N\)</span></li>
-</ul>
-<h1 id="order-of-growth">Order of Growth</h1>
-<p>Classifies algorithms by how fast the cost grows when input size <span class="math inline">\(N\)</span> gets larger.</p>
+<p>Then due to <span class="math inline">\(\lim_{N\to\infty}{N^3/6+N^2/2+N/3+10\over 1/6N^3}=1\)</span>, we can turn formula <span class="math inline">\(\eqref{a}\)</span> to <span class="math inline">\(\sim 1/6N^3\)</span>. Way simpler, right?</p>
+<details class="note "><summary><p>More Examples to Tilde Notation:</p>
+</summary>
+<p><span class="math inline">\({1\over 2}N^3+12N^2-4N-5 \sim {1\over 2}N^3\)</span></p>
+<p><span class="math inline">\(6N+10 \sim 6N\)</span></p>
+<p><span class="math inline">\(2^N-N^3+2N \sim 2^N\)</span></p>
+
+</details>
+<div class="note warning"><p>Sometimes, however, tilde notation may be <strong>misleading</strong>.</p>
+<p>When you have a cost of <span class="math inline">\(2N^2+10^6N\)</span>, you can not approximate it to <span class="math inline">\(\sim 2N^2\)</span>, because <span class="math inline">\(10^6\)</span> is too large to be negligible.</p>
+</div>
+<h2 id="example">Example</h2>
+<ol type="1">
+<li><em>Input</em> model is an array <code>a[]</code> of size N</li>
+<li><em>Cost</em> model is compare operation (thus the total cost is the time spent on executing compare operation)</li>
+<li><em>Analysis</em> shows the cost is <span class="math inline">\(\sim 1/6N^3\)</span></li>
+</ol>
+<h2 id="order-of-growth">Order of Growth</h2>
+<p><span class="math inline">\(f(N)\)</span> is the <strong>order of growth</strong> of <span class="math inline">\(T(N)\)</span> when: <span class="math display">\[
+T(N)\sim af(N)
+\]</span></p>
+<p>where <span class="math inline">\(f(N)=N^b\log^cN\)</span>, and <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> are constants.</p>
+<p>When an algorithm has cost of <span class="math inline">\(N^3/6+N^2/2+N/3+10\)</span>, for example, its order of growth is <span class="math inline">\(N^3\)</span>.</p>
+<p>Some common examples are:</p>
 <table>
 <thead>
 <tr class="header">
@@ -91,9 +99,10 @@ f(N)\sim g(N)\iff \lim_{N\to\infty}{f(N)\over g(N)}=1
 </tr>
 </tbody>
 </table>
-<img src="/2021/09/17/analysis-of-algorithms/order-of-growth.png" class="" width="450" title="order-of-growth">
+
+<p>Generally, algorithms whose running time has order of growth of <span class="math inline">\(N^2\)</span> or larger are incapable of solving many problems with large input in an acceptable amount of time.</p>
 <div class="note warning"><p>Order of growth discards leading coefficient.</p>
-<p><span class="math inline">\(2N\)</span> is not an order of growth.</p>
+<p>If <span class="math inline">\(T(N)\sim 2N\)</span>, then the order of growth is <span class="math inline">\(N\)</span>, not <span class="math inline">\(2N\)</span>.</p>
 </div>
 <h1 id="theory-of-algorithms">Theory of Algorithms</h1>
 <p>Goal of this theory:</p>
@@ -105,9 +114,9 @@ f(N)\sim g(N)\iff \lim_{N\to\infty}{f(N)\over g(N)}=1
 <p>Notations used to identify how "difficult" a problem is:</p>
 <table>
 <colgroup>
-<col style="width: 19%" />
-<col style="width: 53%" />
-<col style="width: 27%" />
+<col style="width: 17%" />
+<col style="width: 47%" />
+<col style="width: 34%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -119,30 +128,30 @@ f(N)\sim g(N)\iff \lim_{N\to\infty}{f(N)\over g(N)}=1
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\(T(N)=O(f(N))\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\exists c,n_0:N\geq n_0,\Rightarrow T(N)\leq cf(N)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(f(N)\)</span> is <em>upper bound</em></td>
+<td style="text-align: center;"><span class="math inline">\(\exists c,n_0:N\geq n_0\Rightarrow T(N)\leq cf(N)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(N)\)</span> is <em>upper bound</em> of <span class="math inline">\(T(N)\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\(T(N)=\Omega(g(N))\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(\exists c,n_1:N\geq n_1\Rightarrow T(N)\geq cg(N)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(g(N)\)</span> is <em>lower bound</em></td>
+<td style="text-align: center;"><span class="math inline">\(g(N)\)</span> is <em>lower bound</em> of <span class="math inline">\(T(N)\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\(T(N)=\Theta(h(N))\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(T(N)=O(h(N))\)</span> and <span class="math inline">\(T(N)=\Omega(h(N))\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(h(N)\)</span> is <em>order of growth</em></td>
+<td style="text-align: center;"><span class="math inline">\(h(N)\)</span> is <em>order of growth</em> of <span class="math inline">\(T(N)\)</span></td>
 </tr>
 </tbody>
 </table>
 <h2 id="optimal-algorithm">Optimal Algorithm</h2>
-<p>An optimal algorithm is one whose <strong>upper bound</strong> is as close as possible with its <strong>lower bound</strong>.</p>
+<p>An optimal algorithm is an algorithm whose <strong>upper bound</strong> is as close as possible with its <strong>lower bound</strong>.</p>
 <ul>
 <li><p>Upper Bound</p>
-<p>Cost of the best algorithm that we know. Cost of the optimal one must be lower than this.</p></li>
+<p>Cost of the best existing algorithm. Cost of the optimal one must be no larger than this.</p></li>
 <li><p>Lower Bound</p>
-<p>Necessary cost that any algorithm trying to address current problem must have. The bottom line.</p></li>
+<p>Essential cost that any algorithm trying to address current problem must have. The bottom line.</p></li>
 </ul>
-<p>Your mission is to find another algorithm to diminish the gap between upper and lower bounds.</p>
+<p>Your mission is to find a new algorithm to diminish the gap between upper and lower bounds.</p>
 ]]></content>
       <categories>
         <category>Algorithms</category>
@@ -172,68 +181,6 @@ k&amp;=length(exp)
 ]]></content>
       <categories>
         <category>Computer System</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to Read a Book</title>
-    <url>/2021/10/07/how-to-read-a-book/</url>
-    <content><![CDATA[<pre class="mermaid">
-graph LR
-
-a[Overview] --&gt; b[Question]
-
-b --&gt; c[Read]
-
-c --&gt; d[Note-Taking] --&gt; c
-
-d --&gt; e[Recall] --&gt; a
-
-e --&gt; f[Review]
-
-</pre>
-<div class="note info"><p>Split the material into <strong><em>chunks</em></strong>.</p>
-<p>Finish the procedure for each chunk, then move on to the next chunk.</p>
-</div>
-<h1 id="skim-for-an-overview">Skim for an Overview</h1>
-<p>Look only at titles, subtitles, some keywords and probably summaries.</p>
-<p>The purpose is to get a whole overview of the material you are reading. Look, when you are in a new place, you can't expect to know where is where without a <em>lay</em> of it, can you?</p>
-<h1 id="ask-questions-on-the-topic">Ask Questions on the Topic</h1>
-<p>You must be curious about the topic!</p>
-<p>For those who are, questions are unstoppable. "Is he going to talk about that thing?"</p>
-<p>If it is not exciting to you, try to link it with something is. You may find that there are lots of usages of physics when playing baseball.</p>
-<p>You can write down these questions.</p>
-<h1 id="read">Read</h1>
-<p>Visualise information as much as possible.</p>
-<p>All texts are just a description of a series of phenomina, and you want to see them with your own eyes.</p>
-<h1 id="take-notes">Take Notes</h1>
-<ul>
-<li>Take notes after reading a whole paragraph to get the entire idea.</li>
-<li>Don't do it as a job. Do it for fun.</li>
-<li>Write whatever you want, e.g. short sumary of the idea, questions not answered, your observations, your opinion, etc.</li>
-</ul>
-<p>Notes are just tools to help you, not the purpose itself.</p>
-<p>When you totally focus on reading, your brain will automatically pick up the most important thing for you, so all you have to do is enjoy your reading and keep your flow.</p>
-<p>Don't worry about forgetting, because it's not the right time. It is <em>after</em> reading and note-taking when we'll check how much we remember and how we can memorise more.</p>
-<h1 id="recall">Recall</h1>
-<p>Don't look at the material, recall what you've just read and write a summary in your own words. Check how well you memorise.</p>
-<p>If you took your questions down as mentioned before, then you've got small quizzes to do the check! Go and take it!</p>
-<h1 id="review">Review</h1>
-<p>According to the Ebbinghaus Forgetting Curve, in first few days, you have to review what you learned every few hours every day. Then review them every few days, then every few weeks, then maybe never.</p>
-<p>The intensity is less, as you remember the same knowlegde better.</p>
-<details class="note info"><summary><p>Things to keep in mind:</p>
-</summary>
-<ol type="1">
-<li><p>Outline first, details second.</p></li>
-<li><p>Visualise while reading.</p></li>
-<li><p>Keep your notes in your own words.</p></li>
-<li><p>If you don't understand something you read, Ask Somebody. It may take you hours, but it takes only a word for those who know.</p></li>
-<li><p>Don't give up. You may think it slow to do so much work reading so little, but you'll find it saves you much more time when you have your notes without having to re-read the book all over again just to find that tiny bit of information you forgot. In fact, you'll learn so well that reviewing for exams will take you little time.</p></li>
-</ol>
-
-</details>
-]]></content>
-      <categories>
-        <category>Miscellaneous</category>
       </categories>
   </entry>
   <entry>
@@ -447,6 +394,97 @@ x=-x_{w-1}*(2^{w-1}-1)+\sum_{i=0}^{w-2}x_i*2^{i}
       </categories>
   </entry>
   <entry>
+    <title>How to Read a Book</title>
+    <url>/2021/10/07/read-book/</url>
+    <content><![CDATA[<pre class="mermaid">
+graph LR
+
+a[Overview] --&gt; b[Question]
+
+b --&gt; c[Read]
+
+c --&gt; d[Note-Taking] --&gt; c
+
+d --&gt; e[Recall] --&gt; a
+
+e --&gt; f[Review]
+
+</pre>
+<div class="note info"><p>Split the material into <strong><em>chunks</em></strong>.</p>
+<p>Finish the procedure for each chunk, then move on to the next chunk.</p>
+</div>
+<h1 id="skim-for-an-overview">Skim for an Overview</h1>
+<p>Look only at titles, subtitles, some keywords and probably summaries.</p>
+<p>The purpose is to get a whole overview of the material you are reading. Look, when you are in a new place, you can't expect to know where is where without a <em>lay</em> of it, can you?</p>
+<h1 id="ask-questions-on-the-topic">Ask Questions on the Topic</h1>
+<p>You must be curious about the topic!</p>
+<p>For those who are, questions are unstoppable. "Is he going to talk about that thing?"</p>
+<p>If it is not exciting to you, try to link it with something is. You may find that there are lots of usages of physics when playing baseball.</p>
+<p>You can write down these questions.</p>
+<h1 id="read">Read</h1>
+<p>Visualise information as much as possible.</p>
+<p>All texts are just a description of a series of phenomina, and you want to see them with your own eyes.</p>
+<h1 id="take-notes">Take Notes</h1>
+<ul>
+<li>Take notes after reading a whole paragraph to get the entire idea.</li>
+<li>Don't do it as a job. Do it for fun.</li>
+<li>Write whatever you want, e.g. short sumary of the idea, questions not answered, your observations, your opinion, etc.</li>
+</ul>
+<p>Notes are just tools to help you, not the purpose itself.</p>
+<p>When you totally focus on reading, your brain will automatically pick up the most important thing for you, so all you have to do is enjoy your reading and keep your flow.</p>
+<p>Don't worry about forgetting, because it's not the right time. It is <em>after</em> reading and note-taking when we'll check how much we remember and how we can memorise more.</p>
+<h1 id="recall">Recall</h1>
+<p>Don't look at the material, recall what you've just read and write a summary in your own words. Check how well you memorise.</p>
+<p>If you took your questions down as mentioned before, then you've got small quizzes to do the check! Go and take it!</p>
+<h1 id="review">Review</h1>
+<p>According to the Ebbinghaus Forgetting Curve, in first few days, you have to review what you learned every few hours every day. Then review them every few days, then every few weeks, then maybe never.</p>
+<p>The intensity is less, as you remember the same knowlegde better.</p>
+<details class="note info"><summary><p>Things to keep in mind:</p>
+</summary>
+<ol type="1">
+<li><p>Outline first, details second.</p></li>
+<li><p>Visualise while reading.</p></li>
+<li><p>Keep your notes in your own words.</p></li>
+<li><p>If you don't understand something you read, Ask Somebody. It may take you hours, but it takes only a word for those who know.</p></li>
+<li><p>Don't give up. You may think it slow to do so much work reading so little, but you'll find it saves you much more time when you have your notes without having to re-read the book all over again just to find that tiny bit of information you forgot. In fact, you'll learn so well that reviewing for exams will take you little time.</p></li>
+</ol>
+
+</details>
+]]></content>
+      <tags>
+        <tag>book</tag>
+        <tag>how-to</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How can we better solve problems?</title>
+    <url>/2022/01/13/solve-problem/</url>
+    <content><![CDATA[<pre class="mermaid">
+graph LR
+
+s((start)) --&gt; o[observe]
+
+o -.-&gt;|first time only| h[hypothesis]
+
+h --&gt; p[predict]
+
+p --&gt; o
+
+o --&gt; c[check]
+
+c --&gt; a{prediction agrees with observation?}
+
+a --&gt;|y| e((end))
+
+a --&gt;|n| h
+
+</pre>
+]]></content>
+      <tags>
+        <tag>how-to</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Stack, Queue and Bag</title>
     <url>/2021/09/17/stack-queue-bag/</url>
     <content><![CDATA[<h1 id="interface-and-data-structure">Interface and Data Structure</h1>
@@ -464,7 +502,7 @@ x=-x_{w-1}*(2^{w-1}-1)+\sum_{i=0}^{w-2}x_i*2^{i}
 <li><p>do <em>operations</em>, i.e. implement <em>algorithms</em></p></li>
 </ul>
 <h1 id="stack">Stack</h1>
-<p><a href="" title="First In, Last Out">FILO</a> / <a href="" title="Last In, First Out">LIFO</a>.</p>
+<p>FILO (First In, Last Out) / LIFO (Last In, First Out).</p>
 <img src="/2021/09/17/stack-queue-bag/stack.png" class="" width="200" height="280" title="Stack">
 <h2 id="api">API</h2>
 <ul>
@@ -477,11 +515,14 @@ x=-x_{w-1}*(2^{w-1}-1)+\sum_{i=0}^{w-2}x_i*2^{i}
 <img src="/2021/09/17/stack-queue-bag/stack-linked-list.png" class="" width="200" height="400" title="Stack by Linked List">
 <p>Each node in linked list:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Node &#123;</span><br><span class="line">	DataType data;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="tabs" id="linkedlist"><ul class="nav-tabs"><li class="tab active"><a href="#linkedlist-1">Advantages</a></li><li class="tab"><a href="#linkedlist-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linkedlist-1"><ul>
+<p>Advantage:</p>
+<ul>
 <li>Quick to add &amp; delete</li>
-</ul></div><div class="tab-pane" id="linkedlist-2"><ul>
+</ul>
+<p>Drawback:</p>
+<ul>
 <li>Not so easy to access the element you want (may need linear time)</li>
-</ul></div></div></div>
+</ul>
 <p>Cost:</p>
 <p><span class="math display">\[
 \begin{gather*}
@@ -490,18 +531,21 @@ S(N)=\Theta (N)
 \end{gather*}
 \]</span></p>
 <h3 id="resizing-array">Resizing Array</h3>
-<img src="/2021/09/17/stack-queue-bag/stack-resizing-array.png" class="" width="300" height="150" title="Stack by Resizing Array">
+<img src="/2021/09/17/stack-queue-bag/stack-resizing-array.png" class="" width="364" height="150" title="Stack by Resizing Array">
 <p>Resizing:</p>
 <ul>
 <li><code>Double</code> the length when array is <strong><em>full</em></strong></li>
 <li><code>Halve</code> the length when array is <strong><em>1/4 full</em></strong></li>
 </ul>
-<div class="tabs" id="resizing-array"><ul class="nav-tabs"><li class="tab active"><a href="#resizing-array-1">Advantages</a></li><li class="tab"><a href="#resizing-array-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resizing-array-1"><ul>
+<p>Advantage:</p>
+<ul>
 <li>Quick to access every element (constant time)</li>
-</ul></div><div class="tab-pane" id="resizing-array-2"><ul>
+</ul>
+<p>Drawback:</p>
+<ul>
 <li>Resizing is expensive when <span class="math inline">\(N\)</span> is large, because you must copy all existing elements to the new array</li>
 <li>To save space, you have to rewind <code>tail</code> pointer when <code>head</code> is not at position 0</li>
-</ul></div></div></div>
+</ul>
 <p>Cost:</p>
 <p><span class="math display">\[
 T(N)=
@@ -512,7 +556,7 @@ T(N)=
 \end{cases}
 \]</span></p>
 <h1 id="queue">Queue</h1>
-<p><a href="" title="First In, First Out">FIFO</a>.</p>
+<p>FIFO (First In, First Out).</p>
 <img src="/2021/09/17/stack-queue-bag/queue.png" class="" width="400" height="100" title="Queue">
 <h2 id="api-1">API</h2>
 <ul>
@@ -524,9 +568,9 @@ T(N)=
 <h3 id="linked-list-1">Linked List</h3>
 <img src="/2021/09/17/stack-queue-bag/queue-linked-list.png" class="" width="640" height="160" title="Queue by Linked List">
 <h3 id="resizing-array-1">Resizing Array</h3>
-<img src="/2021/09/17/stack-queue-bag/queue-resizing-array.png" class="" width="300" height="150" title="Queue by Resizing Array">
+<img src="/2021/09/17/stack-queue-bag/queue-resizing-array.png" class="" width="418" height="160" title="Queue by Resizing Array">
 <h1 id="bag">Bag</h1>
-<p>No order, no out, just in.</p>
+<p>No order, no out.</p>
 <img src="/2021/09/17/stack-queue-bag/bag.png" class="" width="200" height="280" title="Bag">
 <h2 id="api-2">API</h2>
 <ul>
@@ -609,12 +653,6 @@ T(N)=
       </categories>
   </entry>
   <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>About this Blog</title>
     <url>/about/blog.html</url>
     <content><![CDATA[<h1 id="what-happened-before-this-blog">What happened before this blog</h1>
@@ -642,6 +680,12 @@ T(N)=
   <entry>
     <title>About Me</title>
     <url>/about/me.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>

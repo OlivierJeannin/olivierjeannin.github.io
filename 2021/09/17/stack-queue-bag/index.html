@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://olivierjeannin/2021/09/17/stack-queue-bag/queue-resizing-array.png">
 <meta property="og:image" content="https://olivierjeannin/2021/09/17/stack-queue-bag/bag.png">
 <meta property="article:published_time" content="2021-09-17T10:35:45.000Z">
-<meta property="article:modified_time" content="2021-10-10T12:43:35.357Z">
+<meta property="article:modified_time" content="2022-01-19T15:38:06.577Z">
 <meta property="article:author" content="雅言栖霞">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://olivierjeannin/2021/09/17/stack-queue-bag/stack.png">
@@ -171,14 +171,19 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -256,7 +261,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-10 20:43:35" itemprop="dateModified" datetime="2021-10-10T20:43:35+08:00">2021-10-10</time>
+        <time title="Modified: 2022-01-19 23:38:06" itemprop="dateModified" datetime="2022-01-19T23:38:06+08:00">2022-01-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -294,7 +299,7 @@
 <li><p>do <em>operations</em>, i.e. implement <em>algorithms</em></p></li>
 </ul>
 <h1 id="stack">Stack</h1>
-<p><a href="" title="First In, Last Out">FILO</a> / <a href="" title="Last In, First Out">LIFO</a>.</p>
+<p>FILO (First In, Last Out) / LIFO (Last In, First Out).</p>
 <img src="/2021/09/17/stack-queue-bag/stack.png" class="" width="200" height="280" title="Stack">
 <h2 id="api">API</h2>
 <ul>
@@ -307,11 +312,14 @@
 <img src="/2021/09/17/stack-queue-bag/stack-linked-list.png" class="" width="200" height="400" title="Stack by Linked List">
 <p>Each node in linked list:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Node &#123;</span><br><span class="line">	DataType data;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="tabs" id="linkedlist"><ul class="nav-tabs"><li class="tab active"><a href="#linkedlist-1">Advantages</a></li><li class="tab"><a href="#linkedlist-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linkedlist-1"><ul>
+<p>Advantage:</p>
+<ul>
 <li>Quick to add &amp; delete</li>
-</ul></div><div class="tab-pane" id="linkedlist-2"><ul>
+</ul>
+<p>Drawback:</p>
+<ul>
 <li>Not so easy to access the element you want (may need linear time)</li>
-</ul></div></div></div>
+</ul>
 <p>Cost:</p>
 <p><span class="math display">\[
 \begin{gather*}
@@ -320,18 +328,21 @@ S(N)=\Theta (N)
 \end{gather*}
 \]</span></p>
 <h3 id="resizing-array">Resizing Array</h3>
-<img src="/2021/09/17/stack-queue-bag/stack-resizing-array.png" class="" width="300" height="150" title="Stack by Resizing Array">
+<img src="/2021/09/17/stack-queue-bag/stack-resizing-array.png" class="" width="364" height="150" title="Stack by Resizing Array">
 <p>Resizing:</p>
 <ul>
 <li><code>Double</code> the length when array is <strong><em>full</em></strong></li>
 <li><code>Halve</code> the length when array is <strong><em>1/4 full</em></strong></li>
 </ul>
-<div class="tabs" id="resizing-array"><ul class="nav-tabs"><li class="tab active"><a href="#resizing-array-1">Advantages</a></li><li class="tab"><a href="#resizing-array-2">Drawbacks</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resizing-array-1"><ul>
+<p>Advantage:</p>
+<ul>
 <li>Quick to access every element (constant time)</li>
-</ul></div><div class="tab-pane" id="resizing-array-2"><ul>
+</ul>
+<p>Drawback:</p>
+<ul>
 <li>Resizing is expensive when <span class="math inline">\(N\)</span> is large, because you must copy all existing elements to the new array</li>
 <li>To save space, you have to rewind <code>tail</code> pointer when <code>head</code> is not at position 0</li>
-</ul></div></div></div>
+</ul>
 <p>Cost:</p>
 <p><span class="math display">\[
 T(N)=
@@ -342,7 +353,7 @@ T(N)=
 \end{cases}
 \]</span></p>
 <h1 id="queue">Queue</h1>
-<p><a href="" title="First In, First Out">FIFO</a>.</p>
+<p>FIFO (First In, First Out).</p>
 <img src="/2021/09/17/stack-queue-bag/queue.png" class="" width="400" height="100" title="Queue">
 <h2 id="api-1">API</h2>
 <ul>
@@ -354,9 +365,9 @@ T(N)=
 <h3 id="linked-list-1">Linked List</h3>
 <img src="/2021/09/17/stack-queue-bag/queue-linked-list.png" class="" width="640" height="160" title="Queue by Linked List">
 <h3 id="resizing-array-1">Resizing Array</h3>
-<img src="/2021/09/17/stack-queue-bag/queue-resizing-array.png" class="" width="300" height="150" title="Queue by Resizing Array">
+<img src="/2021/09/17/stack-queue-bag/queue-resizing-array.png" class="" width="418" height="160" title="Queue by Resizing Array">
 <h1 id="bag">Bag</h1>
-<p>No order, no out, just in.</p>
+<p>No order, no out.</p>
 <img src="/2021/09/17/stack-queue-bag/bag.png" class="" width="200" height="280" title="Bag">
 <h2 id="api-2">API</h2>
 <ul>
@@ -378,12 +389,12 @@ T(N)=
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/17/analysis-of-algorithms/" rel="prev" title="Analysis of Algorithms">
+                <a href="/2021/09/17/analysis-of-algorithms-new/" rel="prev" title="Analysis of Algorithms">
                   <i class="fa fa-chevron-left"></i> Analysis of Algorithms
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/10/07/how-to-read-a-book/" rel="next" title="How to Read a Book">
+                <a href="/2021/10/07/read-book/" rel="next" title="How to Read a Book">
                   How to Read a Book <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -406,7 +417,7 @@ T(N)=
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
