@@ -1,30 +1,13 @@
 ---
-title: Stack, Queue and Bag
+title: Collections
 date: 2021-09-17 18:35:45
 tags:
 categories:
  - [Data Structures]
-description: Short brief about interface and data structure. We can use either linked list or resizing array to implement Stack, Queue, and Bag.
+description: We can use either linked list or resizing array to implement all 3 of Stack, Queue, and Bag.
 ---
 
-# Interface and Data Structure
-
-## Interface
-
-You can also call it **API** or **ADT**.
-
-It emphasizes **`What`**:
-
-- *data* to store
-- *operations* are available
-
-## Data Structure
-
-It focuses on **`How To`**:
-
-- store *data*
-
-- do *operations*, i.e. implement *algorithms*
+In this article we consider 3 types of collections: stack, queue, and bag. They can all be implemented by the same underlying data structures -- resizing array or linked-list.
 
 # Stack
 
