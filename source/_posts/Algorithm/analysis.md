@@ -3,9 +3,12 @@ title: Analysis of Algorithms
 date: 2021-09-17 18:35:30
 tags:
 categories:
-  - [Algorithms]
-description: A brief introduction on cost of algorithms, order of growth, Tilde and Big-Oh notations, and optimal algorithm.
+  - Algorithm
 ---
+
+This is a brief introduction on cost of algorithms, order of growth, Tilde and Big-Oh notations, and optimal algorithm.
+
+<!--more-->
 
 # Analysis of Algorithms
 

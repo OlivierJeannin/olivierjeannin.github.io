@@ -1,16 +1,16 @@
 ---
 title: How can we better solve problems?
 date: 2022-01-13 20:20:38
-tags: [how-to]
+tags:
 categories:
-description: Just see it as developing an experiment.
+  - How-To
 ---
 
 {% mermaid graph LR%}
 
 s((start)) --> o[observe]
 
-o -.->|first time only| h[hypothesis]
+o -->|1st time and 1st time only| h[hypothesis]
 
 h --> p[predict]
 

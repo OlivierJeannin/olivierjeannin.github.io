@@ -84,7 +84,7 @@ creative_commons:
 menu:
   home: / || fa fa-home
   about: /about/ || fa fa-user
-  tags: /tags/ || fa fa-tags
+  #tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
@@ -226,7 +226,7 @@ footer:
 # ---------------------------------------------------------------
 
 # Automatically excerpt description in homepage as preamble text.
-excerpt_description: true
+excerpt_description: false
 
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
@@ -356,8 +356,8 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: idea
-    dark: idea
+    light: default
+    dark: default
   prism:
     light: prism
     dark: prism-dark
@@ -439,13 +439,13 @@ font:
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family: Emilys Candy, Zhi Mang Xing
+    family: Microsoft YaHei
     size:
 
   # Font settings for posts (.post-body).
   posts:
     external: true
-    family: Comic Sans MS, Ma Shan Zheng
+    family: Times New Roman, Ma Shan Zheng
 
   # Font settings for <code> and code blocks.
   codes:

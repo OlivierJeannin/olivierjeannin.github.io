@@ -3,8 +3,7 @@ title: Union-Find
 date: 2021-09-09 13:50:49
 tags:
 categories:
-  - [Algorithms]
-description: Union-Find problem and its algorithms, including Quick-Find, Quick-Union, and improvements on Quick-Union.
+  - Algorithm
 ---
 
 # What is Union-Find Problem
@@ -24,6 +23,8 @@ Properties:
 $A$ is a **connected component**: $a\in{A},b\in{A} \iff a-b$
 
 {% asset_img connected-component.jpg 400 333 "3 connected components" %}
+
+<!--more-->
 
 ## Union-Find
 

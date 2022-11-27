@@ -1,15 +1,16 @@
 ---
-title: Sort
+title: Sorting Problem
 date: 2022-11-25 21:38:20
+top: 10
 tags:
 categories:
-  - [Algorithms]
-description: Classic sorting algorithms.
+  - Algorithm
+  - Sort
 ---
 
-# Sorting
-
 **Sorting** is to rearrange order of an array of items according to a key and an ordering rule.
+
+<!--more-->
 
 Key is by what you sort. When you sort students, for example, you sort them by score, name, or age. These are keys.
 
@@ -23,12 +24,4 @@ Not all orders are total order. For example, in rock-paper-scissors game, $rock<
 
 Ideally, your sorting algorithms can sort *any* type of data, no matter it's file, number, string, or whatsoever.
 
-Following I'm going to talk about some classic sorting algorithms.
-
-# Select Sort
-
-This one is really simple. You go all unsorted items over and over, and each time you choose the smallest item and bring it to the front as sorted. Equivalently, you can swap the smallest with the first unsorted item, so that it joins right after with  sorted ones.
-
-As you bring the smallest to the front, the sorted ones are absolutely no bigger than unsorted ones. Because of that, in the subarray of sorted ones, item key will grow bigger (or sometimes remain the same).
-
-This algorithm performs $\sim N^2/2$ compares and $\sim N$ swaps.
+In [this](/categories/Algorithm/Sort) sub-category, I wrote some articles to explain some classic sorting algorithms.

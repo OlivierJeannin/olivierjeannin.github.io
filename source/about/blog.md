@@ -11,7 +11,7 @@ During this summer vacation, which has just passed, I reviewed my earlier work a
 
 # What & Why I would write
 
-At this small site of mine, you will see, some notes on what I am learning at school, some notes on what I'm learning off scholl, my random thoughts, and so on, just whatever I think is worth sharing.
+At this small site of mine, you will see, some notes on what I am learning at school, some notes on what I'm learning off school, my random thoughts, and so on, just whatever I think is worth sharing.
 
 I take these things down mainly to stop me from learning without any reviewing and forgetting everything I've got to know for probablly just 2 months. You know, recalling is a great way to memorize information. And I also hope that blogging would make me a good note-taker. Apparently, I can practise some note-taking skills on it.
 

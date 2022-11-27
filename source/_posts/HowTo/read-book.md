@@ -1,10 +1,14 @@
 ---
 title: How to Read a Book
 date: 2021-10-07 22:40:00
-tags: [book, how-to]
+tags:
 categories:
-description: "Tips for reading a book: outline first, details second; focus on the material, not on note-taking; you will remember naturally."
+  - How-To
 ---
+
+My tips for reading a book: outline first, details second; focus on the material, not on note-taking; you will remember naturally.
+
+<!--more-->
 
 {% mermaid graph LR %}
 

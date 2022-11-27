@@ -3,11 +3,12 @@ title: Collections
 date: 2021-09-17 18:35:45
 tags:
 categories:
- - [Data Structures]
-description: We can use either linked list or resizing array to implement all 3 of Stack, Queue, and Bag.
+ - Data Structure
 ---
 
-In this article we consider 3 types of collections: stack, queue, and bag. They can all be implemented by the same underlying data structures -- resizing array or linked-list.
+In this article we consider 3 types of collections: stack, queue, and bag. They can all be implemented by the same underlying data structures -- either resizing array or linked-list.
+
+<!--more-->
 
 # Stack
 
