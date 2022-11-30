@@ -59,4 +59,4 @@ Now, the question is, how to decide what number $h$ should be in each round? Is 
 
 There is no accurate mathematical expression to how much shellsort costs.
 
-Nonetheless, shellsort *is* widely used, and you can definitely trust people using it.
+Nonetheless, generally speaking, shellsort is much quicker than selection and insertion sorts. So it is widely used, and you can definitely trust people using it.
