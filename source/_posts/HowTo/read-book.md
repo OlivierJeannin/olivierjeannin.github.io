@@ -1,7 +1,6 @@
 ---
 title: How to Read a Book
 date: 2021-10-07 22:40:00
-tags:
 categories:
   - How-To
 ---

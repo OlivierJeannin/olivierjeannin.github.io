@@ -1,7 +1,6 @@
 ---
 title: Insertion Sort
 date: 2022-11-27 21:38:07
-tags:
 categories:
   - Algorithm
   - Sort
@@ -19,8 +18,10 @@ An example should help you better understand it. Let the array be `2 1 5 4 3`. F
 
 ```
 2 1 5 4 3
-1 2 5 4 3
-1 2 4 5 3
+2  1 5 4 3
+1 2  5 4 3
+1 2 5  4 3
+1 2 4 5  3
 1 2 4 3 5
 1 2 3 4 5
 ```

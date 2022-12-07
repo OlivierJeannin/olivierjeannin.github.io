@@ -1,7 +1,6 @@
 ---
 title: Union-Find
 date: 2021-09-09 13:50:49
-tags:
 categories:
   - Algorithm
 ---

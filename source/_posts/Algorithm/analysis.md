@@ -1,7 +1,6 @@
 ---
 title: Analysis of Algorithms
 date: 2021-09-17 18:35:30
-tags:
 categories:
   - Algorithm
 ---
@@ -30,7 +29,7 @@ So, we use a simpler approach:
 
 ### Ignoring Something
 
-we only count the operations that are:
+We only count the operations that are:
 
 - most costly
 - executed most frequently
@@ -65,17 +64,15 @@ $$
 T(N)\sim f(N)\iff \lim_{N\to\infty}{T(N)\over f(N)}=1
 $$
 
-Then due to $\lim_{N\to\infty}{N^3/6+N^2/2+N/3+10\over 1/6N^3}=1$, we can turn formula $\eqref{a}$ to $\sim 1/6N^3$. Way simpler, right?
+Then we can turn formula $\eqref{a}$ to $\sim 1/6N^3$, because $\lim_{N\to\infty}{N^3/6+N^2/2+N/3+10\over 1/6N^3}=1$. Way simpler, right?
 
-{% note More Examples to Tilde Notation: %}
+Here are more examples of tilde notation:
 
-${1\over 2}N^3+12N^2-4N-5 \sim {1\over 2}N^3$
+- ${1\over 2}N^3+12N^2-4N-5 \sim {1\over 2}N^3$
 
-$6N+10 \sim 6N$
+- $6N+10 \sim 6N$
 
-$2^N-N^3+2N \sim 2^N$
-
-{% endnote %}
+- $2^N-N^3+2N \sim 2^N$
 
 {% note warning %}
 

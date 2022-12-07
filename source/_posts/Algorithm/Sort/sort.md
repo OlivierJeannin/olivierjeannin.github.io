@@ -1,8 +1,6 @@
 ---
 title: Sorting Problem
 date: 2022-11-25 21:38:20
-top: 10
-tags:
 categories:
   - Algorithm
   - Sort

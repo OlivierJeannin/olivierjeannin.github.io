@@ -1,7 +1,6 @@
 ---
 title: How can we better solve problems?
 date: 2022-01-13 20:20:38
-tags:
 categories:
   - How-To
 ---
