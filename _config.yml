@@ -8,7 +8,9 @@ subtitle: 'Olivier Jeannin'
 description: '大雅之言，栖于霞上'
 keywords:
 author: 雅言栖霞
-language: en
+language:
+  - en
+  - zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL

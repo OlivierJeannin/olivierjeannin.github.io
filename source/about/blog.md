@@ -19,7 +19,7 @@ You may find that some of my posts are marked with a rather early time. They mig
 
 # Last
 
-At last, of course, I want whoever may see this blog to find something useful and enjoy it. We may not know each other, but I still find it satisfied should I be helpful to anyone.
+At last, I want whoever may see this blog to find something useful and enjoy it. We may not know each other, but I still find it satisfied should I be helpful to anyone.
 
 ***Wish you a good day,***
 
