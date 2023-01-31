@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link referrerpolicy="no-referrer" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Verdana:300,300italic,400,400italic,700,700italic%7CZhi+Mang+Xing:300,300italic,400,400italic,700,700italic%7CFredericka+the+Great:300,300italic,400,400italic,700,700italic%7CMicrosoft+YaHei:300,300italic,400,400italic,700,700italic%7CTimes+New+Roman:300,300italic,400,400italic,700,700italic%7CMa+Shan+Zheng:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"olivierjeannin.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"width":null},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="This is a brief introduction on cost of algorithms, order of growth, Tilde and Big-Oh notations, and optimal algorithm.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Analysis of Algorithms">
+<meta property="og:url" content="https://olivierjeannin.github.io/Algorithm/analysis/index.html">
+<meta property="og:site_name" content="Orion">
+<meta property="og:description" content="This is a brief introduction on cost of algorithms, order of growth, Tilde and Big-Oh notations, and optimal algorithm.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://olivierjeannin.github.io/Algorithm/analysis/order-of-growth.png">
+<meta property="article:published_time" content="2021-09-17T10:35:30.000Z">
+<meta property="article:modified_time" content="2023-01-31T15:56:13.718Z">
+<meta property="article:author" content="雅言栖霞">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://olivierjeannin.github.io/Algorithm/analysis/order-of-growth.png">
+
+
+<link rel="canonical" href="https://olivierjeannin.github.io/Algorithm/analysis/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://olivierjeannin.github.io/Algorithm/analysis/","path":"Algorithm/analysis/","title":"Analysis of Algorithms"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Analysis of Algorithms | Orion</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Orion</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Olivier Jeannin</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#analysis-of-algorithms"><span class="nav-number">1.</span> <span class="nav-text">Analysis of Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#step1---define-input-model"><span class="nav-number">1.1.</span> <span class="nav-text">Step1 - Define Input Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step2---define-cost-model"><span class="nav-number">1.2.</span> <span class="nav-text">Step2 - Define Cost Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#considering-everything"><span class="nav-number">1.2.1.</span> <span class="nav-text">Considering Everything</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ignoring-something"><span class="nav-number">1.2.2.</span> <span class="nav-text">Ignoring Something</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step3---mathematical-analysis"><span class="nav-number">1.3.</span> <span class="nav-text">Step3 - Mathematical Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">1.4.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#order-of-growth"><span class="nav-number">1.5.</span> <span class="nav-text">Order of Growth</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#theory-of-algorithms"><span class="nav-number">2.</span> <span class="nav-text">Theory of Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#difficulty-of-problem"><span class="nav-number">2.1.</span> <span class="nav-text">Difficulty of problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#optimal-algorithm"><span class="nav-number">2.2.</span> <span class="nav-text">Optimal Algorithm</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="雅言栖霞"
+      src="/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">雅言栖霞</p>
+  <div class="site-description" itemprop="description">大雅之言，栖于霞上</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/OlivierJeannin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;OlivierJeannin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2150137096@qq.com" title="E-Mail → mailto:2150137096@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://olivierjeannin.github.io/Algorithm/analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.jpeg">
+      <meta itemprop="name" content="雅言栖霞">
+      <meta itemprop="description" content="大雅之言，栖于霞上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Orion">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Analysis of Algorithms
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-17 18:35" itemprop="dateCreated datePublished" datetime="2021-09-17T18:35:30+08:00">2021-09-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-01-31 23:56" itemprop="dateModified" datetime="2023-01-31T23:56:13+08:00">2023-01-31</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>This is a brief introduction on cost of algorithms, order of growth, Tilde and Big-Oh notations, and optimal algorithm.</p>
+<span id="more"></span>
+<h1 id="analysis-of-algorithms">Analysis of Algorithms</h1>
+<p>Analysing an algorithm is mainly to develop a mathematical model on its cost. This mathematical model will help us to have some insights into the algorithm we are studying, as well as to predict how much the algorithm will cost given a set of input.</p>
+<h2 id="step1---define-input-model">Step1 - Define <em>Input</em> Model</h2>
+<p>What does the input look like? How big it is (the <em>problem size</em>)?</p>
+<h2 id="step2---define-cost-model">Step2 - Define <em>Cost</em> Model</h2>
+<h3 id="considering-everything">Considering Everything</h3>
+<p>The most accurate way to calculate algorithm cost is to check <em>every</em> instruction and see its cost and how frequently it is executed.</p>
+<p>But this can be too complex and overwhelming. It doesn't make much difference if we miss some insignificant operations.</p>
+<p>So, we use a simpler approach:</p>
+<h3 id="ignoring-something">Ignoring Something</h3>
+<p>We only count the operations that are:</p>
+<ul>
+<li>most costly</li>
+<li>executed most frequently</li>
+</ul>
+<p>In other words, operations that contribute most to the total cost.</p>
+<h2 id="step3---mathematical-analysis">Step3 - Mathematical <em>Analysis</em></h2>
+<p>Now we represent the cost in math.</p>
+<p>Mathematical model of algorithm cost is based on probability:</p>
+<p><span class="math display">\[
+C=\sum p_ic_i
+\]</span></p>
+<p>where <span class="math inline">\(C\)</span> is overall cost of algorithm; <span class="math inline">\(p_i\)</span> is probability of case <span class="math inline">\(i\)</span>; <span class="math inline">\(c_i\)</span> is cost of algorithm when case <span class="math inline">\(i\)</span> happens.</p>
+<p>But even if we're looking at an already smaller set of operations, the cost of them can lead to complex mathematical results, which might be: <span class="math display">\[
+T(N)=N^3/6+N^2/2+N/3+10 \label{a}\tag{1}
+\]</span> Also, we don't always need such a precise result. More often, an <em>approximation</em> works fine.</p>
+<p>So, in order to:</p>
+<ol type="1">
+<li>simplify the formulas we work with</li>
+<li>provide an <em>approximation</em> of values of interest (algorithm cost, in this case)</li>
+</ol>
+<p>We use <strong>tilde notation (<span class="math inline">\(\sim\)</span>)</strong>: <span class="math display">\[
+T(N)\sim f(N)\iff \lim_{N\to\infty}{T(N)\over f(N)}=1
+\]</span></p>
+<p>Then we can turn formula <span class="math inline">\(\eqref{a}\)</span> to <span class="math inline">\(\sim 1/6N^3\)</span>, because <span class="math inline">\(\lim_{N\to\infty}{N^3/6+N^2/2+N/3+10\over 1/6N^3}=1\)</span>. Way simpler, right?</p>
+<p>Here are more examples of tilde notation:</p>
+<ul>
+<li><p><span class="math inline">\({1\over 2}N^3+12N^2-4N-5 \sim {1\over 2}N^3\)</span></p></li>
+<li><p><span class="math inline">\(6N+10 \sim 6N\)</span></p></li>
+<li><p><span class="math inline">\(2^N-N^3+2N \sim 2^N\)</span></p></li>
+</ul>
+<div class="note warning"><p>Sometimes, however, tilde notation may be <strong>misleading</strong>.</p>
+<p>When you have a cost of <span class="math inline">\(2N^2+10^6N\)</span>, you can not approximate it to <span class="math inline">\(\sim 2N^2\)</span>, because <span class="math inline">\(10^6\)</span> is too large to be negligible.</p>
+</div>
+<h2 id="example">Example</h2>
+<ol type="1">
+<li><em>Input</em> model is an array <code>a[]</code> of size N</li>
+<li><em>Cost</em> model is compare operation (thus the total cost is the time spent on executing compare operation)</li>
+<li><em>Analysis</em> shows the cost is <span class="math inline">\(\sim 1/6N^3\)</span></li>
+</ol>
+<h2 id="order-of-growth">Order of Growth</h2>
+<p><span class="math inline">\(f(N)\)</span> is the <strong>order of growth</strong> of <span class="math inline">\(T(N)\)</span> when: <span class="math display">\[
+T(N)\sim af(N)
+\]</span></p>
+<p>where <span class="math inline">\(f(N)=N^b\log^cN\)</span>, and <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> are constants.</p>
+<p>When an algorithm has cost of <span class="math inline">\(N^3/6+N^2/2+N/3+10\)</span>, for example, its order of growth is <span class="math inline">\(N^3\)</span>.</p>
+<p>Some common examples are:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Order of Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Constant</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Logarithmic</td>
+<td style="text-align: center;"><span class="math inline">\(\log N\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Linear</td>
+<td style="text-align: center;"><span class="math inline">\(N\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Linearithmic</td>
+<td style="text-align: center;"><span class="math inline">\(N\log N\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Quadratic</td>
+<td style="text-align: center;"><span class="math inline">\(N^2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Cubic</td>
+<td style="text-align: center;"><span class="math inline">\(N^3\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Exponential</td>
+<td style="text-align: center;"><span class="math inline">\(2^N\)</span></td>
+</tr>
+</tbody>
+</table>
+<img src="/Algorithm/analysis/order-of-growth.png" class="" width="450" title="order-of-growth">
+<p>Generally, algorithms whose running time has order of growth of <span class="math inline">\(N^2\)</span> or larger are incapable of solving many problems with large input in an acceptable amount of time.</p>
+<div class="note warning"><p>Order of growth discards leading coefficient.</p>
+<p>If <span class="math inline">\(T(N)\sim 2N\)</span>, then the order of growth is <span class="math inline">\(N\)</span>, not <span class="math inline">\(2N\)</span>.</p>
+</div>
+<h1 id="theory-of-algorithms">Theory of Algorithms</h1>
+<p>Goal of this theory:</p>
+<ul>
+<li>Identify <em>difficulty</em> of a problem</li>
+<li>Develop <em>optimal</em> algorithms</li>
+</ul>
+<h2 id="difficulty-of-problem">Difficulty of problem</h2>
+<p>Notations used to identify how "difficult" a problem is:</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 47%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Notation</th>
+<th style="text-align: center;">Definition</th>
+<th style="text-align: center;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T(N)=O(f(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists c,n_0:N\geq n_0\Rightarrow T(N)\leq cf(N)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(N)\)</span> is <em>upper bound</em> of <span class="math inline">\(T(N)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T(N)=\Omega(g(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists c,n_1:N\geq n_1\Rightarrow T(N)\geq cg(N)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(g(N)\)</span> is <em>lower bound</em> of <span class="math inline">\(T(N)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T(N)=\Theta(h(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T(N)=O(h(N))\)</span> and <span class="math inline">\(T(N)=\Omega(h(N))\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(h(N)\)</span> is <em>order of growth</em> of <span class="math inline">\(T(N)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="optimal-algorithm">Optimal Algorithm</h2>
+<p>An optimal algorithm is an algorithm whose <strong>upper bound</strong> is as close as possible with its <strong>lower bound</strong>.</p>
+<ul>
+<li><p>Upper Bound</p>
+<p>Cost of the best existing algorithm. Cost of the optimal one must be no larger than this.</p></li>
+<li><p>Lower Bound</p>
+<p>Essential cost that any algorithm trying to address current problem must have. The bottom line.</p></li>
+</ul>
+<p>Your mission is to find a new algorithm to diminish the gap between upper and lower bounds.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Algorithm/union-find/" rel="prev" title="Union-Find">
+                  <i class="fa fa-chevron-left"></i> Union-Find
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Data-Structure/collection/" rel="next" title="Collections">
+                  Collections <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">雅言栖霞</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.12.0/dist/mermaid.min.js","integrity":"sha256-0dD7vUjUCTGJjeLnPotQQJIcSzug5fO6WDMYYyNIX4c="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
